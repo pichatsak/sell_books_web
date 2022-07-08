@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
 import 'package:sell_books_web/login_page.dart';
+import 'package:sell_books_web/registor_page.dart';
 
 // ignore: non_constant_identifier_names
 Widget minimal_desktop(BuildContext context) {
@@ -46,7 +47,7 @@ Widget minimal_desktop(BuildContext context) {
                                 Row(
                               children: [
                                 Container(
-                                    margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                    margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
                                     // ignore: prefer_const_constructors
                                     child: Icon(
                                       Icons.account_circle_sharp,
@@ -60,7 +61,7 @@ Widget minimal_desktop(BuildContext context) {
                                   children: [
                                     // ignore: prefer_const_constructors
                                     Container(
-                                      margin: EdgeInsets.fromLTRB(13, 0, 0, 0),
+                                      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                                       child: Text(
                                         "ยินดีต้อนรับ",
                                         // ignore: prefer_const_constructors
@@ -76,8 +77,8 @@ Widget minimal_desktop(BuildContext context) {
                                         Container(
                                             // ignore: prefer_const_constructors
                                             // ignore: prefer_const_constructors, deprecated_member_use
-                                            child: FlatButton(
-                                          onPressed: () {
+                                            child: InkWell(
+                                          onTap: () {
                                             Navigator.of(context)
                                                 .pushNamed(Login_Page.route);
                                           },
@@ -97,7 +98,7 @@ Widget minimal_desktop(BuildContext context) {
                                           // ignore: prefer_const_constructors
                                           // ignore: prefer_const_constructors
                                           child: Text(
-                                            "/",
+                                            " / ",
                                             // ignore: prefer_const_constructors
                                             style: TextStyle(
                                                 color: Colors.white,
@@ -108,8 +109,11 @@ Widget minimal_desktop(BuildContext context) {
                                         Container(
                                             // ignore: prefer_const_constructors
                                             // ignore: prefer_const_constructors, deprecated_member_use
-                                            child: FlatButton(
-                                          onPressed: () {},
+                                            child: InkWell(
+                                          onTap: () {
+                                            Navigator.of(context)
+                                                .pushNamed(Registor_Page.route);
+                                          },
                                           highlightColor: color,
                                           splashColor: color,
                                           hoverColor: color,

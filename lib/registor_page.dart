@@ -1,29 +1,28 @@
-// ignore_for_file: avoid_unnecessary_containers, unused_local_variable, camel_case_types, implementation_imports, unnecessary_import, prefer_const_constructors, sort_child_properties_last, unnecessary_new
-
-import 'dart:html';
+// ignore_for_file: camel_case_types, prefer_const_constructors, avoid_unnecessary_containers, sort_child_properties_last, unnecessary_new
 
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_desktop.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_minimal_desktop.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_mobile.dart';
 
-class Login_Page extends StatefulWidget {
-  const Login_Page({Key? key}) : super(key: key);
-  static const String route = '/login';
+class Registor_Page extends StatefulWidget {
+  const Registor_Page({Key? key}) : super(key: key);
+  static const String route = '/registor';
   @override
-  State<Login_Page> createState() => _Login_PageState();
+  State<Registor_Page> createState() => _Registor_PageState();
 }
 
-class _Login_PageState extends State<Login_Page> {
+class _Registor_PageState extends State<Registor_Page> {
   @override
   Widget build(BuildContext context) {
     bootstrapGridParameters(gutterSize: 0);
     var color = Colors.transparent;
+
     return Scaffold(
       backgroundColor: Color.fromRGBO(238, 238, 238, 1),
       body: SingleChildScrollView(
@@ -52,7 +51,7 @@ class _Login_PageState extends State<Login_Page> {
                   children: [
                     Container(
                       width: 450,
-                      height: 650,
+                      height: 700,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(10)),
                           color: Color(0xFFF7F7F7),
@@ -82,7 +81,7 @@ class _Login_PageState extends State<Login_Page> {
                               padding: const EdgeInsets.only(top: 5),
                               child: SizedBox(
                                 child: AutoSizeText(
-                                  'เข้าสู่ระบบ',
+                                  'สมัครสมาชิก',
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),
@@ -106,7 +105,7 @@ class _Login_PageState extends State<Login_Page> {
                                       // enabledBorder: InputBorder.none,
                                       errorBorder: InputBorder.none,
                                       disabledBorder: InputBorder.none,
-                                      hintText: "อีเมล",
+                                      hintText: "ชื่อผู้ใช้",
 
                                       hintStyle: TextStyle(
                                           color: Colors.grey,
@@ -118,7 +117,53 @@ class _Login_PageState extends State<Login_Page> {
                                         margin:
                                             EdgeInsets.fromLTRB(20, 0, 15, 0),
                                         child: Icon(
-                                          Icons.alternate_email,
+                                          Iconsax.user,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: const BorderSide(
+                                            color: Colors.black26, width: 0),
+                                        borderRadius:
+                                            BorderRadius.circular(30.0),
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.black26, width: 0),
+                                        borderRadius: BorderRadius.circular(30),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 10, left: 40, right: 40),
+                              child: Container(
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                  child: TextFormField(
+                                    cursorColor: Colors.black,
+                                    style: TextStyle(color: Colors.black),
+                                    decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                      // focusedBorder: InputBorder.none,
+                                      // enabledBorder: InputBorder.none,
+                                      errorBorder: InputBorder.none,
+                                      disabledBorder: InputBorder.none,
+                                      hintText: "อีเมล",
+                                      hintStyle: TextStyle(
+                                          color: Colors.grey,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w100),
+                                      // fillColor: Color.fromARGB(31, 161, 161, 161),
+                                      // filled: true,
+                                      prefixIcon: Container(
+                                        margin:
+                                            EdgeInsets.fromLTRB(20, 0, 15, 0),
+                                        child: Icon(
+                                           Icons.alternate_email,
                                           color: Color.fromARGB(221, 22, 22, 22),
                                         ),
                                       ),
@@ -186,31 +231,58 @@ class _Login_PageState extends State<Login_Page> {
                             ),
                             Padding(
                               padding: const EdgeInsets.only(
-                                  top: 13, left: 40, right: 40),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                // ignore: prefer_const_literals_to_create_immutables
-                                children: [
-                                  SizedBox(
-                                    child: AutoSizeText(
-                                      'ลืมรหัสผ่าน?',
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w500),
-                                      minFontSize: 14,
-                                      maxLines: 1,
+                                  top: 10, left: 40, right: 40),
+                              child: Container(
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                  child: TextFormField(
+                                    cursorColor: Colors.black,
+                                    style: TextStyle(color: Colors.black),
+                                    decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                      // focusedBorder: InputBorder.none,
+                                      // enabledBorder: InputBorder.none,
+                                      errorBorder: InputBorder.none,
+                                      disabledBorder: InputBorder.none,
+                                      hintText: "ยืนยันรหัสผ่าน",
+                                      hintStyle: TextStyle(
+                                          color: Colors.grey,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w100),
+                                      // fillColor: Color.fromARGB(31, 161, 161, 161),
+                                      // filled: true,
+                                      prefixIcon: Container(
+                                        margin:
+                                            EdgeInsets.fromLTRB(20, 0, 15, 0),
+                                        child: Icon(
+                                          Iconsax.key_square,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: const BorderSide(
+                                            color: Colors.black26, width: 0),
+                                        borderRadius:
+                                            BorderRadius.circular(30.0),
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.black26, width: 0),
+                                        borderRadius: BorderRadius.circular(30),
+                                      ),
                                     ),
                                   ),
-                                ],
+                                ),
                               ),
                             ),
+                            
                             Padding(
                               padding: const EdgeInsets.only(
                                   top: 30, left: 40, right: 40),
                               child: SizedBox(
                                 width: double.infinity,
                                 child: ElevatedButton(
-                                  child: Text('เข้าสู่ระบบ'),
+                                  child: Text('สมัครสมาชิก'),
                                   onPressed: () {},
                                   style: ElevatedButton.styleFrom(
                                     primary: Colors.blue,

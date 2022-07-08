@@ -42,6 +42,8 @@ dependencies:
   
   pager: ^0.0.3
   url_strategy: ^0.2.0
+  drawer_manager: ^0.0.4
+  
 
 dev_dependencies:
   flutter_test:

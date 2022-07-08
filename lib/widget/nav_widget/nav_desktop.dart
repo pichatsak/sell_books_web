@@ -3,7 +3,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
+import 'package:sell_books_web/homepage.dart';
 import 'package:sell_books_web/login_page.dart';
+import 'package:sell_books_web/registor_page.dart';
 
 Widget desktopView(BuildContext context) {
   var color = Colors.transparent;
@@ -26,11 +28,13 @@ Widget desktopView(BuildContext context) {
                   sizes: 'col-5 ',
                   // ignore: sized_box_for_whitespace
                   child: (Container(
-                    height: 100,
+                    height: 80,
                     child: Row(children: [
                       // ignore: deprecated_member_use
                       FlatButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).pushNamed(Homepage.route);
+                          },
                           highlightColor: color,
                           splashColor: color,
                           hoverColor: color,
@@ -110,7 +114,7 @@ Widget desktopView(BuildContext context) {
                   child:
                       // ignore: sized_box_for_whitespace
                       Container(
-                    height: 100,
+                    height: 80,
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                       child: Row(
@@ -123,7 +127,7 @@ Widget desktopView(BuildContext context) {
                             child: Row(
                               children: [
                                 Container(
-                                    margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                    margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
                                     // ignore: prefer_const_constructors
                                     child: Icon(
                                       Icons.account_circle_sharp,
@@ -137,7 +141,7 @@ Widget desktopView(BuildContext context) {
                                   children: [
                                     // ignore: prefer_const_constructors
                                     Container(
-                                      margin: EdgeInsets.fromLTRB(13, 0, 0, 0),
+                                      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                                       child: Text(
                                         "ยินดีต้อนรับ",
                                         // ignore: prefer_const_constructors
@@ -153,8 +157,8 @@ Widget desktopView(BuildContext context) {
                                         Container(
                                             // ignore: prefer_const_constructors
                                             // ignore: prefer_const_constructors, deprecated_member_use
-                                            child: FlatButton(
-                                          onPressed: () {
+                                            child: InkWell(
+                                          onTap: () {
                                             Navigator.of(context)
                                                 .pushNamed(Login_Page.route);
                                           },
@@ -174,7 +178,7 @@ Widget desktopView(BuildContext context) {
                                           // ignore: prefer_const_constructors
                                           // ignore: prefer_const_constructors
                                           child: Text(
-                                            "/",
+                                            " / ",
                                             // ignore: prefer_const_constructors
                                             style: TextStyle(
                                                 color: Colors.white,
@@ -185,8 +189,11 @@ Widget desktopView(BuildContext context) {
                                         Container(
                                             // ignore: prefer_const_constructors
                                             // ignore: prefer_const_constructors, deprecated_member_use
-                                            child: FlatButton(
-                                          onPressed: () {},
+                                            child: InkWell(
+                                          onTap: () {
+                                            Navigator.of(context)
+                                                .pushNamed(Registor_Page.route);
+                                          },
                                           highlightColor: color,
                                           splashColor: color,
                                           hoverColor: color,

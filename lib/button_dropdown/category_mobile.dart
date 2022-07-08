@@ -3,23 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-class button_dropdown extends StatefulWidget {
-  const button_dropdown({Key? key}) : super(key: key);
+class Category_Mobile extends StatefulWidget {
+  const Category_Mobile({Key? key}) : super(key: key);
 
   @override
-  State<button_dropdown> createState() => _button_dropdownState();
+  State<Category_Mobile> createState() => _Category_MobileState();
 }
 
-class _button_dropdownState extends State<button_dropdown> {
+class _Category_MobileState extends State<Category_Mobile> {
   final List<String> items = [
-    'Item1',
-    'Item2',
-    'Item3',
-    'Item4',
-    'Item5',
-    'Item6',
-    'Item7',
-    'Item8',
+    'ออกแบบระบบไฟฟ้า',
+    'ดาราศาสตร์',
+    'วิทยาศาสตร์',
+    'สิ่งแวดล้อม',
+    
   ];
   
   String? selectedValue;
@@ -37,7 +34,7 @@ class _button_dropdownState extends State<button_dropdown> {
                 
                 Expanded(
                   child: Text(
-                    'เรียงตาม',
+                    'หมวดหมู่',
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w100,
@@ -75,7 +72,7 @@ class _button_dropdownState extends State<button_dropdown> {
             iconEnabledColor: Colors.black,
             iconDisabledColor: Colors.black,
             buttonHeight: 50,
-            buttonWidth: 160,
+            buttonWidth: double.infinity,
             buttonPadding: const EdgeInsets.only(left: 14, right: 14),
             buttonDecoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
@@ -88,7 +85,7 @@ class _button_dropdownState extends State<button_dropdown> {
             itemHeight: 40,
             itemPadding: const EdgeInsets.only(left: 14, right: 14),
             dropdownMaxHeight: 200,
-            dropdownWidth: 200,
+            dropdownWidth: 300,
             dropdownPadding: null,
             dropdownDecoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),

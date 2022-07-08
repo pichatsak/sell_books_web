@@ -3,6 +3,7 @@ import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:sell_books_web/click_list_page.dart';
 import 'package:sell_books_web/homepage.dart';
 import 'package:sell_books_web/login_page.dart';
+import 'package:sell_books_web/registor_page.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 void main() {
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
         Homepage.route: (context) => Homepage(),
         Click_List_Page.route: (context) => Click_List_Page(),
         Login_Page.route: (context) => Login_Page(),
+        Registor_Page.route: (context) => Registor_Page(),
       },
     );
   }

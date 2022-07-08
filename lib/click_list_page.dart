@@ -7,6 +7,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_desktop.dart';
+import 'package:sell_books_web/widget/nav_widget/nav_main.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_minimal_desktop.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_mobile.dart';
 
@@ -29,26 +30,17 @@ class _Click_List_PageState extends State<Click_List_Page> {
           child: Container(
               child: Column(children: [
         //NAV_START
-        LayoutBuilder(builder: (context, constraints) {
-          if (constraints.maxWidth > 1150) {
-            return desktopView(context);
-          } else if (constraints.maxWidth >= 780 &&
-              constraints.maxWidth <= 1150) {
-            return minimal_desktop(context);
-          } else {
-            return mobileView();
-          }
-        }),
+        NavMainScreen(),
         //NAV_END
         //BODY_START
         Padding(
-          padding: const EdgeInsets.fromLTRB(20, 0, 30, 0),
+          padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
           child: BootstrapContainer(
             decoration: BoxDecoration(color: Colors.white),
             fluid: false,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(top: 35),
+                padding: const EdgeInsets.only(top: 35,left: 30,right: 30),
                 child: BootstrapRow(
                   children: <BootstrapCol>[
                     BootstrapCol(
@@ -170,7 +162,7 @@ class _Click_List_PageState extends State<Click_List_Page> {
               ),
 
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 30, 10, 20),
+                padding: const EdgeInsets.fromLTRB(30, 30, 30, 20),
                 child: SizedBox(
                   height: 1,
                   width: double.infinity,
@@ -179,7 +171,7 @@ class _Click_List_PageState extends State<Click_List_Page> {
               ),
 
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 10, 10, 20),
+                padding: const EdgeInsets.fromLTRB(30, 10, 30, 20),
                 child: Container(
                   child: BootstrapRow(height: 60, children: <BootstrapCol>[
                     BootstrapCol(
@@ -234,7 +226,7 @@ class _Click_List_PageState extends State<Click_List_Page> {
               ),
 
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 20, 10, 20),
+                padding: const EdgeInsets.fromLTRB(30, 20, 30, 20),
                 child: SizedBox(
                   height: 1,
                   width: double.infinity,
@@ -243,7 +235,7 @@ class _Click_List_PageState extends State<Click_List_Page> {
               ),
 
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 10, 10, 20),
+                padding: const EdgeInsets.fromLTRB(30, 10, 30, 20),
                 child: Container(
                   child: BootstrapRow(height: 60, children: <BootstrapCol>[
                     BootstrapCol(
@@ -448,7 +440,7 @@ class _Click_List_PageState extends State<Click_List_Page> {
                               ),
                               Padding(
                                 padding:
-                                    const EdgeInsets.fromLTRB(0, 40, 10, 20),
+                                    const EdgeInsets.fromLTRB(0, 40, 0, 20),
                                 child: SizedBox(
                                   height: 1,
                                   width: double.infinity,
@@ -457,7 +449,7 @@ class _Click_List_PageState extends State<Click_List_Page> {
                               ),
                               Padding(
                                 padding:
-                                    const EdgeInsets.fromLTRB(0, 10, 10, 20),
+                                    const EdgeInsets.fromLTRB(0, 10, 0, 20),
                                 child: Container(
                                   child: BootstrapRow(height: 60, children: <
                                       BootstrapCol>[
@@ -764,7 +756,7 @@ class _Click_List_PageState extends State<Click_List_Page> {
                                               Padding(
                                                 padding:
                                                     const EdgeInsets.fromLTRB(
-                                                        0, 40, 10, 20),
+                                                        0, 40, 0, 20),
                                                 child: SizedBox(
                                                   height: 1,
                                                   width: double.infinity,

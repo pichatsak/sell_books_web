@@ -1,47 +1,56 @@
 // ignore_for_file: prefer_const_constructors, duplicate_ignore, sized_box_for_whitespace, avoid_unnecessary_containers, unnecessary_new
 
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
 
-Widget mobileView() {
+
+
+
+Widget mobileView(BuildContext context) {
   var color = Colors.transparent;
+  
+    
   return SingleChildScrollView(
       child: BootstrapContainer(
           fluid: true,
           // ignore: prefer_const_constructors
           padding: const EdgeInsets.only(top: 0),
           children: <Widget>[
+            
         Container(
             decoration: BoxDecoration(
               color: Color.fromRGBO(65, 176, 231, 1),
             ),
             child: BootstrapRow(
-              height: 0,
               children: <BootstrapCol>[
                 BootstrapCol(
-                    sizes: 'col-3 ',
-                    // ignore: prefer_const_constructors
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Container(
-                          height: 80,
-                          // ignore: deprecated_member_use
-                          child: FlatButton(
-                              onPressed: () {},
-                              highlightColor: color,
-                              splashColor: color,
-                              hoverColor: color,
-                              child: Container(
-                                child: Icon(
-                                  Icons.menu,
-                                  size: 50,
-                                  color: Colors.white,
-                                ),
-                              )),
-                        ),
-                      ],
-                    )),
+                  sizes: 'col-3 ',
+                  // ignore: prefer_const_constructors
+                  child: Container(
+                    height: 80,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Row(
+                        children: [
+                          Container(
+                              // ignore: deprecated_member_use
+                              child: InkWell(
+                            onTap: () {
+                             
+                            },
+                            child: Icon(
+                              Icons.menu,
+                              size: 35,
+                              color: Colors.white,
+                            ),
+                          )),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
                 BootstrapCol(
                     sizes: 'col-9',
                     // ignore: prefer_const_constructors
