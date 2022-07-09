@@ -1,6 +1,7 @@
-
+// ignore_for_file: avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bootstrap/flutter_bootstrap.dart';
 
 class NavDrawer extends StatefulWidget {
   NavDrawer({Key? key}) : super(key: key);
@@ -12,69 +13,76 @@ class NavDrawer extends StatefulWidget {
 class _NavDrawerState extends State<NavDrawer> {
   final padding = EdgeInsets.symmetric(horizontal: 20);
   @override
- Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     final name = 'Sarah Abs';
     final email = 'sarah@abs.com';
     final urlImage =
         'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80';
-  
+
     return Drawer(
       child: Material(
-        color: Color.fromRGBO(50, 75, 205, 1),
+        color: Color.fromRGBO(65, 176, 231, 1),
         child: ListView(
           children: <Widget>[
-            buildHeader(
-              urlImage: urlImage,
-              name: name,
-              email: email,
-              onClicked: () => {
-
-              },
+            Padding(
+              padding: const EdgeInsets.only(top: 30),
+              child: Container(
+                  child: Image.asset(
+                "images/logo1.png",
+                width: 80,
+                height: 60,
+              )),
             ),
+            // buildHeader(
+            //   urlImage: urlImage,
+            //   name: name,
+            //   email: email,
+            //   onClicked: () => {},
+            // ),
             Container(
               padding: padding,
               child: Column(
                 children: [
+                  // const SizedBox(height: 12),
+                  // buildSearchField(),
                   const SizedBox(height: 12),
-                  buildSearchField(),
-                  const SizedBox(height: 24),
                   buildMenuItem(
-                    text: 'People',
-                    icon: Icons.people,
+                    text: ('หน้าแรก'),
+                    icon: Icons.home,
                     onClicked: () => selectedItem(context, 0),
                   ),
                   const SizedBox(height: 16),
                   buildMenuItem(
-                    text: 'Favourites',
-                    icon: Icons.favorite_border,
+                    text: 'วิธีการสั่งซื้อ',
+                    icon: Icons.shopify_sharp,
                     onClicked: () => selectedItem(context, 1),
                   ),
                   const SizedBox(height: 16),
                   buildMenuItem(
-                    text: 'Workflow',
+                    text: 'ติดต่อเรา',
                     icon: Icons.workspaces_outline,
                     onClicked: () => selectedItem(context, 2),
                   ),
                   const SizedBox(height: 16),
                   buildMenuItem(
-                    text: 'Updates',
+                    text: 'นโยบายการคืนสินค้า',
                     icon: Icons.update,
                     onClicked: () => selectedItem(context, 3),
                   ),
-                  const SizedBox(height: 24),
-                  Divider(color: Colors.white70),
-                  const SizedBox(height: 24),
-                  buildMenuItem(
-                    text: 'Plugins',
-                    icon: Icons.account_tree_outlined,
-                    onClicked: () => selectedItem(context, 4),
-                  ),
-                  const SizedBox(height: 16),
-                  buildMenuItem(
-                    text: 'Notifications',
-                    icon: Icons.notifications_outlined,
-                    onClicked: () => selectedItem(context, 5),
-                  ),
+                  // const SizedBox(height: 24),
+                  // Divider(color: Colors.white70),
+                  // const SizedBox(height: 24),
+                  // buildMenuItem(
+                  //   text: 'Plugins',
+                  //   icon: Icons.account_tree_outlined,
+                  //   onClicked: () => selectedItem(context, 4),
+                  // ),
+                  // const SizedBox(height: 16),
+                  // buildMenuItem(
+                  //   text: 'Notifications',
+                  //   icon: Icons.notifications_outlined,
+                  //   onClicked: () => selectedItem(context, 5),
+                  // ),
                 ],
               ),
             ),
@@ -90,38 +98,39 @@ class _NavDrawerState extends State<NavDrawer> {
     required String email,
     required VoidCallback onClicked,
   }) =>
-      InkWell(
-        onTap: onClicked,
-        child: Container(
-          padding: padding.add(EdgeInsets.symmetric(vertical: 40)),
-          child: Row(
-            children: [
-              CircleAvatar(radius: 30, backgroundImage: NetworkImage(urlImage)),
-              SizedBox(width: 20),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    name,
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    email,
-                    style: TextStyle(fontSize: 14, color: Colors.white),
-                  ),
-                ],
-              ),
-              Spacer(),
-              CircleAvatar(
-                radius: 24,
-                backgroundColor: Color.fromRGBO(30, 60, 168, 1),
-                child: Icon(Icons.add_comment_outlined, color: Colors.white),
-              )
-            ],
-          ),
+      // InkWell(
+      //   onTap: onClicked,
+      //   child:
+      Container(
+        padding: padding.add(EdgeInsets.symmetric(vertical: 40)),
+        child: Row(
+          children: [
+            // CircleAvatar(radius: 30, backgroundImage: NetworkImage(urlImage)),
+            // SizedBox(width: 20),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  name,
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  email,
+                  style: TextStyle(fontSize: 14, color: Colors.white),
+                ),
+              ],
+            ),
+            // Spacer(),
+            // CircleAvatar(
+            //   radius: 24,
+            //   backgroundColor: Color.fromRGBO(30, 60, 168, 1),
+            //   child: Icon(Icons.add_comment_outlined, color: Colors.white),
+            // )
+          ],
         ),
       );
+  // );
 
   Widget buildSearchField() {
     final color = Colors.white;
@@ -153,11 +162,11 @@ class _NavDrawerState extends State<NavDrawer> {
     VoidCallback? onClicked,
   }) {
     final color = Colors.white;
-    final hoverColor = Colors.white70;
+    final hoverColor = Colors.black12;
 
     return ListTile(
       leading: Icon(icon, color: color),
-      title: Text(text, style: TextStyle(color: color)),
+      title: Text(text, style: TextStyle(color: color, fontSize: 16)),
       hoverColor: hoverColor,
       onTap: onClicked,
     );

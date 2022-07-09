@@ -12,14 +12,9 @@ class button_dropdown extends StatefulWidget {
 
 class _button_dropdownState extends State<button_dropdown> {
   final List<String> items = [
-    'Item1',
-    'Item2',
-    'Item3',
-    'Item4',
-    'Item5',
-    'Item6',
-    'Item7',
-    'Item8',
+    'ราคาต่ำสุด',
+    'ราคาสูงสุด',
+    
   ];
   
   String? selectedValue;
@@ -78,7 +73,7 @@ class _button_dropdownState extends State<button_dropdown> {
             buttonWidth: 160,
             buttonPadding: const EdgeInsets.only(left: 14, right: 14),
             buttonDecoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
+              borderRadius: BorderRadius.circular(20),
               border: Border.all(
                 color: Colors.black26,
               ),
@@ -91,11 +86,11 @@ class _button_dropdownState extends State<button_dropdown> {
             dropdownWidth: 200,
             dropdownPadding: null,
             dropdownDecoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
+              borderRadius: BorderRadius.circular(20),
               color: Colors.white,
             ),
             dropdownElevation: 8,
-            scrollbarRadius: const Radius.circular(5),
+            scrollbarRadius: const Radius.circular(20),
             scrollbarThickness: 6,
             scrollbarAlwaysShow: true,
             offset: const Offset(0, 0),

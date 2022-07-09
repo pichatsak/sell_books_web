@@ -51,7 +51,7 @@ class _Registor_PageState extends State<Registor_Page> {
                   children: [
                     Container(
                       width: 450,
-                      height: 700,
+                      height: 740,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(10)),
                           color: Color(0xFFF7F7F7),
@@ -67,16 +67,16 @@ class _Registor_PageState extends State<Registor_Page> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset("images/logonew2.png", width: 230),
-                            SizedBox(
-                              child: AutoSizeText(
-                                'ดูก่อนนอน',
-                                style: TextStyle(
-                                    fontSize: 26, fontWeight: FontWeight.w600),
-                                minFontSize: 25,
-                                maxLines: 1,
-                              ),
-                            ),
+                            Image.asset("images/logo.png", width: 230),
+                            // SizedBox(
+                            //   child: AutoSizeText(
+                            //     'ดูก่อนนอน',
+                            //     style: TextStyle(
+                            //         fontSize: 26, fontWeight: FontWeight.w600),
+                            //     minFontSize: 25,
+                            //     maxLines: 1,
+                            //   ),
+                            // ),
                             Padding(
                               padding: const EdgeInsets.only(top: 5),
                               child: SizedBox(
@@ -105,7 +105,7 @@ class _Registor_PageState extends State<Registor_Page> {
                                       // enabledBorder: InputBorder.none,
                                       errorBorder: InputBorder.none,
                                       disabledBorder: InputBorder.none,
-                                      hintText: "ชื่อผู้ใช้",
+                                      hintText: "ชื่อ - สกุล",
 
                                       hintStyle: TextStyle(
                                           color: Colors.grey,
@@ -164,6 +164,53 @@ class _Registor_PageState extends State<Registor_Page> {
                                             EdgeInsets.fromLTRB(20, 0, 15, 0),
                                         child: Icon(
                                            Icons.alternate_email,
+                                          color: Color.fromARGB(221, 22, 22, 22),
+                                        ),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: const BorderSide(
+                                            color: Colors.black26, width: 0),
+                                        borderRadius:
+                                            BorderRadius.circular(30.0),
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.black26, width: 0),
+                                        borderRadius: BorderRadius.circular(30),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 10, left: 40, right: 40),
+                              child: Container(
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                  child: TextFormField(
+                                    cursorColor: Colors.black,
+                                    style: TextStyle(color: Colors.black),
+                                    decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                      // focusedBorder: InputBorder.none,
+                                      // enabledBorder: InputBorder.none,
+                                      errorBorder: InputBorder.none,
+                                      disabledBorder: InputBorder.none,
+                                      hintText: "เบอร์โทร",
+                                      hintStyle: TextStyle(
+                                          color: Colors.grey,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w100),
+                                      // fillColor: Color.fromARGB(31, 161, 161, 161),
+                                      // filled: true,
+                                      prefixIcon: Container(
+                                        margin:
+                                            EdgeInsets.fromLTRB(20, 0, 15, 0),
+                                        child: Icon(
+                                           Icons.phone,
                                           color: Color.fromARGB(221, 22, 22, 22),
                                         ),
                                       ),
@@ -282,7 +329,7 @@ class _Registor_PageState extends State<Registor_Page> {
                               child: SizedBox(
                                 width: double.infinity,
                                 child: ElevatedButton(
-                                  child: Text('สมัครสมาชิก'),
+                                  child: Text('ยืนยันการสมัคร'),
                                   onPressed: () {},
                                   style: ElevatedButton.styleFrom(
                                     primary: Colors.blue,

@@ -68,21 +68,21 @@ class _Login_PageState extends State<Login_Page> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset("images/logonew2.png", width: 230),
-                            SizedBox(
-                              child: AutoSizeText(
-                                'ดูก่อนนอน',
-                                style: TextStyle(
-                                    fontSize: 26, fontWeight: FontWeight.w600),
-                                minFontSize: 25,
-                                maxLines: 1,
-                              ),
-                            ),
+                            Image.asset("images/logo.png", width: 230),
+                            // SizedBox(
+                            //   child: AutoSizeText(
+                            //     'Ksu store',
+                            //     style: TextStyle(
+                            //         fontSize: 26, fontWeight: FontWeight.w600),
+                            //     minFontSize: 25,
+                            //     maxLines: 1,
+                            //   ),
+                            // ),
                             Padding(
                               padding: const EdgeInsets.only(top: 5),
                               child: SizedBox(
                                 child: AutoSizeText(
-                                  'เข้าสู่ระบบ',
+                                  'ลงชื่อเพื่อเข้าใช้',
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),

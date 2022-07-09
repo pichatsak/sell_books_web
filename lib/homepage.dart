@@ -27,6 +27,7 @@ class _HomepageState extends State<Homepage> {
   String namemenu1 = "วิทยาศาตร์";
   int posView = 1;
   var color = Colors.transparent;
+
   @override
   Widget build(BuildContext context) {
     bootstrapGridParameters(gutterSize: 0);
@@ -62,11 +63,11 @@ class _HomepageState extends State<Homepage> {
                                     children: [
                                       Container(
                                         decoration: BoxDecoration(
-                                          color:
-                                              Color.fromARGB(255, 82, 180, 230),
+                                          color: Color.fromARGB(
+                                              255, 101, 188, 231),
                                           borderRadius: BorderRadius.only(
-                                              topRight: Radius.circular(5),
-                                              topLeft: Radius.circular(5)),
+                                              topRight: Radius.circular(20),
+                                              topLeft: Radius.circular(20)),
                                         ),
                                         height: 50,
                                         width: double.infinity,
@@ -76,14 +77,24 @@ class _HomepageState extends State<Homepage> {
                                               MainAxisAlignment.center,
                                           // ignore: prefer_const_literals_to_create_immutables
                                           children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  right: 10),
+                                              child: Icon(
+                                                Icons.category,
+                                                color: Colors.white,
+                                              ),
+                                            ),
                                             // ignore: prefer_const_constructors
-                                            Text(
-                                              "หมวดหมู่",
-                                              // ignore: prefer_const_constructors
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.w100,
-                                                  fontSize: 16),
+                                            Container(
+                                              child: Text(
+                                                "หมวดหมู่",
+                                                // ignore: prefer_const_constructors
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.w100,
+                                                    fontSize: 16),
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -119,15 +130,25 @@ class _HomepageState extends State<Homepage> {
                                                           children: [
                                                             // ignore: prefer_const_constructors
 
-                                                            Text(
-                                                              "ออกแบบระบบไฟฟ้า",
-                                                              style: TextStyle(
-                                                                fontSize: 15,
+                                                            ListTile(
+                                                                title: SizedBox(
+                                                              width: double
+                                                                  .infinity,
+                                                              child: Text(
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
+                                                                'ออกแบบระบบไฟฟ้า',
+                                                                maxLines: 1,
                                                                 overflow:
                                                                     TextOverflow
                                                                         .ellipsis,
+                                                                softWrap: true,
+                                                                style: TextStyle(
+                                                                    fontSize:
+                                                                        14),
                                                               ),
-                                                            )
+                                                            )),
                                                           ])),
                                                 ),
                                                 Padding(
@@ -148,8 +169,23 @@ class _HomepageState extends State<Homepage> {
                                                   child: Container(
                                                       height: 55,
                                                       child: Center(
-                                                        child:
-                                                            Text("ดาราศาตร์"),
+                                                        child: ListTile(
+                                                            title: SizedBox(
+                                                          width:
+                                                              double.infinity,
+                                                          child: Text(
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            'ดาราศาสตร์',
+                                                            maxLines: 1,
+                                                            overflow:
+                                                                TextOverflow
+                                                                    .ellipsis,
+                                                            softWrap: true,
+                                                            style: TextStyle(
+                                                                fontSize: 14),
+                                                          ),
+                                                        )),
                                                       )),
                                                 ),
                                                 Padding(
@@ -170,10 +206,21 @@ class _HomepageState extends State<Homepage> {
                                                   child: Container(
                                                     height: 55,
                                                     child: Center(
-                                                      child: Text(
-                                                        namemenu1,
-                                                        maxLines: 1,
-                                                      ),
+                                                      child: ListTile(
+                                                          title: SizedBox(
+                                                        width: double.infinity,
+                                                        child: Text(
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          'วิทยาศาสตร์',
+                                                          maxLines: 1,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          softWrap: true,
+                                                          style: TextStyle(
+                                                              fontSize: 14),
+                                                        ),
+                                                      )),
                                                     ),
                                                   ),
                                                 ),
@@ -201,15 +248,25 @@ class _HomepageState extends State<Homepage> {
                                                           // ignore: prefer_const_literals_to_create_immutables
                                                           children: [
                                                             // ignore: prefer_const_constructors
-                                                            Text(
-                                                              "สิ่งแวดล้อม",
-                                                              style: TextStyle(
-                                                                fontSize: 15,
+                                                            ListTile(
+                                                                title: SizedBox(
+                                                              width: double
+                                                                  .infinity,
+                                                              child: Text(
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
+                                                                'สิ่งแวดล้อม',
+                                                                maxLines: 1,
                                                                 overflow:
                                                                     TextOverflow
                                                                         .ellipsis,
+                                                                softWrap: true,
+                                                                style: TextStyle(
+                                                                    fontSize:
+                                                                        14),
                                                               ),
-                                                            )
+                                                            )),
                                                           ])),
                                                 ),
                                               ],
@@ -301,17 +358,83 @@ class _HomepageState extends State<Homepage> {
                                                 const EdgeInsets.only(top: 0),
                                             child: Container(
                                               width: double.infinity,
+                                              // ignore: prefer_const_literals_to_create_immutables
                                               child: Column(children: <Widget>[
-                                                const ExpansionTile(
-                                                  title:
-                                                      Text('ExpansionTile 1'),
-                                                  subtitle: Text(
-                                                      'Trailing expansion arrow icon'),
-                                                  children: <Widget>[
-                                                    ListTile(
-                                                        title: Text(
-                                                            'This is tile number 1')),
-                                                  ],
+                                                Card(
+                                                  shadowColor: Colors.black,
+                                                  elevation: 2,
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            30),
+                                                  ),
+                                                  clipBehavior: Clip.antiAlias,
+                                                  margin: EdgeInsets.zero,
+                                                  child: Theme(
+                                                    data: Theme.of(context)
+                                                        .copyWith(
+                                                            dividerColor: Colors
+                                                                .transparent),
+                                                    child: const ExpansionTile(
+                                                      leading: Icon(
+                                                        Icons.category,
+                                                        size: 20,
+                                                        color: Colors.white,
+                                                      ),
+                                                      iconColor: Colors.white,
+                                                      backgroundColor:
+                                                          Color.fromARGB(255,
+                                                              101, 188, 231),
+                                                      maintainState: true,
+                                                      title: Text(
+                                                        'หมวดหมู่',
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            color:
+                                                                Colors.white),
+                                                      ),
+
+                                                      collapsedIconColor:
+                                                          Colors.white,
+                                                      collapsedBackgroundColor:
+                                                          Color.fromARGB(255,
+                                                              101, 188, 231),
+
+                                                      // subtitle: Text(
+                                                      //     'Trailing expansion arrow icon'),
+                                                      children: <Widget>[
+                                                        ListTile(
+                                                            title: Text(
+                                                          'ออกแบบระบบไฟฟ้า',
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white),
+                                                        )),
+                                                        ListTile(
+                                                            title: Text(
+                                                          'ดาราศาสตร์',
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white),
+                                                        )),
+                                                        ListTile(
+                                                            title: Text(
+                                                          'วิทยาศาสตร์',
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white),
+                                                        )),
+                                                        ListTile(
+                                                            title: Text(
+                                                          'สิ่งแวดล้อม',
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white),
+                                                        )),
+                                                      ],
+                                                    ),
+                                                  ),
                                                 ),
                                               ]),
                                             ),
@@ -337,17 +460,24 @@ class _HomepageState extends State<Homepage> {
                                                   child: Row(children: [
                                                     Container(
                                                       height: 40,
-                                                      decoration: posView==0? BoxDecoration(
-                                                        color: Color.fromARGB(
-                                                            31, 122, 122, 122),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(32),
-                                                      ):null,
+                                                      decoration: posView == 0
+                                                          ? BoxDecoration(
+                                                              color: Color
+                                                                  .fromARGB(
+                                                                      31,
+                                                                      122,
+                                                                      122,
+                                                                      122),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          32),
+                                                            )
+                                                          : null,
                                                       child: IconButton(
                                                         onPressed: (() {
                                                           setState(() {
-                                                            posView =0;
+                                                            posView = 0;
                                                           });
                                                         }),
                                                         highlightColor: color,
@@ -369,13 +499,20 @@ class _HomepageState extends State<Homepage> {
                                                     ),
                                                     Container(
                                                       height: 40,
-                                                      decoration: posView==1? BoxDecoration(
-                                                        color: Color.fromARGB(
-                                                            31, 122, 122, 122),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(32),
-                                                      ):null,
+                                                      decoration: posView == 1
+                                                          ? BoxDecoration(
+                                                              color: Color
+                                                                  .fromARGB(
+                                                                      31,
+                                                                      122,
+                                                                      122,
+                                                                      122),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          32),
+                                                            )
+                                                          : null,
                                                       child: IconButton(
                                                         onPressed: (() {
                                                           setState(() {
@@ -395,7 +532,9 @@ class _HomepageState extends State<Homepage> {
                                               ]),
                                         ),
                                       ),
-                                      posView==1? getListData():getGroupData()
+                                      posView == 1
+                                          ? getListData()
+                                          : getGroupData()
                                       //ในกรอบข้อมูล
                                     ],
                                   ),
@@ -420,869 +559,1605 @@ class _HomepageState extends State<Homepage> {
   }
 
   Widget getGroupData() {
-    return Text("Group");
+    return Column(
+      children: [
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///บรรทัด1
+        BootstrapRow(children: <BootstrapCol>[
+          BootstrapCol(
+              sizes: 'col-6 col-sm-6 col-md-4',
+              child: Column(
+                children: [
+                  Center(
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.only(top: 20, left: 10, right: 10),
+                      child: Container(
+                          child: Image.asset("images/book.jpg",
+                              fit: BoxFit.cover, width: 200, height: 280)),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 20, left: 15, right: 15),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushNamed(Click_List_Page.route);
+                        },
+                        child: AutoSizeText(
+                          'การออกแบบระบบไฟฟ้า : Electrical System Design',
+                          style: TextStyle(
+                              fontSize: 19, fontWeight: FontWeight.w600),
+                          minFontSize: 18,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                      margin: EdgeInsets.fromLTRB(15, 15, 15, 0),
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: Container(
+                          margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                          child: AutoSizeText(
+                            'มีเนื้อหาครบถ้วนตามหลักสูตรของวิชา Electrical System Design ของสภาวิศวกร ซึ่งจะใช้ในการสอบเพื่อขอใบอนุญาตประกอบวิชาชีพไฟฟ้ากำลังชั้นภาคี ตั้งแต่ปี พ.ศ. 2552',
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Color.fromARGB(255, 104, 104, 104),
+                                fontWeight: FontWeight.w100),
+                            minFontSize: 14,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      )),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(15, 10, 15, 0),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Container(
+                        margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        child: AutoSizeText(
+                          'ผู้เขียน ประสิทธิ์ พิทยพัฒน์',
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w600),
+                          minFontSize: 14,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    child: Container(
+                      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      child: AutoSizeText(
+                        '475.00 บาท',
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.w600),
+                        minFontSize: 14,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    child: ElevatedButton.icon(
+                        onPressed: () {},
+                        icon: Icon(Icons.shopping_cart),
+                        label: Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                          child: Text(
+                            "เพิ่มลงตะกร้า",
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w100),
+                          ),
+                        )),
+                  )
+                ],
+              )),
+          BootstrapCol(
+              sizes: 'col-6 col-sm-6 col-md-4',
+              child: Column(
+                children: [
+                  Center(
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.only(top: 20, left: 10, right: 10),
+                      child: Container(
+                          child: Image.asset("images/book1.jpg",
+                              fit: BoxFit.cover, width: 200, height: 280)),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 20, left: 15, right: 15),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushNamed(Click_List_Page.route);
+                        },
+                        child: AutoSizeText(
+                          'การออกแบบระบบไฟฟ้า : Electrical System Design',
+                          style: TextStyle(
+                              fontSize: 19, fontWeight: FontWeight.w600),
+                          minFontSize: 18,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                      margin: EdgeInsets.fromLTRB(15, 15, 15, 0),
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: Container(
+                          margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                          child: AutoSizeText(
+                            'มีเนื้อหาครบถ้วนตามหลักสูตรของวิชา Electrical System Design ของสภาวิศวกร ซึ่งจะใช้ในการสอบเพื่อขอใบอนุญาตประกอบวิชาชีพไฟฟ้ากำลังชั้นภาคี ตั้งแต่ปี พ.ศ. 2552',
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Color.fromARGB(255, 104, 104, 104),
+                                fontWeight: FontWeight.w100),
+                            minFontSize: 14,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      )),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(15, 10, 15, 0),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Container(
+                        margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        child: AutoSizeText(
+                          'ผู้เขียน ประสิทธิ์ พิทยพัฒน์',
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w600),
+                          minFontSize: 14,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    child: Container(
+                      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      child: AutoSizeText(
+                        '475.00 บาท',
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.w600),
+                        minFontSize: 14,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    child: ElevatedButton.icon(
+                        onPressed: () {},
+                        icon: Icon(Icons.shopping_cart),
+                        label: Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                          child: Text(
+                            "เพิ่มลงตะกร้า",
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w100),
+                          ),
+                        )),
+                  )
+                ],
+              )),
+          BootstrapCol(
+              sizes: 'col-6 col-sm-6 col-md-4',
+              child: Column(
+                children: [
+                  Center(
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.only(top: 20, left: 10, right: 10),
+                      child: Container(
+                          child: Image.asset("images/book2.jpg",
+                              fit: BoxFit.cover, width: 200, height: 280)),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 20, left: 15, right: 15),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushNamed(Click_List_Page.route);
+                        },
+                        child: AutoSizeText(
+                          'การออกแบบระบบไฟฟ้า : Electrical System Design',
+                          style: TextStyle(
+                              fontSize: 19, fontWeight: FontWeight.w600),
+                          minFontSize: 18,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                      margin: EdgeInsets.fromLTRB(15, 15, 15, 0),
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: Container(
+                          margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                          child: AutoSizeText(
+                            'มีเนื้อหาครบถ้วนตามหลักสูตรของวิชา Electrical System Design ของสภาวิศวกร ซึ่งจะใช้ในการสอบเพื่อขอใบอนุญาตประกอบวิชาชีพไฟฟ้ากำลังชั้นภาคี ตั้งแต่ปี พ.ศ. 2552',
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Color.fromARGB(255, 104, 104, 104),
+                                fontWeight: FontWeight.w100),
+                            minFontSize: 14,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      )),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(15, 10, 15, 0),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Container(
+                        margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        child: AutoSizeText(
+                          'ผู้เขียน ประสิทธิ์ พิทยพัฒน์',
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w600),
+                          minFontSize: 14,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    child: Container(
+                      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      child: AutoSizeText(
+                        '475.00 บาท',
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.w600),
+                        minFontSize: 14,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    child: ElevatedButton.icon(
+                        onPressed: () {},
+                        icon: Icon(Icons.shopping_cart),
+                        label: Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                          child: Text(
+                            "เพิ่มลงตะกร้า",
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w100),
+                          ),
+                        )),
+                  )
+                ],
+              )),
+          BootstrapCol(
+              sizes: 'col-6 col-sm-6 col-md-4',
+              child: Column(
+                children: [
+                  Center(
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.only(top: 20, left: 10, right: 10),
+                      child: Container(
+                          child: Image.asset("images/book3.jpg",
+                              fit: BoxFit.cover, width: 200, height: 280)),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 20, left: 15, right: 15),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushNamed(Click_List_Page.route);
+                        },
+                        child: AutoSizeText(
+                          'การออกแบบระบบไฟฟ้า : Electrical System Design',
+                          style: TextStyle(
+                              fontSize: 19, fontWeight: FontWeight.w600),
+                          minFontSize: 18,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                      margin: EdgeInsets.fromLTRB(15, 15, 15, 0),
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: Container(
+                          margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                          child: AutoSizeText(
+                            'มีเนื้อหาครบถ้วนตามหลักสูตรของวิชา Electrical System Design ของสภาวิศวกร ซึ่งจะใช้ในการสอบเพื่อขอใบอนุญาตประกอบวิชาชีพไฟฟ้ากำลังชั้นภาคี ตั้งแต่ปี พ.ศ. 2552',
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Color.fromARGB(255, 104, 104, 104),
+                                fontWeight: FontWeight.w100),
+                            minFontSize: 14,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      )),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(15, 10, 15, 0),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Container(
+                        margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        child: AutoSizeText(
+                          'ผู้เขียน ประสิทธิ์ พิทยพัฒน์',
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w600),
+                          minFontSize: 14,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    child: Container(
+                      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      child: AutoSizeText(
+                        '475.00 บาท',
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.w600),
+                        minFontSize: 14,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    child: ElevatedButton.icon(
+                        onPressed: () {},
+                        icon: Icon(Icons.shopping_cart),
+                        label: Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                          child: Text(
+                            "เพิ่มลงตะกร้า",
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w100),
+                          ),
+                        )),
+                  )
+                ],
+              )),
+          BootstrapCol(
+              sizes: 'col-6 col-sm-6 col-md-4',
+              child: Column(
+                children: [
+                  Center(
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.only(top: 20, left: 10, right: 10),
+                      child: Container(
+                          child: Image.asset("images/book4.jpg",
+                              fit: BoxFit.cover, width: 200, height: 280)),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 20, left: 15, right: 15),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushNamed(Click_List_Page.route);
+                        },
+                        child: AutoSizeText(
+                          'การออกแบบระบบไฟฟ้า : Electrical System Design',
+                          style: TextStyle(
+                              fontSize: 19, fontWeight: FontWeight.w600),
+                          minFontSize: 18,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                      margin: EdgeInsets.fromLTRB(15, 15, 15, 0),
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: Container(
+                          margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                          child: AutoSizeText(
+                            'มีเนื้อหาครบถ้วนตามหลักสูตรของวิชา Electrical System Design ของสภาวิศวกร ซึ่งจะใช้ในการสอบเพื่อขอใบอนุญาตประกอบวิชาชีพไฟฟ้ากำลังชั้นภาคี ตั้งแต่ปี พ.ศ. 2552',
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Color.fromARGB(255, 104, 104, 104),
+                                fontWeight: FontWeight.w100),
+                            minFontSize: 14,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      )),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(15, 10, 15, 0),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Container(
+                        margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        child: AutoSizeText(
+                          'ผู้เขียน ประสิทธิ์ พิทยพัฒน์',
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w600),
+                          minFontSize: 14,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    child: Container(
+                      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      child: AutoSizeText(
+                        '475.00 บาท',
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.w600),
+                        minFontSize: 14,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    child: ElevatedButton.icon(
+                        onPressed: () {},
+                        icon: Icon(Icons.shopping_cart),
+                        label: Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                          child: Text(
+                            "เพิ่มลงตะกร้า",
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w100),
+                          ),
+                        )),
+                  )
+                ],
+              )),
+          BootstrapCol(
+              sizes: 'col-6 col-sm-6 col-md-4',
+              child: Column(
+                children: [
+                  Center(
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.only(top: 20, left: 10, right: 10),
+                      child: Container(
+                          child: Image.asset("images/book5.jpg",
+                              fit: BoxFit.cover, width: 200, height: 280)),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 20, left: 15, right: 15),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushNamed(Click_List_Page.route);
+                        },
+                        child: AutoSizeText(
+                          'การออกแบบระบบไฟฟ้า : Electrical System Design',
+                          style: TextStyle(
+                              fontSize: 19, fontWeight: FontWeight.w600),
+                          minFontSize: 18,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                      margin: EdgeInsets.fromLTRB(15, 15, 15, 0),
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: Container(
+                          margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                          child: AutoSizeText(
+                            'มีเนื้อหาครบถ้วนตามหลักสูตรของวิชา Electrical System Design ของสภาวิศวกร ซึ่งจะใช้ในการสอบเพื่อขอใบอนุญาตประกอบวิชาชีพไฟฟ้ากำลังชั้นภาคี ตั้งแต่ปี พ.ศ. 2552',
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Color.fromARGB(255, 104, 104, 104),
+                                fontWeight: FontWeight.w100),
+                            minFontSize: 14,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      )),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(15, 10, 15, 0),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Container(
+                        margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        child: AutoSizeText(
+                          'ผู้เขียน ประสิทธิ์ พิทยพัฒน์',
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w600),
+                          minFontSize: 14,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    child: Container(
+                      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      child: AutoSizeText(
+                        '475.00 บาท',
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.w600),
+                        minFontSize: 14,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    child: ElevatedButton.icon(
+                        onPressed: () {},
+                        icon: Icon(Icons.shopping_cart),
+                        label: Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                          child: Text(
+                            "เพิ่มลงตะกร้า",
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w100),
+                          ),
+                        )),
+                  )
+                ],
+              )),
+        ]),
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        SizedBox(
+          height: 50,
+        ),
+
+        Container(
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.black12, width: 0.5),
+            borderRadius: BorderRadius.circular(0.0),
+          ),
+        ),
+
+        Container(
+          margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Pager(
+                currentPage: 1,
+                totalPages: 3,
+                onPageChanged: (page) {},
+              ),
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 100,
+        ),
+      ],
+    );
   }
 
   Widget getListData() {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-      child: Column(
-        children: [
-          /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-          Container(
-            //บรรทัด1
-            //Row ใส้นอก
-            margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-            child: BootstrapRow(
-              children: <BootstrapCol>[
-                BootstrapCol(
-                    //col ใส้นอก 1
-                    sizes: 'col-12',
-                    child: Container(
-                      //Row ใส้ใน
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                        child: BootstrapRow(
-                          children: <BootstrapCol>[
-                            BootstrapCol(
-                                //col ใส้ใน
-                                sizes: 'col-4 ',
-                                child: Container(
-                                    height: 300,
+    return Column(
+      children: [
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///บรรทัด1
+        Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: BootstrapRow(
+            children: <BootstrapCol>[
+              BootstrapCol(
+                  sizes: 'col-4 ',
+                  child: Column(
+                    children: [
+                      BootstrapRow(children: <BootstrapCol>[
+                        BootstrapCol(
+                          invisibleForSizes: " lg xl ",
+                          sizes: 'col-12',
+                          child: Center(
+                            child: Container(
+                                color: Colors.blue,
 
-                                    // color:
-                                    //     Color.fromARGB(31, 117, 117, 117),
+                                // color:
+                                //     Color.fromARGB(31, 117, 117, 117),
 
-                                    child: Image.asset(
-                                      "images/book.jpg",
-                                      fit: BoxFit.contain,
-                                    ))),
-                            BootstrapCol(
-                                //col ใส้ใน
-                                sizes: 'col-8',
-                                child: Container(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 35, 0, 0),
-                                        child: FlatButton(
-                                            onPressed: () {
-                                              Navigator.of(context).pushNamed(
-                                                  Click_List_Page.route);
-                                            },
-                                            highlightColor: color,
-                                            splashColor: color,
-                                            hoverColor: color,
-                                            child: SizedBox(
-                                              width: double.infinity,
-                                              child: AutoSizeText(
-                                                'การออกแบบระบบไฟฟ้า : Electrical System Design',
-                                                style: TextStyle(
-                                                    fontSize: 19,
-                                                    fontWeight:
-                                                        FontWeight.w600),
-                                                minFontSize: 18,
-                                                maxLines: 1,
-                                                overflow: TextOverflow.ellipsis,
-                                              ),
-                                            )),
-                                      ),
-                                      Container(
-                                          margin:
-                                              EdgeInsets.fromLTRB(10, 15, 0, 0),
-                                          child: SizedBox(
-                                            width: double.infinity,
-                                            child: Container(
-                                              margin: EdgeInsets.fromLTRB(
-                                                  8, 0, 0, 0),
-                                              child: AutoSizeText(
-                                                'มีเนื้อหาครบถ้วนตามหลักสูตรของวิชา Electrical System Design ของสภาวิศวกร ซึ่งจะใช้ในการสอบเพื่อขอใบอนุญาตประกอบวิชาชีพไฟฟ้ากำลังชั้นภาคี ตั้งแต่ปี พ.ศ. 2552',
-                                                style: TextStyle(
-                                                    fontSize: 15,
-                                                    color: Color.fromARGB(
-                                                        255, 104, 104, 104),
-                                                    fontWeight:
-                                                        FontWeight.w100),
-                                                minFontSize: 14,
-                                                maxLines: 2,
-                                                overflow: TextOverflow.ellipsis,
-                                              ),
-                                            ),
-                                          )),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 10, 0, 0),
-                                        child: SizedBox(
-                                          width: double.infinity,
-                                          child: Container(
-                                            margin:
-                                                EdgeInsets.fromLTRB(8, 0, 0, 0),
-                                            child: AutoSizeText(
-                                              'ผู้เขียน ประสิทธิ์ พิทยพัฒน์',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.w600),
-                                              minFontSize: 14,
-                                              maxLines: 1,
-                                              overflow: TextOverflow.ellipsis,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 20, 0, 0),
-                                        child: SizedBox(
-                                          width: double.infinity,
-                                          child: Container(
-                                            margin:
-                                                EdgeInsets.fromLTRB(8, 0, 0, 0),
-                                            child: AutoSizeText(
-                                              '475.00 บาท',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.w600),
-                                              minFontSize: 14,
-                                              maxLines: 1,
-                                              overflow: TextOverflow.ellipsis,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(18, 20, 0, 0),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: [
-                                            ElevatedButton.icon(
-                                                onPressed: () {},
-                                                icon: Icon(Icons.shopping_cart),
-                                                label: Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          0, 10, 0, 10),
-                                                  child: Text(
-                                                    "เพิ่มลงตะกร้า",
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        color: Colors.white,
-                                                        fontWeight:
-                                                            FontWeight.w100),
-                                                  ),
-                                                )),
-                                          ],
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                )),
-                          ],
+                                child: Image.asset("images/book.jpg",
+                                    fit: BoxFit.cover,
+                                    width: 200,
+                                    height: 210)),
+                          ),
+                        )
+                      ]),
+                      BootstrapRow(children: <BootstrapCol>[
+                        BootstrapCol(
+                          invisibleForSizes: " md sm xs",
+                          sizes: 'col-12',
+                          child: Center(
+                            child: Container(
+                                color: Colors.blue,
+
+                                // color:
+                                //     Color.fromARGB(31, 117, 117, 117),
+
+                                child: Image.asset("images/book.jpg",
+                                    fit: BoxFit.cover,
+                                    width: 200,
+                                    height: 280)),
+                          ),
+                        )
+                      ]),
+                    ],
+                  )),
+              BootstrapCol(
+                  sizes: 'col-8',
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 40),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: double.infinity,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.of(context)
+                                  .pushNamed(Click_List_Page.route);
+                            },
+                            child: AutoSizeText(
+                              'การออกแบบระบบไฟฟ้า : Electrical System Design',
+                              style: TextStyle(
+                                  fontSize: 19, fontWeight: FontWeight.w600),
+                              minFontSize: 18,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
                         ),
-                      ),
-                    )),
-                //col ใส้นอก 2
-
-                BootstrapCol(
-                    sizes: 'col-6  col-md-12',
-                    child: Container(
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                        child: BootstrapRow(
-                          children: <BootstrapCol>[
-                            BootstrapCol(
-                                //col ใส้ใน
-                                sizes: 'col-12 col-md-4',
-                                child: Container(
-                                    height: 300,
-
-                                    // color:
-                                    //     Color.fromARGB(31, 117, 117, 117),
-
-                                    child: Image.asset(
-                                      "images/book1.jpg",
-                                      fit: BoxFit.contain,
-                                    ))),
-                            BootstrapCol(
-                                //col ใส้ใน
-                                sizes: 'col-12 col-md-8',
-                                ////////////font
-                                child: Container(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 35, 0, 0),
-                                        child: SizedBox(
-                                          width: double.infinity,
-                                          child: AutoSizeText(
-                                            'การออกแบบระบบไฟฟ้า (ปวส.) (รหัสวิชา 30104-2002)',
-                                            style: TextStyle(
-                                                fontSize: 19,
-                                                fontWeight: FontWeight.w600),
-                                            minFontSize: 18,
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                          margin:
-                                              EdgeInsets.fromLTRB(10, 15, 0, 0),
-                                          child: SizedBox(
-                                            width: double.infinity,
-                                            child: AutoSizeText(
-                                              'หนังสือเล่มนี้เรียบเรียงตามจุดประสงค์รายวิชา สมรรถนะรายวิชา เเละคำอธิบายรายวิชาหลักสูตรประกาศนียบัตรวิชาชาชีพชั้นนสูง (ปวส.) พุทธศักราช 2563 ของสำนักงานคณะกรรมการการอาชีวศึกษากระทรวงศึกษาธิการ',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  color: Color.fromARGB(
-                                                      255, 104, 104, 104),
-                                                  fontWeight: FontWeight.w100),
-                                              minFontSize: 14,
-                                              maxLines: 2,
-                                              overflow: TextOverflow.ellipsis,
-                                            ),
-                                          )),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 10, 0, 0),
-                                        child: SizedBox(
-                                          width: double.infinity,
-                                          child: AutoSizeText(
-                                            'ผู้เขียน สุนทร ดอนชัย',
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.w600),
-                                            minFontSize: 14,
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 20, 0, 0),
-                                        child: SizedBox(
-                                          width: double.infinity,
-                                          child: AutoSizeText(
-                                            '250.00 บาท',
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.w600),
-                                            minFontSize: 14,
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 20, 0, 0),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: [
-                                            ElevatedButton.icon(
-                                                onPressed: () {},
-                                                icon: Icon(Icons.shopping_cart),
-                                                label: Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          0, 10, 0, 10),
-                                                  child: Text(
-                                                    "เพิ่มลงตะกร้า",
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        color: Colors.white,
-                                                        fontWeight:
-                                                            FontWeight.w100),
-                                                  ),
-                                                )),
-                                          ],
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                )), ////////////////font
-                          ],
+                        Container(
+                            margin: EdgeInsets.fromLTRB(0, 15, 0, 0),
+                            child: SizedBox(
+                              width: double.infinity,
+                              child: Container(
+                                margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                child: AutoSizeText(
+                                  'มีเนื้อหาครบถ้วนตามหลักสูตรของวิชา Electrical System Design ของสภาวิศวกร ซึ่งจะใช้ในการสอบเพื่อขอใบอนุญาตประกอบวิชาชีพไฟฟ้ากำลังชั้นภาคี ตั้งแต่ปี พ.ศ. 2552',
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Color.fromARGB(255, 104, 104, 104),
+                                      fontWeight: FontWeight.w100),
+                                  minFontSize: 14,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                            )),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: Container(
+                              margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: AutoSizeText(
+                                'ผู้เขียน ประสิทธิ์ พิทยพัฒน์',
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.w600),
+                                minFontSize: 14,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ),
                         ),
-                      ),
-                    )),
-              ],
-            ),
-          ),
-
-          ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-          //บรรทัด2
-          /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-          Container(
-            //Row ใส้นอก
-            margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-            child: BootstrapRow(
-              children: <BootstrapCol>[
-                BootstrapCol(
-                    //col ใส้นอก 1
-                    sizes: 'col-6 col-md-12',
-                    child: Container(
-                      //Row ใส้ใน
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                        child: BootstrapRow(
-                          children: <BootstrapCol>[
-                            BootstrapCol(
-                                //col ใส้ใน
-                                sizes: 'col-12 col-md-4',
-                                child: Container(
-                                    height: 300,
-
-                                    // color:
-                                    //     Color.fromARGB(31, 117, 117, 117),
-
-                                    child: Image.asset(
-                                      "images/book5.jpg",
-                                      fit: BoxFit.contain,
-                                    ))),
-                            BootstrapCol(
-                                //col ใส้ใน
-                                sizes: 'col-12 col-md-8',
-                                child: Container(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 35, 0, 0),
-                                        child: SizedBox(
-                                          width: double.infinity,
-                                          child: AutoSizeText(
-                                            'การออกแบบระบบไฟฟ้า : Electrical System Design',
-                                            style: TextStyle(
-                                                fontSize: 19,
-                                                fontWeight: FontWeight.w600),
-                                            minFontSize: 18,
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                          margin:
-                                              EdgeInsets.fromLTRB(10, 15, 0, 0),
-                                          child: SizedBox(
-                                            width: double.infinity,
-                                            child: AutoSizeText(
-                                              'มีเนื้อหาครบถ้วนตามหลักสูตรของวิชา Electrical System Design ของสภาวิศวกร ซึ่งจะใช้ในการสอบเพื่อขอใบอนุญาตประกอบวิชาชีพไฟฟ้ากำลังชั้นภาคี ตั้งแต่ปี พ.ศ. 2552',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  color: Color.fromARGB(
-                                                      255, 104, 104, 104),
-                                                  fontWeight: FontWeight.w100),
-                                              minFontSize: 14,
-                                              maxLines: 2,
-                                              overflow: TextOverflow.ellipsis,
-                                            ),
-                                          )),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 10, 0, 0),
-                                        child: SizedBox(
-                                          width: double.infinity,
-                                          child: AutoSizeText(
-                                            'ผู้เขียน ประสิทธิ์ พิทยพัฒน์',
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.w600),
-                                            minFontSize: 14,
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 20, 0, 0),
-                                        child: SizedBox(
-                                          width: double.infinity,
-                                          child: AutoSizeText(
-                                            '475.00 บาท',
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.w600),
-                                            minFontSize: 14,
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 20, 0, 0),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: [
-                                            ElevatedButton.icon(
-                                                onPressed: () {},
-                                                icon: Icon(Icons.shopping_cart),
-                                                label: Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          0, 10, 0, 10),
-                                                  child: Text(
-                                                    "เพิ่มลงตะกร้า",
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        color: Colors.white,
-                                                        fontWeight:
-                                                            FontWeight.w100),
-                                                  ),
-                                                )),
-                                          ],
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                )),
-                          ],
+                        Container(
+                          margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: Container(
+                              margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: AutoSizeText(
+                                '475.00 บาท',
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.w600),
+                                minFontSize: 14,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ),
                         ),
-                      ),
-                    )),
-                //col ใส้นอก 2
-
-                BootstrapCol(
-                    sizes: 'col-6  col-md-12',
-                    child: Container(
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                        child: BootstrapRow(
-                          children: <BootstrapCol>[
-                            BootstrapCol(
-                                //col ใส้ใน
-                                sizes: 'col-12 col-md-4',
-                                child: Container(
-                                    height: 300,
-
-                                    // color:
-                                    //     Color.fromARGB(31, 117, 117, 117),
-
-                                    child: Image.asset(
-                                      "images/book4.jpg",
-                                      fit: BoxFit.contain,
-                                    ))),
-                            BootstrapCol(
-                                //col ใส้ใน
-                                sizes: 'col-12 col-md-8',
-                                ////////////font
-                                child: Container(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 35, 0, 0),
-                                        child: SizedBox(
-                                          width: double.infinity,
-                                          child: AutoSizeText(
-                                            'การออกแบบระบบไฟฟ้า (ปวส.) (รหัสวิชา 30104-2002)',
-                                            style: TextStyle(
-                                                fontSize: 19,
-                                                fontWeight: FontWeight.w600),
-                                            minFontSize: 18,
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                        ),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Container(
+                                child: ElevatedButton.icon(
+                                    onPressed: () {},
+                                    icon: Icon(Icons.shopping_cart),
+                                    label: Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          0, 10, 0, 10),
+                                      child: Text(
+                                        "เพิ่มลงตะกร้า",
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w100),
                                       ),
-                                      Container(
-                                          margin:
-                                              EdgeInsets.fromLTRB(10, 15, 0, 0),
-                                          child: SizedBox(
-                                            width: double.infinity,
-                                            child: AutoSizeText(
-                                              'หนังสือเล่มนี้เรียบเรียงตามจุดประสงค์รายวิชา สมรรถนะรายวิชา เเละคำอธิบายรายวิชาหลักสูตรประกาศนียบัตรวิชาชาชีพชั้นนสูง (ปวส.) พุทธศักราช 2563 ของสำนักงานคณะกรรมการการอาชีวศึกษากระทรวงศึกษาธิการ',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  color: Color.fromARGB(
-                                                      255, 104, 104, 104),
-                                                  fontWeight: FontWeight.w100),
-                                              minFontSize: 14,
-                                              maxLines: 2,
-                                              overflow: TextOverflow.ellipsis,
-                                            ),
-                                          )),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 10, 0, 0),
-                                        child: SizedBox(
-                                          width: double.infinity,
-                                          child: AutoSizeText(
-                                            'ผู้เขียน สุนทร ดอนชัย',
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.w600),
-                                            minFontSize: 14,
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 20, 0, 0),
-                                        child: SizedBox(
-                                          width: double.infinity,
-                                          child: AutoSizeText(
-                                            '250.00 บาท',
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.w600),
-                                            minFontSize: 14,
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 20, 0, 0),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: [
-                                            ElevatedButton.icon(
-                                                onPressed: () {},
-                                                icon: Icon(Icons.shopping_cart),
-                                                label: Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          0, 10, 0, 10),
-                                                  child: Text(
-                                                    "เพิ่มลงตะกร้า",
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        color: Colors.white,
-                                                        fontWeight:
-                                                            FontWeight.w100),
-                                                  ),
-                                                )),
-                                          ],
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                )), ////////////////font
-                          ],
+                                    )),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  )),
+            ],
+          ),
+        ),
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///บรรทัด2
+        Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: BootstrapRow(
+            children: <BootstrapCol>[
+              BootstrapCol(
+                  sizes: 'col-4 ',
+                  child: Column(
+                    children: [
+                      BootstrapRow(children: <BootstrapCol>[
+                        BootstrapCol(
+                          invisibleForSizes: " lg xl ",
+                          sizes: 'col-12',
+                          child: Center(
+                            child: Container(
+                                color: Colors.blue,
+
+                                // color:
+                                //     Color.fromARGB(31, 117, 117, 117),
+
+                                child: Image.asset("images/book1.jpg",
+                                    fit: BoxFit.cover,
+                                    width: 200,
+                                    height: 210)),
+                          ),
+                        )
+                      ]),
+                      BootstrapRow(children: <BootstrapCol>[
+                        BootstrapCol(
+                          invisibleForSizes: " md sm xs",
+                          sizes: 'col-12',
+                          child: Center(
+                            child: Container(
+                                color: Colors.blue,
+
+                                // color:
+                                //     Color.fromARGB(31, 117, 117, 117),
+
+                                child: Image.asset("images/book1.jpg",
+                                    fit: BoxFit.cover,
+                                    width: 200,
+                                    height: 280)),
+                          ),
+                        )
+                      ]),
+                    ],
+                  )),
+              BootstrapCol(
+                  sizes: 'col-8',
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 40),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: double.infinity,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.of(context)
+                                  .pushNamed(Click_List_Page.route);
+                            },
+                            child: AutoSizeText(
+                              'การออกแบบระบบไฟฟ้า : Electrical System Design',
+                              style: TextStyle(
+                                  fontSize: 19, fontWeight: FontWeight.w600),
+                              minFontSize: 18,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
                         ),
-                      ),
-                    )),
-              ],
-            ),
-          ),
-
-          ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-          /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-          Container(
-            //บรรทัด3
-            //Row ใส้นอก
-            margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-            child: BootstrapRow(
-              children: <BootstrapCol>[
-                BootstrapCol(
-                    //col ใส้นอก 1
-                    sizes: 'col-6 col-md-12',
-                    child: Container(
-                      //Row ใส้ใน
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                        child: BootstrapRow(
-                          children: <BootstrapCol>[
-                            BootstrapCol(
-                                //col ใส้ใน
-                                sizes: 'col-12 col-md-4',
-                                child: Container(
-                                    height: 300,
-
-                                    // color:
-                                    //     Color.fromARGB(31, 117, 117, 117),
-
-                                    child: Image.asset(
-                                      "images/book2.jpg",
-                                      fit: BoxFit.contain,
-                                    ))),
-                            BootstrapCol(
-                                //col ใส้ใน
-                                sizes: 'col-12 col-md-8',
-                                child: Container(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 35, 0, 0),
-                                        child: SizedBox(
-                                          width: double.infinity,
-                                          child: AutoSizeText(
-                                            'การออกแบบระบบไฟฟ้า : Electrical System Design',
-                                            style: TextStyle(
-                                                fontSize: 19,
-                                                fontWeight: FontWeight.w600),
-                                            minFontSize: 18,
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                          margin:
-                                              EdgeInsets.fromLTRB(10, 15, 0, 0),
-                                          child: SizedBox(
-                                            width: double.infinity,
-                                            child: AutoSizeText(
-                                              'มีเนื้อหาครบถ้วนตามหลักสูตรของวิชา Electrical System Design ของสภาวิศวกร ซึ่งจะใช้ในการสอบเพื่อขอใบอนุญาตประกอบวิชาชีพไฟฟ้ากำลังชั้นภาคี ตั้งแต่ปี พ.ศ. 2552',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  color: Color.fromARGB(
-                                                      255, 104, 104, 104),
-                                                  fontWeight: FontWeight.w100),
-                                              minFontSize: 14,
-                                              maxLines: 2,
-                                              overflow: TextOverflow.ellipsis,
-                                            ),
-                                          )),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 10, 0, 0),
-                                        child: SizedBox(
-                                          width: double.infinity,
-                                          child: AutoSizeText(
-                                            'ผู้เขียน ประสิทธิ์ พิทยพัฒน์',
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.w600),
-                                            minFontSize: 14,
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 20, 0, 0),
-                                        child: SizedBox(
-                                          width: double.infinity,
-                                          child: AutoSizeText(
-                                            '475.00 บาท',
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.w600),
-                                            minFontSize: 14,
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 20, 0, 0),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: [
-                                            ElevatedButton.icon(
-                                                onPressed: () {},
-                                                icon: Icon(Icons.shopping_cart),
-                                                label: Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          0, 10, 0, 10),
-                                                  child: Text(
-                                                    "เพิ่มลงตะกร้า",
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        color: Colors.white,
-                                                        fontWeight:
-                                                            FontWeight.w100),
-                                                  ),
-                                                )),
-                                          ],
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                )),
-                          ],
+                        Container(
+                            margin: EdgeInsets.fromLTRB(0, 15, 0, 0),
+                            child: SizedBox(
+                              width: double.infinity,
+                              child: Container(
+                                margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                child: AutoSizeText(
+                                  'มีเนื้อหาครบถ้วนตามหลักสูตรของวิชา Electrical System Design ของสภาวิศวกร ซึ่งจะใช้ในการสอบเพื่อขอใบอนุญาตประกอบวิชาชีพไฟฟ้ากำลังชั้นภาคี ตั้งแต่ปี พ.ศ. 2552',
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Color.fromARGB(255, 104, 104, 104),
+                                      fontWeight: FontWeight.w100),
+                                  minFontSize: 14,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                            )),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: Container(
+                              margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: AutoSizeText(
+                                'ผู้เขียน ประสิทธิ์ พิทยพัฒน์',
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.w600),
+                                minFontSize: 14,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ),
                         ),
-                      ),
-                    )),
-                //col ใส้นอก 2
-
-                BootstrapCol(
-                    sizes: 'col-6  col-md-12',
-                    child: Container(
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                        child: BootstrapRow(
-                          children: <BootstrapCol>[
-                            BootstrapCol(
-                                //col ใส้ใน
-                                sizes: 'col-12 col-md-4',
-                                child: Container(
-                                    height: 300,
-
-                                    // color:
-                                    //     Color.fromARGB(31, 117, 117, 117),
-
-                                    child: Image.asset(
-                                      "images/book3.jpg",
-                                      fit: BoxFit.contain,
-                                    ))),
-                            BootstrapCol(
-                                //col ใส้ใน
-                                sizes: 'col-12 col-md-8',
-                                ////////////font
-                                child: Container(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 35, 0, 0),
-                                        child: SizedBox(
-                                          width: double.infinity,
-                                          child: AutoSizeText(
-                                            'การออกแบบระบบไฟฟ้า (ปวส.) (รหัสวิชา 30104-2002)',
-                                            style: TextStyle(
-                                                fontSize: 19,
-                                                fontWeight: FontWeight.w600),
-                                            minFontSize: 18,
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                          margin:
-                                              EdgeInsets.fromLTRB(10, 15, 0, 0),
-                                          child: SizedBox(
-                                            width: double.infinity,
-                                            child: AutoSizeText(
-                                              'หนังสือเล่มนี้เรียบเรียงตามจุดประสงค์รายวิชา สมรรถนะรายวิชา เเละคำอธิบายรายวิชาหลักสูตรประกาศนียบัตรวิชาชาชีพชั้นนสูง (ปวส.) พุทธศักราช 2563 ของสำนักงานคณะกรรมการการอาชีวศึกษากระทรวงศึกษาธิการ',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  color: Color.fromARGB(
-                                                      255, 104, 104, 104),
-                                                  fontWeight: FontWeight.w100),
-                                              minFontSize: 14,
-                                              maxLines: 2,
-                                              overflow: TextOverflow.ellipsis,
-                                            ),
-                                          )),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 10, 0, 0),
-                                        child: SizedBox(
-                                          width: double.infinity,
-                                          child: AutoSizeText(
-                                            'ผู้เขียน สุนทร ดอนชัย',
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.w600),
-                                            minFontSize: 14,
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 20, 0, 0),
-                                        child: SizedBox(
-                                          width: double.infinity,
-                                          child: AutoSizeText(
-                                            '250.00 บาท',
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.w600),
-                                            minFontSize: 14,
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(10, 20, 0, 0),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: [
-                                            ElevatedButton.icon(
-                                                onPressed: () {},
-                                                icon: Icon(Icons.shopping_cart),
-                                                label: Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          0, 10, 0, 10),
-                                                  child: Text(
-                                                    "เพิ่มลงตะกร้า",
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        color: Colors.white,
-                                                        fontWeight:
-                                                            FontWeight.w100),
-                                                  ),
-                                                )),
-                                          ],
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                )), ////////////////font
-                          ],
+                        Container(
+                          margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: Container(
+                              margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: AutoSizeText(
+                                '475.00 บาท',
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.w600),
+                                minFontSize: 14,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ),
                         ),
-                      ),
-                    )),
-              ],
-            ),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              ElevatedButton.icon(
+                                  onPressed: () {},
+                                  icon: Icon(Icons.shopping_cart),
+                                  label: Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                                    child: Text(
+                                      "เพิ่มลงตะกร้า",
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w100),
+                                    ),
+                                  )),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  )),
+            ],
           ),
+        ),
 
-          ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///บรรทัด3
+        Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: BootstrapRow(
+            children: <BootstrapCol>[
+              BootstrapCol(
+                  sizes: 'col-4 ',
+                  child: Column(
+                    children: [
+                      BootstrapRow(children: <BootstrapCol>[
+                        BootstrapCol(
+                          invisibleForSizes: " lg xl ",
+                          sizes: 'col-12',
+                          child: Center(
+                            child: Container(
+                                color: Colors.blue,
 
-          SizedBox(
-            height: 50,
-          ),
+                                // color:
+                                //     Color.fromARGB(31, 117, 117, 117),
 
-          Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.black12, width: 0.5),
-              borderRadius: BorderRadius.circular(0.0),
-            ),
-          ),
+                                child: Image.asset("images/book2.jpg",
+                                    fit: BoxFit.cover,
+                                    width: 200,
+                                    height: 210)),
+                          ),
+                        )
+                      ]),
+                      BootstrapRow(children: <BootstrapCol>[
+                        BootstrapCol(
+                          invisibleForSizes: " md sm xs",
+                          sizes: 'col-12',
+                          child: Center(
+                            child: Container(
+                                color: Colors.blue,
 
-          Container(
-            margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Pager(
-                  currentPage: 1,
-                  totalPages: 3,
-                  onPageChanged: (page) {},
-                ),
-              ],
-            ),
+                                // color:
+                                //     Color.fromARGB(31, 117, 117, 117),
+
+                                child: Image.asset("images/book2.jpg",
+                                    fit: BoxFit.cover,
+                                    width: 200,
+                                    height: 280)),
+                          ),
+                        )
+                      ]),
+                    ],
+                  )),
+              BootstrapCol(
+                  sizes: 'col-8',
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 40),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: double.infinity,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.of(context)
+                                  .pushNamed(Click_List_Page.route);
+                            },
+                            child: AutoSizeText(
+                              'การออกแบบระบบไฟฟ้า : Electrical System Design',
+                              style: TextStyle(
+                                  fontSize: 19, fontWeight: FontWeight.w600),
+                              minFontSize: 18,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ),
+                        Container(
+                            margin: EdgeInsets.fromLTRB(0, 15, 0, 0),
+                            child: SizedBox(
+                              width: double.infinity,
+                              child: Container(
+                                margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                child: AutoSizeText(
+                                  'มีเนื้อหาครบถ้วนตามหลักสูตรของวิชา Electrical System Design ของสภาวิศวกร ซึ่งจะใช้ในการสอบเพื่อขอใบอนุญาตประกอบวิชาชีพไฟฟ้ากำลังชั้นภาคี ตั้งแต่ปี พ.ศ. 2552',
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Color.fromARGB(255, 104, 104, 104),
+                                      fontWeight: FontWeight.w100),
+                                  minFontSize: 14,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                            )),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: Container(
+                              margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: AutoSizeText(
+                                'ผู้เขียน ประสิทธิ์ พิทยพัฒน์',
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.w600),
+                                minFontSize: 14,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: Container(
+                              margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: AutoSizeText(
+                                '475.00 บาท',
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.w600),
+                                minFontSize: 14,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              ElevatedButton.icon(
+                                  onPressed: () {},
+                                  icon: Icon(Icons.shopping_cart),
+                                  label: Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                                    child: Text(
+                                      "เพิ่มลงตะกร้า",
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w100),
+                                    ),
+                                  )),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  )),
+            ],
           ),
-          SizedBox(
-            height: 100,
+        ),
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///บรรทัด4
+        Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: BootstrapRow(
+            children: <BootstrapCol>[
+              BootstrapCol(
+                  sizes: 'col-4 ',
+                  child: Column(
+                    children: [
+                      BootstrapRow(children: <BootstrapCol>[
+                        BootstrapCol(
+                          invisibleForSizes: " lg xl ",
+                          sizes: 'col-12',
+                          child: Center(
+                            child: Container(
+                                color: Colors.blue,
+
+                                // color:
+                                //     Color.fromARGB(31, 117, 117, 117),
+
+                                child: Image.asset("images/book3.jpg",
+                                    fit: BoxFit.cover,
+                                    width: 200,
+                                    height: 210)),
+                          ),
+                        )
+                      ]),
+                      BootstrapRow(children: <BootstrapCol>[
+                        BootstrapCol(
+                          invisibleForSizes: " md sm xs",
+                          sizes: 'col-12',
+                          child: Center(
+                            child: Container(
+                                color: Colors.blue,
+
+                                // color:
+                                //     Color.fromARGB(31, 117, 117, 117),
+
+                                child: Image.asset("images/book3.jpg",
+                                    fit: BoxFit.cover,
+                                    width: 200,
+                                    height: 280)),
+                          ),
+                        )
+                      ]),
+                    ],
+                  )),
+              BootstrapCol(
+                  sizes: 'col-8',
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 40),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: double.infinity,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.of(context)
+                                  .pushNamed(Click_List_Page.route);
+                            },
+                            child: AutoSizeText(
+                              'การออกแบบระบบไฟฟ้า : Electrical System Design',
+                              style: TextStyle(
+                                  fontSize: 19, fontWeight: FontWeight.w600),
+                              minFontSize: 18,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ),
+                        Container(
+                            margin: EdgeInsets.fromLTRB(0, 15, 0, 0),
+                            child: SizedBox(
+                              width: double.infinity,
+                              child: Container(
+                                margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                child: AutoSizeText(
+                                  'มีเนื้อหาครบถ้วนตามหลักสูตรของวิชา Electrical System Design ของสภาวิศวกร ซึ่งจะใช้ในการสอบเพื่อขอใบอนุญาตประกอบวิชาชีพไฟฟ้ากำลังชั้นภาคี ตั้งแต่ปี พ.ศ. 2552',
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Color.fromARGB(255, 104, 104, 104),
+                                      fontWeight: FontWeight.w100),
+                                  minFontSize: 14,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                            )),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: Container(
+                              margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: AutoSizeText(
+                                'ผู้เขียน ประสิทธิ์ พิทยพัฒน์',
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.w600),
+                                minFontSize: 14,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: Container(
+                              margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: AutoSizeText(
+                                '475.00 บาท',
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.w600),
+                                minFontSize: 14,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              ElevatedButton.icon(
+                                  onPressed: () {},
+                                  icon: Icon(Icons.shopping_cart),
+                                  label: Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                                    child: Text(
+                                      "เพิ่มลงตะกร้า",
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w100),
+                                    ),
+                                  )),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  )),
+            ],
           ),
-        ],
-      ),
+        ),
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///บรรทัด5
+        Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: BootstrapRow(
+            children: <BootstrapCol>[
+              BootstrapCol(
+                  sizes: 'col-4 ',
+                  child: Column(
+                    children: [
+                      BootstrapRow(children: <BootstrapCol>[
+                        BootstrapCol(
+                          invisibleForSizes: " lg xl ",
+                          sizes: 'col-12',
+                          child: Center(
+                            child: Container(
+                                color: Colors.blue,
+
+                                // color:
+                                //     Color.fromARGB(31, 117, 117, 117),
+
+                                child: Image.asset("images/book4.jpg",
+                                    fit: BoxFit.cover,
+                                    width: 200,
+                                    height: 210)),
+                          ),
+                        )
+                      ]),
+                      BootstrapRow(children: <BootstrapCol>[
+                        BootstrapCol(
+                          invisibleForSizes: " md sm xs",
+                          sizes: 'col-12',
+                          child: Center(
+                            child: Container(
+                                color: Colors.blue,
+
+                                // color:
+                                //     Color.fromARGB(31, 117, 117, 117),
+
+                                child: Image.asset("images/book4.jpg",
+                                    fit: BoxFit.cover,
+                                    width: 200,
+                                    height: 280)),
+                          ),
+                        )
+                      ]),
+                    ],
+                  )),
+              BootstrapCol(
+                  sizes: 'col-8',
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 40),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: double.infinity,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.of(context)
+                                  .pushNamed(Click_List_Page.route);
+                            },
+                            child: AutoSizeText(
+                              'การออกแบบระบบไฟฟ้า : Electrical System Design',
+                              style: TextStyle(
+                                  fontSize: 19, fontWeight: FontWeight.w600),
+                              minFontSize: 18,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ),
+                        Container(
+                            margin: EdgeInsets.fromLTRB(0, 15, 0, 0),
+                            child: SizedBox(
+                              width: double.infinity,
+                              child: Container(
+                                margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                child: AutoSizeText(
+                                  'มีเนื้อหาครบถ้วนตามหลักสูตรของวิชา Electrical System Design ของสภาวิศวกร ซึ่งจะใช้ในการสอบเพื่อขอใบอนุญาตประกอบวิชาชีพไฟฟ้ากำลังชั้นภาคี ตั้งแต่ปี พ.ศ. 2552',
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Color.fromARGB(255, 104, 104, 104),
+                                      fontWeight: FontWeight.w100),
+                                  minFontSize: 14,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                            )),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: Container(
+                              margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: AutoSizeText(
+                                'ผู้เขียน ประสิทธิ์ พิทยพัฒน์',
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.w600),
+                                minFontSize: 14,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: Container(
+                              margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: AutoSizeText(
+                                '475.00 บาท',
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.w600),
+                                minFontSize: 14,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              ElevatedButton.icon(
+                                  onPressed: () {},
+                                  icon: Icon(Icons.shopping_cart),
+                                  label: Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                                    child: Text(
+                                      "เพิ่มลงตะกร้า",
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w100),
+                                    ),
+                                  )),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  )),
+            ],
+          ),
+        ),
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///บรรทัด6
+        Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: BootstrapRow(
+            children: <BootstrapCol>[
+              BootstrapCol(
+                  sizes: 'col-4 ',
+                  child: Column(
+                    children: [
+                      BootstrapRow(children: <BootstrapCol>[
+                        BootstrapCol(
+                          invisibleForSizes: " lg xl ",
+                          sizes: 'col-12',
+                          child: Center(
+                            child: Container(
+                                color: Colors.blue,
+
+                                // color:
+                                //     Color.fromARGB(31, 117, 117, 117),
+
+                                child: Image.asset("images/book5.jpg",
+                                    fit: BoxFit.cover,
+                                    width: 200,
+                                    height: 210)),
+                          ),
+                        )
+                      ]),
+                      BootstrapRow(children: <BootstrapCol>[
+                        BootstrapCol(
+                          invisibleForSizes: " md sm xs",
+                          sizes: 'col-12',
+                          child: Center(
+                            child: Container(
+                                color: Colors.blue,
+
+                                // color:
+                                //     Color.fromARGB(31, 117, 117, 117),
+
+                                child: Image.asset("images/book5.jpg",
+                                    fit: BoxFit.cover,
+                                    width: 200,
+                                    height: 280)),
+                          ),
+                        )
+                      ]),
+                    ],
+                  )),
+              BootstrapCol(
+                  sizes: 'col-8',
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 40),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: double.infinity,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.of(context)
+                                  .pushNamed(Click_List_Page.route);
+                            },
+                            child: AutoSizeText(
+                              'การออกแบบระบบไฟฟ้า : Electrical System Design',
+                              style: TextStyle(
+                                  fontSize: 19, fontWeight: FontWeight.w600),
+                              minFontSize: 18,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ),
+                        Container(
+                            margin: EdgeInsets.fromLTRB(0, 15, 0, 0),
+                            child: SizedBox(
+                              width: double.infinity,
+                              child: Container(
+                                margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                child: AutoSizeText(
+                                  'มีเนื้อหาครบถ้วนตามหลักสูตรของวิชา Electrical System Design ของสภาวิศวกร ซึ่งจะใช้ในการสอบเพื่อขอใบอนุญาตประกอบวิชาชีพไฟฟ้ากำลังชั้นภาคี ตั้งแต่ปี พ.ศ. 2552',
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Color.fromARGB(255, 104, 104, 104),
+                                      fontWeight: FontWeight.w100),
+                                  minFontSize: 14,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                            )),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: Container(
+                              margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: AutoSizeText(
+                                'ผู้เขียน ประสิทธิ์ พิทยพัฒน์',
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.w600),
+                                minFontSize: 14,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: Container(
+                              margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: AutoSizeText(
+                                '475.00 บาท',
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.w600),
+                                minFontSize: 14,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              ElevatedButton.icon(
+                                  onPressed: () {},
+                                  icon: Icon(Icons.shopping_cart),
+                                  label: Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                                    child: Text(
+                                      "เพิ่มลงตะกร้า",
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w100),
+                                    ),
+                                  )),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  )),
+            ],
+          ),
+        ),
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        SizedBox(
+          height: 50,
+        ),
+
+        Container(
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.black12, width: 0.5),
+            borderRadius: BorderRadius.circular(0.0),
+          ),
+        ),
+
+        Container(
+          margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Pager(
+                currentPage: 1,
+                totalPages: 3,
+                onPageChanged: (page) {},
+              ),
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 100,
+        ),
+      ],
     );
   }
 }

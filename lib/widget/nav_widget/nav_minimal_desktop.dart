@@ -26,14 +26,35 @@ Widget minimal_desktop(BuildContext context) {
                 BootstrapCol(
                     sizes: 'col-3 ',
                     // ignore: prefer_const_constructors
-                    child: Text("1")),
+                    child: Container(
+                    height: 80,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Row(
+                        children: [
+                          Container(
+                              // ignore: deprecated_member_use
+                              child: InkWell(
+                            onTap: () {
+                             
+                            },
+                            child: Icon(
+                              Icons.menu,
+                              size: 35,
+                              color: Colors.white,
+                            ),
+                          )),
+                        ],
+                      ),
+                    ),
+                  ),),
                 BootstrapCol(
                   sizes: 'col-9',
                   // ignore: prefer_const_constructors
                   child:
                       // ignore: sized_box_for_whitespace
                       Container(
-                    height: 100,
+                    height: 80,
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                       child: Row(

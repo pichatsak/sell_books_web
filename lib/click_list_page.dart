@@ -40,7 +40,7 @@ class _Click_List_PageState extends State<Click_List_Page> {
             fluid: false,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(top: 35,left: 30,right: 30),
+                padding: const EdgeInsets.only(top: 35, left: 30, right: 30),
                 child: BootstrapRow(
                   children: <BootstrapCol>[
                     BootstrapCol(
@@ -132,6 +132,27 @@ class _Click_List_PageState extends State<Click_List_Page> {
                                   ),
                                 ),
                                 Container(
+                                  margin: EdgeInsets.fromLTRB(10, 20, 0, 0),
+                                  child: SizedBox(
+                                    width: double.infinity,
+                                    child: Container(
+                                      margin: EdgeInsets.fromLTRB(8, 0, 0, 0),
+                                      child: AutoSizeText(
+                                        'คงเหลือ : 10 เล่ม',
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w100,
+                                          color: Color.fromARGB(
+                                              255, 104, 104, 104),
+                                        ),
+                                        minFontSize: 14,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Container(
                                   margin: EdgeInsets.fromLTRB(18, 20, 0, 0),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -183,7 +204,7 @@ class _Click_List_PageState extends State<Click_List_Page> {
                               SizedBox(
                                 width: double.infinity,
                                 child: AutoSizeText(
-                                  'เนื้อหาโดยสังเขป',
+                                  'คำนำ',
                                   style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.w600),

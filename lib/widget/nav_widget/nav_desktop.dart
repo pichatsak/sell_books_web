@@ -23,7 +23,27 @@ Widget desktopView(BuildContext context) {
                 BootstrapCol(
                     sizes: 'col-3 ',
                     // ignore: prefer_const_constructors
-                    child: Text("1")),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(right: 40),
+                              child: Container(
+                                height: 80,
+                                child: Image.asset(
+                                  "images/logo1.png",
+                                  width: 70,
+                                  height: 50,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    )),
                 BootstrapCol(
                   sizes: 'col-5 ',
                   // ignore: sized_box_for_whitespace
