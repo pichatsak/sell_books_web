@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
+import 'package:sell_books_web/contact_us.dart';
+import 'package:sell_books_web/homepage.dart';
 
 class NavDrawer extends StatefulWidget {
   NavDrawer({Key? key}) : super(key: key);
@@ -175,17 +177,17 @@ class _NavDrawerState extends State<NavDrawer> {
   void selectedItem(BuildContext context, int index) {
     Navigator.of(context).pop();
 
-    // switch (index) {
-    //   case 0:
-    //     Navigator.of(context).push(MaterialPageRoute(
-    //       builder: (context) => PeoplePage(),
-    //     ));
-    //     break;
-    //   case 1:
-    //     Navigator.of(context).push(MaterialPageRoute(
-    //       builder: (context) => FavouritesPage(),
-    //     ));
-    //     break;
-    // }
+    switch (index) {
+      case 0:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => Homepage(),
+        ));
+        break;
+      case 2:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => Contact_US(),
+        ));
+        break;
+    }
   }
 }

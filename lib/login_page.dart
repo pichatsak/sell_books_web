@@ -1,14 +1,14 @@
 // ignore_for_file: avoid_unnecessary_containers, unused_local_variable, camel_case_types, implementation_imports, unnecessary_import, prefer_const_constructors, sort_child_properties_last, unnecessary_new
 
-import 'dart:html';
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:sell_books_web/widget/nav_widget/drawers.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_desktop.dart';
+import 'package:sell_books_web/widget/nav_widget/nav_main.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_minimal_desktop.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_mobile.dart';
 
@@ -26,21 +26,13 @@ class _Login_PageState extends State<Login_Page> {
     var color = Colors.transparent;
     return Scaffold(
       backgroundColor: Color.fromRGBO(238, 238, 238, 1),
+      drawer: NavDrawer(),
       body: SingleChildScrollView(
         child: Container(
           child: Column(
             children: [
               //NAV_START
-              LayoutBuilder(builder: (context, constraints) {
-                if (constraints.maxWidth > 1150) {
-                  return desktopView(context);
-                } else if (constraints.maxWidth >= 780 &&
-                    constraints.maxWidth <= 1150) {
-                  return minimal_desktop(context);
-                } else {
-                  return mobileView(context);
-                }
-              }),
+              NavMainScreen(),
               //NAV_END
               //BODY_START
               Container(
@@ -98,6 +90,7 @@ class _Login_PageState extends State<Login_Page> {
                                 child: Container(
                                   margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                                   child: TextFormField(
+                                    keyboardType: TextInputType.emailAddress,
                                     cursorColor: Colors.black,
                                     style: TextStyle(color: Colors.black),
                                     decoration: InputDecoration(
@@ -119,18 +112,19 @@ class _Login_PageState extends State<Login_Page> {
                                             EdgeInsets.fromLTRB(20, 0, 15, 0),
                                         child: Icon(
                                           Icons.alternate_email,
-                                          color: Color.fromARGB(221, 22, 22, 22),
+                                          color:
+                                              Color.fromARGB(221, 22, 22, 22),
                                         ),
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
-                                            color: Colors.black26, width: 0),
+                                            color: Colors.black12, width: 1),
                                         borderRadius:
                                             BorderRadius.circular(30.0),
                                       ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
-                                            color: Colors.black26, width: 0),
+                                            color: Colors.black12, width: 1),
                                         borderRadius: BorderRadius.circular(30),
                                       ),
                                     ),
@@ -145,6 +139,7 @@ class _Login_PageState extends State<Login_Page> {
                                 child: Container(
                                   margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                                   child: TextFormField(
+                                    obscureText: true,
                                     cursorColor: Colors.black,
                                     style: TextStyle(color: Colors.black),
                                     decoration: InputDecoration(
@@ -170,13 +165,13 @@ class _Login_PageState extends State<Login_Page> {
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
-                                            color: Colors.black26, width: 0),
+                                            color: Colors.black12, width: 1),
                                         borderRadius:
                                             BorderRadius.circular(30.0),
                                       ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
-                                            color: Colors.black26, width: 0),
+                                            color: Colors.black12, width: 1),
                                         borderRadius: BorderRadius.circular(30),
                                       ),
                                     ),

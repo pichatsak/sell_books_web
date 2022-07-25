@@ -1,14 +1,12 @@
 // ignore_for_file: unnecessary_const, deprecated_member_use, unused_local_variable, avoid_unnecessary_containers, prefer_const_constructors, duplicate_ignore, sized_box_for_whitespace
-import 'dart:html';
-import 'dart:ui';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
 import 'package:pager/pager.dart';
-import 'dart:convert' show utf8;
 import 'package:sell_books_web/button_dropdown/category_mobile.dart';
 import 'package:sell_books_web/click_list_page.dart';
+import 'package:sell_books_web/reset_passowrd.dart';
 import 'package:sell_books_web/widget/nav_widget/drawers.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_desktop.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_main.dart';
@@ -52,7 +50,7 @@ class _HomepageState extends State<Homepage> {
                       children: <Widget>[
                         BootstrapRow(children: <BootstrapCol>[
                           BootstrapCol(
-                              invisibleForSizes: "sm xs",
+                              invisibleForSizes: "sm xs ",
                               sizes: 'col-3',
                               child: Padding(
                                 padding:
@@ -114,26 +112,19 @@ class _HomepageState extends State<Homepage> {
                                                 left: 10, right: 10),
                                             child: Column(
                                               children: [
-                                                InkWell(
-                                                  onTap: (() {}),
-                                                  highlightColor: color,
-                                                  splashColor: color,
-                                                  hoverColor: color,
-                                                  // ignore: sized_box_for_whitespace
-                                                  child: Container(
-                                                      height: 55,
-                                                      child: Column(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          // ignore: prefer_const_literals_to_create_immutables
-                                                          children: [
-                                                            // ignore: prefer_const_constructors
+                                                Container(
+                                                    height: 55,
+                                                    child: Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        // ignore: prefer_const_literals_to_create_immutables
+                                                        children: [
+                                                          // ignore: prefer_const_constructors
 
-                                                            ListTile(
-                                                                title: SizedBox(
-                                                              width: double
-                                                                  .infinity,
+                                                          ListTile(
+                                                            title: InkWell(
+                                                              onTap: () {},
                                                               child: Text(
                                                                 textAlign:
                                                                     TextAlign
@@ -148,46 +139,9 @@ class _HomepageState extends State<Homepage> {
                                                                     fontSize:
                                                                         14),
                                                               ),
-                                                            )),
-                                                          ])),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          15, 0, 15, 0),
-                                                  child: Container(
-                                                    height: 1,
-                                                    color: Colors.black12,
-                                                  ),
-                                                ),
-                                                InkWell(
-                                                  onTap: (() {}),
-                                                  highlightColor: color,
-                                                  splashColor: color,
-                                                  hoverColor: color,
-                                                  // ignore: sized_box_for_whitespace
-                                                  child: Container(
-                                                      height: 55,
-                                                      child: Center(
-                                                        child: ListTile(
-                                                            title: SizedBox(
-                                                          width:
-                                                              double.infinity,
-                                                          child: Text(
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                            'ดาราศาสตร์',
-                                                            maxLines: 1,
-                                                            overflow:
-                                                                TextOverflow
-                                                                    .ellipsis,
-                                                            softWrap: true,
-                                                            style: TextStyle(
-                                                                fontSize: 14),
+                                                            ),
                                                           ),
-                                                        )),
-                                                      )),
-                                                ),
+                                                        ])),
                                                 Padding(
                                                   padding:
                                                       const EdgeInsets.fromLTRB(
@@ -197,33 +151,36 @@ class _HomepageState extends State<Homepage> {
                                                     color: Colors.black12,
                                                   ),
                                                 ),
-                                                InkWell(
-                                                  onTap: (() {}),
-                                                  highlightColor: color,
-                                                  splashColor: color,
-                                                  hoverColor: color,
-                                                  // ignore: sized_box_for_whitespace
-                                                  child: Container(
+                                                Container(
                                                     height: 55,
-                                                    child: Center(
-                                                      child: ListTile(
-                                                          title: SizedBox(
-                                                        width: double.infinity,
-                                                        child: Text(
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          'วิทยาศาสตร์',
-                                                          maxLines: 1,
-                                                          overflow: TextOverflow
-                                                              .ellipsis,
-                                                          softWrap: true,
-                                                          style: TextStyle(
-                                                              fontSize: 14),
-                                                        ),
-                                                      )),
-                                                    ),
-                                                  ),
-                                                ),
+                                                    child: Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        // ignore: prefer_const_literals_to_create_immutables
+                                                        children: [
+                                                          // ignore: prefer_const_constructors
+
+                                                          ListTile(
+                                                            title: InkWell(
+                                                              onTap: () {},
+                                                              child: Text(
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
+                                                                'ดาราศาสตร์',
+                                                                maxLines: 1,
+                                                                overflow:
+                                                                    TextOverflow
+                                                                        .ellipsis,
+                                                                softWrap: true,
+                                                                style: TextStyle(
+                                                                    fontSize:
+                                                                        14),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ])),
                                                 Padding(
                                                   padding:
                                                       const EdgeInsets.fromLTRB(
@@ -233,25 +190,58 @@ class _HomepageState extends State<Homepage> {
                                                     color: Colors.black12,
                                                   ),
                                                 ),
-                                                InkWell(
-                                                  onTap: (() {}),
-                                                  highlightColor: color,
-                                                  splashColor: color,
-                                                  hoverColor: color,
-                                                  // ignore: sized_box_for_whitespace
+                                                Container(
+                                                    height: 55,
+                                                    child: Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        // ignore: prefer_const_literals_to_create_immutables
+                                                        children: [
+                                                          // ignore: prefer_const_constructors
+
+                                                          ListTile(
+                                                            title: InkWell(
+                                                              onTap: () {},
+                                                              child: Text(
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
+                                                                'วิทยาศาสตร์',
+                                                                maxLines: 1,
+                                                                overflow:
+                                                                    TextOverflow
+                                                                        .ellipsis,
+                                                                softWrap: true,
+                                                                style: TextStyle(
+                                                                    fontSize:
+                                                                        14),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ])),
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.fromLTRB(
+                                                          15, 0, 15, 0),
                                                   child: Container(
-                                                      height: 55,
-                                                      child: Column(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          // ignore: prefer_const_literals_to_create_immutables
-                                                          children: [
-                                                            // ignore: prefer_const_constructors
-                                                            ListTile(
-                                                                title: SizedBox(
-                                                              width: double
-                                                                  .infinity,
+                                                    height: 1,
+                                                    color: Colors.black12,
+                                                  ),
+                                                ),
+                                                Container(
+                                                    height: 55,
+                                                    child: Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        // ignore: prefer_const_literals_to_create_immutables
+                                                        children: [
+                                                          // ignore: prefer_const_constructors
+
+                                                          ListTile(
+                                                            title: InkWell(
+                                                              onTap: () {},
                                                               child: Text(
                                                                 textAlign:
                                                                     TextAlign
@@ -266,9 +256,9 @@ class _HomepageState extends State<Homepage> {
                                                                     fontSize:
                                                                         14),
                                                               ),
-                                                            )),
-                                                          ])),
-                                                ),
+                                                            ),
+                                                          ),
+                                                        ])),
                                               ],
                                             ),
                                           ),
@@ -405,12 +395,13 @@ class _HomepageState extends State<Homepage> {
                                                       //     'Trailing expansion arrow icon'),
                                                       children: <Widget>[
                                                         ListTile(
-                                                            title: Text(
-                                                          'ออกแบบระบบไฟฟ้า',
-                                                          style: TextStyle(
-                                                              color:
-                                                                  Colors.white),
-                                                        )),
+                                                          title: Text(
+                                                            'ออกแบบระบบไฟฟ้า',
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .white),
+                                                          ),
+                                                        ),
                                                         ListTile(
                                                             title: Text(
                                                           'ดาราศาสตร์',
@@ -573,8 +564,14 @@ class _HomepageState extends State<Homepage> {
                       padding:
                           const EdgeInsets.only(top: 20, left: 10, right: 10),
                       child: Container(
-                          child: Image.asset("images/book.jpg",
-                              fit: BoxFit.cover, width: 200, height: 280)),
+                          child: InkWell(
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushNamed(Click_List_Page.route);
+                        },
+                        child: Image.asset("images/book.jpg",
+                            fit: BoxFit.cover, width: 200, height: 280),
+                      )),
                     ),
                   ),
                   Padding(
@@ -1224,15 +1221,18 @@ class _HomepageState extends State<Homepage> {
                           sizes: 'col-12',
                           child: Center(
                             child: Container(
-                                color: Colors.blue,
 
                                 // color:
                                 //     Color.fromARGB(31, 117, 117, 117),
 
-                                child: Image.asset("images/book.jpg",
-                                    fit: BoxFit.cover,
-                                    width: 200,
-                                    height: 210)),
+                                child: InkWell(
+                              onTap: () {
+                                Navigator.of(context)
+                                    .pushNamed(Click_List_Page.route);
+                              },
+                              child: Image.asset("images/book.jpg",
+                                  fit: BoxFit.cover, width: 200, height: 210),
+                            )),
                           ),
                         )
                       ]),
@@ -1242,15 +1242,18 @@ class _HomepageState extends State<Homepage> {
                           sizes: 'col-12',
                           child: Center(
                             child: Container(
-                                color: Colors.blue,
 
                                 // color:
                                 //     Color.fromARGB(31, 117, 117, 117),
 
-                                child: Image.asset("images/book.jpg",
-                                    fit: BoxFit.cover,
-                                    width: 200,
-                                    height: 280)),
+                                child: InkWell(
+                              onTap: () {
+                                Navigator.of(context)
+                                    .pushNamed(Click_List_Page.route);
+                              },
+                              child: Image.asset("images/book.jpg",
+                                  fit: BoxFit.cover, width: 200, height: 280),
+                            )),
                           ),
                         )
                       ]),

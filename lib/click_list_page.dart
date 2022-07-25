@@ -44,17 +44,19 @@ class _Click_List_PageState extends State<Click_List_Page> {
                 child: BootstrapRow(
                   children: <BootstrapCol>[
                     BootstrapCol(
-                      sizes: 'col-12 col-md-4',
-                      child: Container(
-                        height: 300,
-                        child: Image.asset(
-                          "images/book.jpg",
-                          fit: BoxFit.contain,
+                      sizes: 'col-12  col-md-12 col-lg-4',
+                      child: Center(
+                        child: Container(
+                          height: 300,
+                          child: Image.asset(
+                            "images/book.jpg",
+                            fit: BoxFit.cover,width: 220,height: 230,
+                          ),
                         ),
                       ),
                     ),
                     BootstrapCol(
-                        sizes: 'col-12 col-md-8',
+                        sizes: 'col-12 col-md-12 col-lg-8',
                         child: Container(
                           child: Container(
                             child: Column(
@@ -71,7 +73,7 @@ class _Click_List_PageState extends State<Click_List_Page> {
                                           fontSize: 19,
                                           fontWeight: FontWeight.w600),
                                       minFontSize: 18,
-                                      maxLines: 1,
+                                      maxLines: 2,
                                       overflow: TextOverflow.ellipsis,
                                     ),
                                   ),

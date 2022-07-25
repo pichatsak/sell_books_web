@@ -3,8 +3,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
+import 'package:sell_books_web/account.dart';
 import 'package:sell_books_web/login_page.dart';
 import 'package:sell_books_web/registor_page.dart';
+import 'package:sell_books_web/shop_list_page.dart';
 
 // ignore: non_constant_identifier_names
 Widget minimal_desktop(BuildContext context) {
@@ -24,9 +26,9 @@ Widget minimal_desktop(BuildContext context) {
               height: 0,
               children: <BootstrapCol>[
                 BootstrapCol(
-                    sizes: 'col-3 ',
-                    // ignore: prefer_const_constructors
-                    child: Container(
+                  sizes: 'col-3 ',
+                  // ignore: prefer_const_constructors
+                  child: Container(
                     height: 80,
                     child: Padding(
                       padding: const EdgeInsets.only(left: 20),
@@ -35,9 +37,7 @@ Widget minimal_desktop(BuildContext context) {
                           Container(
                               // ignore: deprecated_member_use
                               child: InkWell(
-                            onTap: () {
-                             
-                            },
+                            onTap: () { Scaffold.of(context).openDrawer();},
                             child: Icon(
                               Icons.menu,
                               size: 35,
@@ -47,7 +47,8 @@ Widget minimal_desktop(BuildContext context) {
                         ],
                       ),
                     ),
-                  ),),
+                  ),
+                ),
                 BootstrapCol(
                   sizes: 'col-9',
                   // ignore: prefer_const_constructors
@@ -67,14 +68,19 @@ Widget minimal_desktop(BuildContext context) {
                                 // ignore: sort_child_properties_last, prefer_const_constructors
                                 Row(
                               children: [
-                                Container(
-                                    margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
-                                    // ignore: prefer_const_constructors
-                                    child: Icon(
-                                      Icons.account_circle_sharp,
-                                      size: 55,
-                                      color: Colors.white,
-                                    )),
+                                InkWell(onTap: () {
+                                  Navigator.of(context)
+                                        .pushNamed(Account.route);
+                                },
+                                  child: Container(
+                                      margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                                      // ignore: prefer_const_constructors
+                                      child: Icon(
+                                        Icons.account_circle_sharp,
+                                        size: 55,
+                                        color: Colors.white,
+                                      )),
+                                ),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -197,7 +203,10 @@ Widget minimal_desktop(BuildContext context) {
                             margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
                             // ignore: deprecated_member_use
                             child: FlatButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.of(context)
+                                    .pushNamed(Shop_List_Page.route);
+                              },
                               highlightColor: color,
                               splashColor: color,
                               hoverColor: color,

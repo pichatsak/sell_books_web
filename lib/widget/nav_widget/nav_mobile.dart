@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, duplicate_ignore, sized_box_for_whitespace, avoid_unnecessary_containers, unnecessary_new
 
-import 'dart:js';
+
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
@@ -65,7 +65,9 @@ Widget mobileView(BuildContext context) {
                                   Container(
                                     // ignore: deprecated_member_use
                                     child: FlatButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        
+                                      },
                                       highlightColor: color,
                                       splashColor: color,
                                       hoverColor: color,

@@ -3,9 +3,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
+import 'package:sell_books_web/account.dart';
+import 'package:sell_books_web/contact_us.dart';
 import 'package:sell_books_web/homepage.dart';
 import 'package:sell_books_web/login_page.dart';
 import 'package:sell_books_web/registor_page.dart';
+import 'package:sell_books_web/shop_list_page.dart';
 
 Widget desktopView(BuildContext context) {
   var color = Colors.transparent;
@@ -92,7 +95,9 @@ Widget desktopView(BuildContext context) {
                       ),
                       // ignore: deprecated_member_use
                       FlatButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).pushNamed(Contact_US.route);
+                          },
                           highlightColor: color,
                           splashColor: color,
                           hoverColor: color,
@@ -146,14 +151,20 @@ Widget desktopView(BuildContext context) {
                             // ignore: sort_child_properties_last, prefer_const_constructors
                             child: Row(
                               children: [
-                                Container(
-                                    margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
-                                    // ignore: prefer_const_constructors
-                                    child: Icon(
-                                      Icons.account_circle_sharp,
-                                      size: 55,
-                                      color: Colors.white,
-                                    )),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.of(context)
+                                        .pushNamed(Account.route);
+                                  },
+                                  child: Container(
+                                      margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                                      // ignore: prefer_const_constructors
+                                      child: Icon(
+                                        Icons.account_circle_sharp,
+                                        size: 55,
+                                        color: Colors.white,
+                                      )),
+                                ),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -276,7 +287,10 @@ Widget desktopView(BuildContext context) {
                             margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                             // ignore: deprecated_member_use
                             child: FlatButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.of(context)
+                                    .pushNamed(Shop_List_Page.route);
+                              },
                               highlightColor: color,
                               splashColor: color,
                               hoverColor: color,

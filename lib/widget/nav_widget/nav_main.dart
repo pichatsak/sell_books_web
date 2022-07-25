@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
+import 'package:sell_books_web/account.dart';
+import 'package:sell_books_web/shop_list_page.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_desktop.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_minimal_desktop.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_mobile.dart';
@@ -35,26 +37,30 @@ class _NavMainScreenState extends State<NavMainScreen> {
             padding: const EdgeInsets.only(top: 0),
             children: <Widget>[
           Container(
+              // ignore: prefer_const_constructors
               decoration: BoxDecoration(
+                // ignore: prefer_const_constructors
                 color: Color.fromRGBO(65, 176, 231, 1),
               ),
               child: BootstrapRow(
                 children: <BootstrapCol>[
                   BootstrapCol(
                     sizes: 'col-3 ',
-                    // ignore: prefer_const_constructors
+                    // ignore: prefer_const_constructors, sized_box_for_whitespace
                     child: Container(
                       height: 80,
                       child: Padding(
                         padding: const EdgeInsets.only(left: 20),
                         child: Row(
                           children: [
+                            // ignore: avoid_unnecessary_containers
                             Container(
                                 // ignore: deprecated_member_use
                                 child: InkWell(
                               onTap: () {
                                 Scaffold.of(context).openDrawer();
                               },
+                              // ignore: prefer_const_constructors
                               child: Icon(
                                 Icons.menu,
                                 size: 35,
@@ -80,7 +86,10 @@ class _NavMainScreenState extends State<NavMainScreen> {
                                     Container(
                                       // ignore: deprecated_member_use
                                       child: FlatButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.of(context)
+                                              .pushNamed(Account.route);
+                                        },
                                         highlightColor: color,
                                         splashColor: color,
                                         hoverColor: color,
@@ -89,6 +98,7 @@ class _NavMainScreenState extends State<NavMainScreen> {
                                         child: Row(
                                           children: [
                                             Container(
+                                                // ignore: prefer_const_constructors
                                                 margin: EdgeInsets.fromLTRB(
                                                     0, 0, 0, 0),
                                                 // ignore: prefer_const_constructors
@@ -124,6 +134,7 @@ class _NavMainScreenState extends State<NavMainScreen> {
                                               MainAxisAlignment.end,
                                           children: [
                                             Container(
+                                              // ignore: prefer_const_constructors
                                               margin: EdgeInsets.fromLTRB(
                                                   10, 0, 0, 0),
                                               child: Row(
@@ -149,6 +160,7 @@ class _NavMainScreenState extends State<NavMainScreen> {
                                                       Container(
                                                         // ignore: prefer_const_constructors
                                                         margin:
+                                                            // ignore: prefer_const_constructors
                                                             EdgeInsets.fromLTRB(
                                                                 0, 0, 0, 0),
                                                         // ignore: prefer_const_constructors
@@ -172,11 +184,16 @@ class _NavMainScreenState extends State<NavMainScreen> {
                                             Container(
                                               width: 60,
                                               height: 40,
+                                              // ignore: prefer_const_constructors
                                               margin: EdgeInsets.fromLTRB(
                                                   0, 0, 20, 0),
                                               // ignore: deprecated_member_use
                                               child: FlatButton(
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  Navigator.of(context)
+                                                      .pushNamed(
+                                                          Shop_List_Page.route);
+                                                },
                                                 highlightColor: color,
                                                 splashColor: color,
                                                 hoverColor: color,
@@ -185,6 +202,7 @@ class _NavMainScreenState extends State<NavMainScreen> {
                                                 // ignore: unnecessary_new
                                                 child: new Stack(
                                                     children: <Widget>[
+                                                      // ignore: prefer_const_constructors
                                                       Icon(
                                                         Icons.shopping_cart,
                                                         size: 40,
@@ -198,6 +216,14 @@ class _NavMainScreenState extends State<NavMainScreen> {
                                                           child: new Stack(
                                                               children: <
                                                                   Widget>[
+                                                                // ignore: prefer_const_constructors
+                                                                // ignore: unnecessary_new
+                                                                // ignore: prefer_const_constructors
+                                                                // ignore: unnecessary_new
+                                                                // ignore: prefer_const_constructors
+                                                                // ignore: unnecessary_new
+                                                                // ignore: prefer_const_constructors
+                                                                // ignore: unnecessary_new
                                                                 new Icon(
                                                                   Icons
                                                                       .brightness_1,
@@ -209,6 +235,7 @@ class _NavMainScreenState extends State<NavMainScreen> {
                                                                 new Positioned(
                                                                     // ignore: unnecessary_new
                                                                     child:
+                                                                        // ignore: unnecessary_new
                                                                         new Center(
                                                                   child:
                                                                       Container(
@@ -222,8 +249,14 @@ class _NavMainScreenState extends State<NavMainScreen> {
                                                                           CrossAxisAlignment
                                                                               .center,
                                                                       children: [
+                                                                        // ignore: unnecessary_new
                                                                         new Text(
                                                                           "12",
+                                                                          // ignore: prefer_const_constructors
+                                                                          // ignore: unnecessary_new
+                                                                          // ignore: prefer_const_constructors
+                                                                          // ignore: unnecessary_new
+                                                                          // ignore: prefer_const_constructors
                                                                           style: new TextStyle(
                                                                               color: Colors.white,
                                                                               fontSize: 11,
