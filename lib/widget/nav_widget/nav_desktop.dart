@@ -56,7 +56,7 @@ Widget desktopView(BuildContext context) {
                       // ignore: deprecated_member_use
                       FlatButton(
                           onPressed: () {
-                            Navigator.of(context).pushNamed(Homepage.route);
+                            // Navigator.of(context).pushNamed(Homepage.route);
                           },
                           highlightColor: color,
                           splashColor: color,

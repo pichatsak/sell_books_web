@@ -114,7 +114,7 @@ class _Thankyou_ShopState extends State<Thankyou_Shop> {
                               top: 30, left: 15, right: 15),
                           child: InkWell(
                             onTap: () {
-                              Navigator.of(context).pushNamed(Homepage.route);
+                              // Navigator.of(context).pushNamed(Homepage.route);
                             },
                             child: Card(
                               shadowColor: Colors.black,

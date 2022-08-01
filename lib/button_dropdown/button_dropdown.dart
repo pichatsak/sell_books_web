@@ -14,13 +14,11 @@ class _button_dropdownState extends State<button_dropdown> {
   final List<String> items = [
     'ราคาต่ำสุด',
     'ราคาสูงสุด',
-    
   ];
-  
+
   String? selectedValue;
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       body: Center(
         child: DropdownButtonHideUnderline(
@@ -28,8 +26,6 @@ class _button_dropdownState extends State<button_dropdown> {
             isExpanded: true,
             hint: Row(
               children: const [
-                
-                
                 Expanded(
                   child: Text(
                     'เรียงตาม',
@@ -38,7 +34,6 @@ class _button_dropdownState extends State<button_dropdown> {
                       fontWeight: FontWeight.w100,
                       color: Colors.black,
                     ),
-                  
                   ),
                 ),
               ],
@@ -64,9 +59,8 @@ class _button_dropdownState extends State<button_dropdown> {
               });
             },
             icon: const Icon(
-              Icons.keyboard_arrow_down ,
+              Icons.keyboard_arrow_down,
             ),
-            
             iconEnabledColor: Colors.black,
             iconDisabledColor: Colors.black,
             buttonHeight: 50,
@@ -77,9 +71,8 @@ class _button_dropdownState extends State<button_dropdown> {
               border: Border.all(
                 color: Colors.black26,
               ),
-            color:Colors.white12,
+              color: Colors.white12,
             ),
-           
             itemHeight: 40,
             itemPadding: const EdgeInsets.only(left: 14, right: 14),
             dropdownMaxHeight: 200,
@@ -98,6 +91,5 @@ class _button_dropdownState extends State<button_dropdown> {
         ),
       ),
     );
-  
   }
 }
