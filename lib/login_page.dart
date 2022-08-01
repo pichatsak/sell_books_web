@@ -36,15 +36,13 @@ class _Login_PageState extends State<Login_Page> {
               //NAV_END
               //BODY_START
               Container(
-                transform: Matrix4.translationValues(0.0, -40.0, 0.0),
-                height: MediaQuery.of(context).size.height,
+                transform: Matrix4.translationValues(0.0, 50.0, 0.0),
                 width: MediaQuery.of(context).size.width,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
                       width: 450,
-                      height: 650,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(10)),
                           color: Color(0xFFF7F7F7),

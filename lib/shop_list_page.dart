@@ -1,7 +1,5 @@
 // ignore_for_file: camel_case_types, depend_on_referenced_packages, prefer_const_constructors_in_immutables, prefer_const_constructors, avoid_unnecessary_containers, sort_child_properties_last
 
-
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
@@ -12,7 +10,7 @@ import 'package:sell_books_web/widget/nav_widget/nav_main.dart';
 
 class Shop_List_Page extends StatefulWidget {
   Shop_List_Page({Key? key}) : super(key: key);
-  static const String route = '/shop';
+  static const String route = '/cart';
 
   @override
   State<Shop_List_Page> createState() => _Shop_List_PageState();

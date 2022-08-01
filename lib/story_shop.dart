@@ -16,7 +16,7 @@ import 'package:sell_books_web/widget/nav_widget/nav_main.dart';
 
 class Story_Shop extends StatefulWidget {
   Story_Shop({Key? key}) : super(key: key);
-  static const String route = '/story_shop';
+  static const String route = '/history';
 
   @override
   State<Story_Shop> createState() => _Story_ShopState();
