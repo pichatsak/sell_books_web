@@ -61,15 +61,6 @@ class _Login_PageState extends State<Login_Page> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Image.asset("images/logo.png", width: 230),
-                            // SizedBox(
-                            //   child: AutoSizeText(
-                            //     'Ksu store',
-                            //     style: TextStyle(
-                            //         fontSize: 26, fontWeight: FontWeight.w600),
-                            //     minFontSize: 25,
-                            //     maxLines: 1,
-                            //   ),
-                            // ),
                             Padding(
                               padding: const EdgeInsets.only(top: 5),
                               child: SizedBox(
@@ -159,7 +150,7 @@ class _Login_PageState extends State<Login_Page> {
                                         margin:
                                             EdgeInsets.fromLTRB(20, 0, 15, 0),
                                         child: Icon(
-                                          Iconsax.key_square,
+                                          Icons.key,
                                           color: Colors.black,
                                         ),
                                       ),
@@ -201,7 +192,7 @@ class _Login_PageState extends State<Login_Page> {
                             ),
                             Padding(
                               padding: const EdgeInsets.only(
-                                  top: 30, left: 40, right: 40),
+                                  top: 30, left: 40, right: 40, bottom: 40),
                               child: SizedBox(
                                 width: double.infinity,
                                 child: ElevatedButton(
@@ -214,8 +205,7 @@ class _Login_PageState extends State<Login_Page> {
                                     padding: EdgeInsets.symmetric(
                                         horizontal: 60, vertical: 25),
                                     textStyle: TextStyle(
-                                      fontSize: 16,
-                                    ),
+                                        fontSize: 16, fontFamily: "Prompt"),
                                     shape: RoundedRectangleBorder(
                                       borderRadius:
                                           new BorderRadius.circular(30.0),

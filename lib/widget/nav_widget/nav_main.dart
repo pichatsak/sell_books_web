@@ -209,8 +209,8 @@ class _NavMainScreenState extends State<NavMainScreen> {
                                               // ignore: prefer_const_constructors, deprecated_member_use
                                               child: InkWell(
                                             onTap: () {
-                                              // Navigator.of(context)
-                                              //     .pushNamed(Login_Page.route);
+                                              Navigator.pushNamed(
+                                                  context, "/login");
                                             },
                                             highlightColor: color,
                                             splashColor: color,
@@ -241,8 +241,8 @@ class _NavMainScreenState extends State<NavMainScreen> {
                                               // ignore: prefer_const_constructors, deprecated_member_use
                                               child: InkWell(
                                             onTap: () {
-                                              // Navigator.of(context).pushNamed(
-                                              //     Registor_Page.route);
+                                              Navigator.pushNamed(
+                                                  context, "/registor");
                                             },
                                             highlightColor: color,
                                             splashColor: color,
