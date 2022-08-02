@@ -1,16 +1,18 @@
 // ignore_for_file: avoid_unnecessary_containers, unused_local_variable, camel_case_types, implementation_imports, unnecessary_import, prefer_const_constructors, sort_child_properties_last, unnecessary_new
 
+import 'dart:convert';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:sell_books_web/global.dart';
 import 'package:sell_books_web/widget/nav_widget/drawers.dart';
-import 'package:sell_books_web/widget/nav_widget/nav_desktop.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_main.dart';
-import 'package:sell_books_web/widget/nav_widget/nav_minimal_desktop.dart';
-import 'package:sell_books_web/widget/nav_widget/nav_mobile.dart';
+import 'package:sell_books_web/widget/validate.dart';
+import 'package:validators/validators.dart';
+import 'package:http/http.dart' as http;
 
 class Login_Page extends StatefulWidget {
   const Login_Page({Key? key}) : super(key: key);
@@ -20,7 +22,81 @@ class Login_Page extends StatefulWidget {
 }
 
 class _Login_PageState extends State<Login_Page> {
-  void setLogin() {}
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  TextEditingController email =
+      TextEditingController(text: 'ni.tiphon202@gmail.com');
+  TextEditingController pass = TextEditingController(text: "12345678");
+  // TextEditingController email = TextEditingController();
+  // TextEditingController pass = TextEditingController();
+  final box = GetStorage();
+  void _validate() {
+    if (formKey.currentState!.validate()) {
+      setLogin();
+    }
+  }
+
+  Future<void> setLogin() async {
+    var url =
+        "${Global.hostName}/login.php?email=${email.text}&pass=${pass.text}";
+    var res = await http.get(Uri.parse(url));
+    var getData = json.decode(res.body);
+    if (getData["status"] == "ok") {
+      box.write("login", true);
+      box.write("user_id", getData["data"]["user_id"]);
+      box.write("user_email", getData["data"]["user_email"]);
+      box.write("user_name", getData["data"]["user_name"]);
+      box.write("user_phone", getData["data"]["user_phone"]);
+      Navigator.pushNamed(context, "/");
+    } else if (getData["status"] == "no") {
+      _onErrorUser(context);
+    } else if (getData["status"] == "nopassword") {
+      _onErrorPass(context);
+    }
+  }
+
+  _onErrorUser(context) {
+    Alert(
+      context: context,
+      type: AlertType.error,
+      style: AlertStyle(
+        overlayColor: Color.fromARGB(113, 0, 0, 0),
+      ),
+      title: "ไม่สำเร็จ",
+      desc: "ไม่พบผู้ใช้นี้ในระบบ.",
+      buttons: [
+        DialogButton(
+          child: Text(
+            "ตกลง",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+          onPressed: () => Navigator.pop(context),
+          width: 120,
+        )
+      ],
+    ).show();
+  }
+
+  _onErrorPass(context) {
+    Alert(
+      context: context,
+      type: AlertType.error,
+      style: AlertStyle(
+        overlayColor: Color.fromARGB(113, 0, 0, 0),
+      ),
+      title: "ไม่สำเร็จ",
+      desc: "รหัสผ่านไม่ถูกต้อง.",
+      buttons: [
+        DialogButton(
+          child: Text(
+            "ตกลง",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+          onPressed: () => Navigator.pop(context),
+          width: 120,
+        )
+      ],
+    ).show();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,178 +119,139 @@ class _Login_PageState extends State<Login_Page> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      width: 450,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          color: Color(0xFFF7F7F7),
-                          boxShadow: [
-                            BoxShadow(
-                                blurRadius: 1,
-                                color: Color.fromARGB(255, 29, 29, 29)
-                                    .withOpacity(.30),
-                                offset: Offset(.0, 0))
-                          ]),
-                      child: Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset("images/logo.png", width: 230),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 5),
-                              child: SizedBox(
-                                child: AutoSizeText(
-                                  'ลงชื่อเพื่อเข้าใช้',
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                  minFontSize: 15,
-                                  maxLines: 1,
+                    Form(
+                      key: formKey,
+                      child: Container(
+                        width: 450,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            color: Color(0xFFF7F7F7),
+                            boxShadow: [
+                              BoxShadow(
+                                  blurRadius: 1,
+                                  color: Color.fromARGB(255, 29, 29, 29)
+                                      .withOpacity(.30),
+                                  offset: Offset(.0, 0))
+                            ]),
+                        child: Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset("images/logo.png", width: 230),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 5),
+                                child: SizedBox(
+                                  child: AutoSizeText(
+                                    'ลงชื่อเพื่อเข้าใช้',
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                    minFontSize: 15,
+                                    maxLines: 1,
+                                  ),
                                 ),
                               ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 30, left: 40, right: 40),
-                              child: Container(
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    top: 30, left: 40, right: 40),
                                 child: Container(
-                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                  child: TextFormField(
-                                    keyboardType: TextInputType.emailAddress,
-                                    cursorColor: Colors.black,
-                                    style: TextStyle(color: Colors.black),
-                                    decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      // focusedBorder: InputBorder.none,
-                                      // enabledBorder: InputBorder.none,
-                                      errorBorder: InputBorder.none,
-                                      disabledBorder: InputBorder.none,
-                                      hintText: "อีเมล",
-
-                                      hintStyle: TextStyle(
-                                          color: Colors.grey,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w100),
-                                      // fillColor: Color.fromARGB(31, 161, 161, 161),
-                                      // filled: true,
-                                      prefixIcon: Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(20, 0, 15, 0),
-                                        child: Icon(
-                                          Icons.alternate_email,
-                                          color:
-                                              Color.fromARGB(221, 22, 22, 22),
-                                        ),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            color: Colors.black12, width: 1),
-                                        borderRadius:
-                                            BorderRadius.circular(30.0),
-                                      ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: Colors.black12, width: 1),
-                                        borderRadius: BorderRadius.circular(30),
-                                      ),
+                                  child: Container(
+                                    margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                    child: TextFormField(
+                                      keyboardType: TextInputType.emailAddress,
+                                      cursorColor: Colors.black,
+                                      style: TextStyle(color: Colors.black),
+                                      controller: email,
+                                      decoration: ThemeHelper()
+                                          .textInputDecoration(
+                                              Icons.alternate_email,
+                                              'กรอกอีเมล'),
+                                      validator: (val) {
+                                        if (val!.isEmpty) {
+                                          return "กรุณากรอกอีเมล";
+                                        } else if (!isEmail(val)) {
+                                          return "รูปแบบอีเมลไม่ถูกต้อง";
+                                        } else {
+                                          return null;
+                                        }
+                                      },
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 10, left: 40, right: 40),
-                              child: Container(
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    top: 10, left: 40, right: 40),
                                 child: Container(
-                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                  child: TextFormField(
-                                    obscureText: true,
-                                    cursorColor: Colors.black,
-                                    style: TextStyle(color: Colors.black),
-                                    decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      // focusedBorder: InputBorder.none,
-                                      // enabledBorder: InputBorder.none,
-                                      errorBorder: InputBorder.none,
-                                      disabledBorder: InputBorder.none,
-                                      hintText: "รหัสผ่าน",
-                                      hintStyle: TextStyle(
-                                          color: Colors.grey,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w100),
-                                      // fillColor: Color.fromARGB(31, 161, 161, 161),
-                                      // filled: true,
-                                      prefixIcon: Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(20, 0, 15, 0),
-                                        child: Icon(
-                                          Icons.key,
-                                          color: Colors.black,
-                                        ),
+                                  child: Container(
+                                    margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                    child: TextFormField(
+                                      obscureText: true,
+                                      cursorColor: Colors.black,
+                                      style: TextStyle(color: Colors.black),
+                                      controller: pass,
+                                      decoration: ThemeHelper()
+                                          .textInputDecoration(
+                                              Icons.key_outlined,
+                                              'กรอกรหัสผ่าน'),
+                                      validator: (val) {
+                                        if (val!.isEmpty) {
+                                          return "กรุณากรอกรหัสผ่าน";
+                                        } else {
+                                          return null;
+                                        }
+                                      },
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    top: 13, left: 40, right: 40),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  // ignore: prefer_const_literals_to_create_immutables
+                                  children: [
+                                    SizedBox(
+                                      child: AutoSizeText(
+                                        'ลืมรหัสผ่าน?',
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w500),
+                                        minFontSize: 14,
+                                        maxLines: 1,
                                       ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            color: Colors.black12, width: 1),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    top: 30, left: 40, right: 40, bottom: 40),
+                                child: SizedBox(
+                                  width: double.infinity,
+                                  child: ElevatedButton(
+                                    child: Text('เข้าสู่ระบบ'),
+                                    onPressed: () {
+                                      _validate();
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      primary: Colors.blue,
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 60, vertical: 25),
+                                      textStyle: TextStyle(
+                                          fontSize: 16, fontFamily: "Prompt"),
+                                      shape: RoundedRectangleBorder(
                                         borderRadius:
-                                            BorderRadius.circular(30.0),
-                                      ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: Colors.black12, width: 1),
-                                        borderRadius: BorderRadius.circular(30),
+                                            new BorderRadius.circular(30.0),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 13, left: 40, right: 40),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                // ignore: prefer_const_literals_to_create_immutables
-                                children: [
-                                  SizedBox(
-                                    child: AutoSizeText(
-                                      'ลืมรหัสผ่าน?',
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w500),
-                                      minFontSize: 14,
-                                      maxLines: 1,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 30, left: 40, right: 40, bottom: 40),
-                              child: SizedBox(
-                                width: double.infinity,
-                                child: ElevatedButton(
-                                  child: Text('เข้าสู่ระบบ'),
-                                  onPressed: () {
-                                    setLogin();
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    primary: Colors.blue,
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 60, vertical: 25),
-                                    textStyle: TextStyle(
-                                        fontSize: 16, fontFamily: "Prompt"),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius:
-                                          new BorderRadius.circular(30.0),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            )
-                          ],
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     )

@@ -1,11 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:sell_books_web/account.dart';
 import 'package:sell_books_web/shop_list_page.dart';
-import 'package:sell_books_web/widget/nav_widget/nav_desktop.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_minimal_desktop.dart';
-import 'package:sell_books_web/widget/nav_widget/nav_mobile.dart';
 
 class NavMainScreen extends StatefulWidget {
   NavMainScreen({Key? key}) : super(key: key);
@@ -15,6 +14,24 @@ class NavMainScreen extends StatefulWidget {
 }
 
 class _NavMainScreenState extends State<NavMainScreen> {
+  var box = GetStorage();
+  bool isLoginGet = false;
+  String nameUser = "";
+  @override
+  void initState() {
+    setState(() {
+      isLoginGet = box.read("login");
+    });
+    setShowLogin();
+    super.initState();
+  }
+
+  void setShowLogin() {
+    if (isLoginGet) {
+      nameUser = box.read("user_name");
+    } else {}
+  }
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
@@ -36,7 +53,8 @@ class _NavMainScreenState extends State<NavMainScreen> {
         padding: const EdgeInsets.only(top: 0),
         children: <Widget>[
           Container(
-              decoration: BoxDecoration(color: Color.fromRGBO(65, 176, 231, 1)),
+              decoration:
+                  const BoxDecoration(color: Color.fromRGBO(65, 176, 231, 1)),
               child: BootstrapRow(
                 height: 0,
                 children: <BootstrapCol>[
@@ -51,7 +69,7 @@ class _NavMainScreenState extends State<NavMainScreen> {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.only(right: 40),
-                                child: Container(
+                                child: SizedBox(
                                   height: 80,
                                   child: Image.asset(
                                     "images/logo1.png",
@@ -73,12 +91,12 @@ class _NavMainScreenState extends State<NavMainScreen> {
                         // ignore: deprecated_member_use
                         FlatButton(
                             onPressed: () {
-                              // Navigator.of(context).pushNamed(Homepage.route);
+                              Navigator.pushNamed(context, "/");
                             },
                             highlightColor: color,
                             splashColor: color,
                             hoverColor: color,
-                            child: AutoSizeText(
+                            child: const AutoSizeText(
                               'หน้าแรก',
                               style: TextStyle(
                                   fontSize: 17,
@@ -88,7 +106,7 @@ class _NavMainScreenState extends State<NavMainScreen> {
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                             )),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         // ignore: deprecated_member_use
@@ -97,7 +115,7 @@ class _NavMainScreenState extends State<NavMainScreen> {
                             highlightColor: color,
                             splashColor: color,
                             hoverColor: color,
-                            child: AutoSizeText(
+                            child: const AutoSizeText(
                               'วิธีการสั่งซื้อ',
                               style: TextStyle(
                                   fontSize: 17,
@@ -107,18 +125,18 @@ class _NavMainScreenState extends State<NavMainScreen> {
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                             )),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         // ignore: deprecated_member_use
                         FlatButton(
                             onPressed: () {
-                              // Navigator.of(context).pushNamed(Contact_US.route);
+                              Navigator.pushNamed(context, "/contact_us");
                             },
                             highlightColor: color,
                             splashColor: color,
                             hoverColor: color,
-                            child: AutoSizeText(
+                            child: const AutoSizeText(
                               'ติดต่อเรา',
                               style: TextStyle(
                                   fontSize: 17,
@@ -128,7 +146,7 @@ class _NavMainScreenState extends State<NavMainScreen> {
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                             )),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         // ignore: deprecated_member_use
@@ -137,7 +155,7 @@ class _NavMainScreenState extends State<NavMainScreen> {
                             highlightColor: color,
                             splashColor: color,
                             hoverColor: color,
-                            child: AutoSizeText(
+                            child: const AutoSizeText(
                               'นโยบายการคืนสินค้า',
                               style: TextStyle(
                                   fontSize: 17,
@@ -163,108 +181,107 @@ class _NavMainScreenState extends State<NavMainScreen> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Container(
-                              // ignore: deprecated_member_use
-                              // ignore: sort_child_properties_last, prefer_const_constructors
-                              child: Row(
-                                children: [
-                                  InkWell(
-                                    onTap: () {
-                                      Navigator.of(context)
-                                          .pushNamed(Account.route);
-                                    },
-                                    child: Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(0, 0, 10, 0),
-                                        // ignore: prefer_const_constructors
-                                        child: Icon(
-                                          Icons.account_circle_sharp,
-                                          size: 55,
-                                          color: Colors.white,
-                                        )),
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    // ignore: prefer_const_literals_to_create_immutables
-                                    children: [
+                            Row(
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.of(context)
+                                        .pushNamed(Account.route);
+                                  },
+                                  child: Container(
+                                      margin: const EdgeInsets.fromLTRB(
+                                          0, 0, 10, 0),
                                       // ignore: prefer_const_constructors
-                                      Container(
-                                        margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                        child: Text(
-                                          "ยินดีต้อนรับ",
-                                          // ignore: prefer_const_constructors
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 13,
-                                          ),
+                                      child: Icon(
+                                        Icons.account_circle_sharp,
+                                        size: 55,
+                                        color: Colors.white,
+                                      )),
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  // ignore: prefer_const_literals_to_create_immutables
+                                  children: [
+                                    // ignore: prefer_const_constructors
+                                    Container(
+                                      margin:
+                                          const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                      child: const Text(
+                                        "ยินดีต้อนรับ",
+                                        // ignore: prefer_const_constructors
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 13,
                                         ),
                                       ),
-                                      // ignore: prefer_const_constructors, avoid_unnecessary_containers
-                                      Row(
-                                        children: [
-                                          Container(
-                                              // ignore: prefer_const_constructors
-                                              // ignore: prefer_const_constructors, deprecated_member_use
-                                              child: InkWell(
-                                            onTap: () {
-                                              Navigator.pushNamed(
-                                                  context, "/login");
-                                            },
-                                            highlightColor: color,
-                                            splashColor: color,
-                                            hoverColor: color,
-                                            child: Text(
-                                              "เข้าสู่ระบบ",
+                                    ),
+                                    !isLoginGet
+                                        ? Row(
+                                            children: [
+                                              InkWell(
+                                                onTap: () {
+                                                  Navigator.pushNamed(
+                                                      context, "/login");
+                                                },
+                                                highlightColor: color,
+                                                splashColor: color,
+                                                hoverColor: color,
+                                                child: const Text(
+                                                  "เข้าสู่ระบบ",
+                                                  // ignore: prefer_const_constructors
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.w100),
+                                                ),
+                                              ),
+                                              const Text(
+                                                " / ",
+                                                // ignore: prefer_const_constructors
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 14,
+                                                    fontWeight:
+                                                        FontWeight.w100),
+                                              ),
+                                              InkWell(
+                                                onTap: () {
+                                                  Navigator.pushNamed(
+                                                      context, "/registor");
+                                                },
+                                                highlightColor: color,
+                                                splashColor: color,
+                                                hoverColor: color,
+                                                child: const Text(
+                                                  "สมัครสมาชิก",
+                                                  // ignore: prefer_const_constructors
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.w100),
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        : Row(children: [
+                                            Text(
+                                              nameUser,
                                               // ignore: prefer_const_constructors
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 14,
                                                   fontWeight: FontWeight.w100),
-                                            ),
-                                          )),
-                                          Container(
-                                            // ignore: prefer_const_constructors
-                                            // ignore: prefer_const_constructors
-                                            child: Text(
-                                              " / ",
-                                              // ignore: prefer_const_constructors
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w100),
-                                            ),
-                                          ),
-                                          Container(
-                                              // ignore: prefer_const_constructors
-                                              // ignore: prefer_const_constructors, deprecated_member_use
-                                              child: InkWell(
-                                            onTap: () {
-                                              Navigator.pushNamed(
-                                                  context, "/registor");
-                                            },
-                                            highlightColor: color,
-                                            splashColor: color,
-                                            hoverColor: color,
-                                            child: Text(
-                                              "สมัครสมาชิก",
-                                              // ignore: prefer_const_constructors
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w100),
-                                            ),
-                                          )),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
+                                            )
+                                          ]),
+                                  ],
+                                ),
+                              ],
                             ),
                             Container(
-                              margin: EdgeInsets.fromLTRB(40, 0, 0, 0),
+                              margin: const EdgeInsets.fromLTRB(40, 0, 0, 0),
                               child: Row(
                                 children: [
                                   Column(
@@ -303,7 +320,7 @@ class _NavMainScreenState extends State<NavMainScreen> {
                             Container(
                               width: 60,
                               height: 40,
-                              margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                               // ignore: deprecated_member_use
                               child: FlatButton(
                                 onPressed: () {
@@ -316,29 +333,29 @@ class _NavMainScreenState extends State<NavMainScreen> {
 
                                 // ignore: prefer_const_constructors
                                 // ignore: unnecessary_new
-                                child: new Stack(children: <Widget>[
-                                  Icon(
+                                child: Stack(children: <Widget>[
+                                  const Icon(
                                     Icons.shopping_cart,
                                     size: 40,
                                     color: Colors.white,
                                   ),
                                   // ignore: unnecessary_new
-                                  new Positioned(
+                                  Positioned(
                                       top: -1,
                                       right: -1,
                                       // ignore: unnecessary_new
-                                      child: new Stack(children: <Widget>[
+                                      child: Stack(children: <Widget>[
                                         // ignore: unnecessary_new
-                                        new Icon(
+                                        const Icon(
                                           Icons.brightness_1,
                                           size: 20.0,
                                           color: Colors.red,
                                         ),
                                         // ignore: unnecessary_new
-                                        new Positioned(
+                                        Positioned(
                                             // ignore: unnecessary_new
-                                            child: new Center(
-                                          child: Container(
+                                            child: Center(
+                                          child: SizedBox(
                                             height: 20,
                                             width: 20,
                                             child: Row(
@@ -348,10 +365,10 @@ class _NavMainScreenState extends State<NavMainScreen> {
                                                   CrossAxisAlignment.center,
                                               children: [
                                                 // ignore: unnecessary_new
-                                                new Text(
-                                                  "12",
+                                                const Text(
+                                                  "0",
                                                   // ignore: unnecessary_new
-                                                  style: new TextStyle(
+                                                  style: TextStyle(
                                                       color: Colors.white,
                                                       fontSize: 11,
                                                       fontWeight:
