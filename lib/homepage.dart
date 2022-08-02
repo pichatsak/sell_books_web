@@ -1,12 +1,14 @@
 // ignore_for_file: unnecessary_const, deprecated_member_use, unused_local_variable, avoid_unnecessary_containers, prefer_const_constructors, duplicate_ignore, sized_box_for_whitespace
 
 import 'dart:convert';
+import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
 import 'package:pager/pager.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:sell_books_web/global.dart';
 import 'package:sell_books_web/models/Category.dart';
 import 'package:sell_books_web/models/ProductModel.dart';
@@ -24,7 +26,6 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   var formatter = NumberFormat('#,###,###.00');
-  String namemenu1 = "วิทยาศาตร์";
   int posView = 1;
   var color = Colors.transparent;
   List<CategoryModel> cateAllData = [];
@@ -41,7 +42,8 @@ class _HomepageState extends State<Homepage> {
     'ราคาต่ำสุด',
     'ราคาสูงสุด',
   ];
-
+  final box = GetStorage();
+  int numcart = 0;
   Future<void> getCateAll() async {
     var url = "${Global.hostName}/category_get.php";
     var res = await http.get(Uri.parse(url));
@@ -56,6 +58,128 @@ class _HomepageState extends State<Homepage> {
           dateUpdate: data['date_update']));
     }).toList();
     setShowCate();
+  }
+
+  void setAddCart(int pid) async {
+    if (box.read("login")) {
+      var dataForm = {
+        "product_id": "${pid}",
+        "num": "1",
+        "user_id": "${box.read("user_id")}"
+      };
+      var url = "${Global.hostName}/add_cart.php";
+      var res = await http.post(Uri.parse(url), body: dataForm);
+      var getData = json.decode(res.body);
+      if (getData["status"] == "ok") {
+        _onSuccessAlert(context);
+      } else if (getData["status"] == "no") {
+        _onError(context);
+      } else if (getData["status"] == "nostock") {
+        _onErrorStock(context);
+      }
+    } else {
+      _onErrorLogin(context);
+    }
+  }
+
+  _onSuccessAlert(context) {
+    setState(() {});
+    Alert(
+      context: context,
+      type: AlertType.success,
+      style: AlertStyle(
+        isOverlayTapDismiss: false,
+        isCloseButton: false,
+        overlayColor: Color.fromARGB(113, 0, 0, 0),
+      ),
+      title: "เสร็จสิ้น",
+      desc: "เพิ่มในตะกร้าเรียบร้อย.",
+      buttons: [
+        DialogButton(
+          child: Text(
+            "ตกลง",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          width: 120,
+        )
+      ],
+    ).show();
+  }
+
+  _onErrorStock(context) {
+    Alert(
+      context: context,
+      type: AlertType.warning,
+      style: AlertStyle(
+        overlayColor: Color.fromARGB(113, 0, 0, 0),
+      ),
+      title: "ไม่สำเร็จ",
+      desc: "สินค้าคงเหลือไม่เพียงพอ.",
+      buttons: [
+        DialogButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          width: 120,
+          child: Text(
+            "ตกลง",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+        )
+      ],
+    ).show();
+  }
+
+  _onError(context) {
+    Alert(
+      context: context,
+      type: AlertType.warning,
+      style: AlertStyle(
+        overlayColor: Color.fromARGB(113, 0, 0, 0),
+      ),
+      title: "ไม่สำเร็จ",
+      desc: "กรุณาลองใหม่อีกครั้ง.",
+      buttons: [
+        DialogButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          width: 120,
+          child: Text(
+            "ตกลง",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+        )
+      ],
+    ).show();
+  }
+
+  _onErrorLogin(context) {
+    Alert(
+      context: context,
+      type: AlertType.warning,
+      style: AlertStyle(
+        overlayColor: Color.fromARGB(113, 0, 0, 0),
+      ),
+      title: "ไม่สำเร็จ",
+      desc: "กรุณาเข้าสู่ระบบก่อน.",
+      buttons: [
+        DialogButton(
+          onPressed: () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, "/login");
+          },
+          width: 120,
+          child: Text(
+            "ตกลง",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+        )
+      ],
+    ).show();
   }
 
   @override
@@ -585,8 +709,6 @@ class _HomepageState extends State<Homepage> {
   Widget getGroupData() {
     return Column(
       children: [
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ///บรรทัด1
         BootstrapRow(children: <BootstrapCol>[
           ...prodAllData.map((prod) => BootstrapCol(
               sizes: 'col-6 col-sm-6 col-md-4',
@@ -683,7 +805,9 @@ class _HomepageState extends State<Homepage> {
                   Container(
                     margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
                     child: ElevatedButton.icon(
-                        onPressed: () {},
+                        onPressed: () {
+                          setAddCart(prod.productId);
+                        },
                         icon: Icon(Icons.shopping_cart),
                         label: Padding(
                           padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
@@ -844,7 +968,9 @@ class _HomepageState extends State<Homepage> {
                                 children: [
                                   Container(
                                     child: ElevatedButton.icon(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          setAddCart(prod.productId);
+                                        },
                                         icon: Icon(Icons.shopping_cart),
                                         label: Padding(
                                           padding: const EdgeInsets.fromLTRB(
