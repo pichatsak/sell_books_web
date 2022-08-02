@@ -1,29 +1,36 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
+import 'package:get_storage/get_storage.dart';
 
 import 'route/fluro_router.dart';
 
-void main() {
+Future<void> main() async {
   setUrlStrategy(PathUrlStrategy());
   FluroRouters.setupRouter();
-  runApp(const MyApp());
+  await GetStorage.init();
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyApp extends StatefulWidget {
+  MyApp({Key? key}) : super(key: key);
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return MaterialApp(
-  //     title: 'Flutter Demo',
-  //     debugShowCheckedModeBanner: false,
-  //     theme: ThemeData(
-  //       primarySwatch: Colors.blue,
-  //     ),
-  //     home: const Homepage(),
-  //   );
-  // }
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    checkLogin();
+    super.initState();
+  }
+
+  void checkLogin() {
+    final box = GetStorage();
+    bool loginGet = box.read('login') ?? false;
+    box.write("login", loginGet);
+  }
 
   @override
   Widget build(BuildContext context) {

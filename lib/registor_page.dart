@@ -36,7 +36,20 @@ class _Registor_PageState extends State<Registor_Page> {
     }
   }
 
-  void setRegister() async {}
+  void setRegister() async {
+    //  var dataForm = {
+    //   "email": username.text,
+    //   "pass": pass.text,
+    //   "name": fullname.text,
+    //   "tel": tell.text,
+    //   "line": line.text,
+    //   "facebook": facebook.text
+    // };
+    // // print(data);
+    // final url = "https://www.naenam.com/api/users/setRegister.php";
+    // final res = await http.post(Uri.parse(url), body: data);
+    // StatusRegister statusRegister = statusRegisterFromJson(res.body);
+  }
 
   @override
   Widget build(BuildContext context) {
