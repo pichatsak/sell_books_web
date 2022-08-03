@@ -1,17 +1,21 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, sized_box_for_whitespace
 
+import 'dart:convert';
 import 'dart:ui';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get_storage/get_storage.dart';
 
 import 'package:iconsax/iconsax.dart';
+import 'package:sell_books_web/global.dart';
 import 'package:sell_books_web/reset_passowrd.dart';
 import 'package:sell_books_web/story_shop.dart';
 import 'package:sell_books_web/widget/nav_widget/drawers.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_main.dart';
+import 'package:http/http.dart' as http;
 
 class Account extends StatefulWidget {
   Account({Key? key}) : super(key: key);
@@ -22,6 +26,34 @@ class Account extends StatefulWidget {
 }
 
 class _AccountState extends State<Account> {
+  final box = GetStorage();
+  String nameuser = "";
+  String emailuser = "";
+  String phoneuser = "";
+  @override
+  void initState() {
+    getUserProfile();
+    super.initState();
+  }
+
+  void getUserProfile() async {
+    var url =
+        "${Global.hostName}/user_by_id.php?user_id=${box.read("user_id")}";
+    var res = await http.get(Uri.parse(url));
+    await json.decode(res.body)['data'].map((data) {
+      nameuser = data["user_name"];
+      emailuser = data["user_email"];
+      phoneuser = data["user_phone"];
+    }).toList();
+    setState(() {});
+  }
+
+  void goLogOut() {
+    box.write("login", false);
+
+    Navigator.pushNamed(context, "/");
+  }
+
   @override
   Widget build(BuildContext context) {
     bootstrapGridParameters(gutterSize: 0);
@@ -180,7 +212,9 @@ class _AccountState extends State<Account> {
                                               padding: const EdgeInsets.only(
                                                   top: 20, bottom: 20),
                                               child: InkWell(
-                                                onTap: (() {}),
+                                                onTap: () {
+                                                  goLogOut();
+                                                },
 
                                                 // ignore: sized_box_for_whitespace
                                                 child: Container(
@@ -441,8 +475,7 @@ class _AccountState extends State<Account> {
                                                       child: TextFormField(
                                                         controller:
                                                             TextEditingController()
-                                                              ..text =
-                                                                  'พิเชฐศักดิ์ ดุเหว่า',
+                                                              ..text = nameuser,
                                                         cursorColor:
                                                             Colors.black,
                                                         style: TextStyle(
@@ -543,7 +576,7 @@ class _AccountState extends State<Account> {
                                                         controller:
                                                             TextEditingController()
                                                               ..text =
-                                                                  '0932430369',
+                                                                  phoneuser,
                                                         cursorColor:
                                                             Colors.black,
                                                         style: TextStyle(
@@ -647,7 +680,7 @@ class _AccountState extends State<Account> {
                                                         controller:
                                                             TextEditingController()
                                                               ..text =
-                                                                  'sookma28@gmail.com',
+                                                                  emailuser,
                                                         cursorColor:
                                                             Colors.black,
                                                         style: TextStyle(

@@ -16,13 +16,11 @@ class _District_TambonState extends State<District_Tambon> {
     'น่าน',
     'ลำปาง',
     'กรุงเทพ',
-    
   ];
-  
+
   String? selectedValue;
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       body: Center(
         child: DropdownButtonHideUnderline(
@@ -30,18 +28,14 @@ class _District_TambonState extends State<District_Tambon> {
             isExpanded: true,
             hint: Row(
               children: const [
-                
-                
                 Expanded(
                   child: Text(
                     'เลือกตำบล',
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w100,
-                       color: Color.fromARGB(
-                                                  255, 104, 104, 104),
+                      color: Color.fromARGB(255, 104, 104, 104),
                     ),
-                  
                   ),
                 ),
               ],
@@ -67,9 +61,8 @@ class _District_TambonState extends State<District_Tambon> {
               });
             },
             icon: const Icon(
-              Icons.keyboard_arrow_down ,
+              Icons.keyboard_arrow_down,
             ),
-            
             iconEnabledColor: Colors.black,
             iconDisabledColor: Colors.black,
             buttonHeight: 50,
@@ -80,9 +73,8 @@ class _District_TambonState extends State<District_Tambon> {
               border: Border.all(
                 color: Colors.black12,
               ),
-            color:Colors.white,
+              color: Colors.white,
             ),
-           
             itemHeight: 40,
             itemPadding: const EdgeInsets.only(left: 14, right: 14),
             dropdownMaxHeight: 200,
@@ -101,6 +93,5 @@ class _District_TambonState extends State<District_Tambon> {
         ),
       ),
     );
-  
   }
 }

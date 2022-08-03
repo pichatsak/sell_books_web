@@ -114,6 +114,7 @@ class _PolicyPageState extends State<PolicyPage> {
                                 renderMode: RenderMode.column,
                                 textStyle: TextStyle(
                                     fontFamily: "Prompt",
+                                    fontSize: 18,
                                     fontWeight: FontWeight.w100),
                               ),
                             ),
