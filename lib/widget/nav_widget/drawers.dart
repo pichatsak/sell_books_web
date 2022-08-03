@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
 import 'package:sell_books_web/contact_us.dart';
 import 'package:sell_books_web/homepage.dart';
+import 'package:sell_books_web/how_to_buy.dart';
+import 'package:sell_books_web/policy.dart';
 
 class NavDrawer extends StatefulWidget {
   NavDrawer({Key? key}) : super(key: key);
@@ -183,9 +185,19 @@ class _NavDrawerState extends State<NavDrawer> {
           builder: (context) => Homepage(),
         ));
         break;
+      case 1:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => HowToBuyPage(),
+        ));
+        break;
       case 2:
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => Contact_US(),
+        ));
+        break;
+      case 3:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => PolicyPage(),
         ));
         break;
     }

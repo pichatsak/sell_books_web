@@ -1,6 +1,8 @@
 // ignore_for_file: avoid_unnecessary_containers, unused_local_variable, camel_case_types, implementation_imports, unnecessary_import, prefer_const_constructors, sort_child_properties_last, unnecessary_new
 
 import 'dart:convert';
+import 'dart:html';
+import 'dart:ui';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -228,7 +230,7 @@ class _Login_PageState extends State<Login_Page> {
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(
-                                    top: 30, left: 40, right: 40, bottom: 40),
+                                    top: 30, left: 40, right: 40, bottom: 20),
                                 child: SizedBox(
                                   width: double.infinity,
                                   child: ElevatedButton(
@@ -249,7 +251,24 @@ class _Login_PageState extends State<Login_Page> {
                                     ),
                                   ),
                                 ),
-                              )
+                              ),
+                              Text("หรือ"),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  Navigator.pushNamed(context, "/registor");
+                                },
+                                child: Text(
+                                  "สมัครสมาชิก",
+                                  style: TextStyle(
+                                      fontSize: 16, color: Colors.blue),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
                             ],
                           ),
                         ),

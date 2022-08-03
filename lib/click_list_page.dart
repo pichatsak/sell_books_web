@@ -7,7 +7,9 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:sell_books_web/global.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_main.dart';
 
@@ -43,6 +45,8 @@ class _Click_List_PageState extends State<Click_List_Page> {
   String productPaper = "";
   String productOwner = "";
   String productYear = "";
+
+  final box = GetStorage();
   @override
   void initState() {
     // print("id : ${widget.idGet}");
@@ -74,6 +78,128 @@ class _Click_List_PageState extends State<Click_List_Page> {
       productYear = data["product_year"];
     }).toList();
     setState(() {});
+  }
+
+  void setAddCart(int pid) async {
+    if (box.read("login")) {
+      var dataForm = {
+        "product_id": "${pid}",
+        "num": "1",
+        "user_id": "${box.read("user_id")}"
+      };
+      var url = "${Global.hostName}/add_cart.php";
+      var res = await http.post(Uri.parse(url), body: dataForm);
+      var getData = json.decode(res.body);
+      if (getData["status"] == "ok") {
+        _onSuccessAlert(context);
+      } else if (getData["status"] == "no") {
+        _onError(context);
+      } else if (getData["status"] == "nostock") {
+        _onErrorStock(context);
+      }
+    } else {
+      _onErrorLogin(context);
+    }
+  }
+
+  _onSuccessAlert(context) {
+    setState(() {});
+    Alert(
+      context: context,
+      type: AlertType.success,
+      style: AlertStyle(
+        isOverlayTapDismiss: false,
+        isCloseButton: false,
+        overlayColor: Color.fromARGB(113, 0, 0, 0),
+      ),
+      title: "เสร็จสิ้น",
+      desc: "เพิ่มในตะกร้าเรียบร้อย.",
+      buttons: [
+        DialogButton(
+          child: Text(
+            "ตกลง",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          width: 120,
+        )
+      ],
+    ).show();
+  }
+
+  _onErrorStock(context) {
+    Alert(
+      context: context,
+      type: AlertType.warning,
+      style: AlertStyle(
+        overlayColor: Color.fromARGB(113, 0, 0, 0),
+      ),
+      title: "ไม่สำเร็จ",
+      desc: "สินค้าคงเหลือไม่เพียงพอ.",
+      buttons: [
+        DialogButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          width: 120,
+          child: Text(
+            "ตกลง",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+        )
+      ],
+    ).show();
+  }
+
+  _onError(context) {
+    Alert(
+      context: context,
+      type: AlertType.warning,
+      style: AlertStyle(
+        overlayColor: Color.fromARGB(113, 0, 0, 0),
+      ),
+      title: "ไม่สำเร็จ",
+      desc: "กรุณาลองใหม่อีกครั้ง.",
+      buttons: [
+        DialogButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          width: 120,
+          child: Text(
+            "ตกลง",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+        )
+      ],
+    ).show();
+  }
+
+  _onErrorLogin(context) {
+    Alert(
+      context: context,
+      type: AlertType.warning,
+      style: AlertStyle(
+        overlayColor: Color.fromARGB(113, 0, 0, 0),
+      ),
+      title: "ไม่สำเร็จ",
+      desc: "กรุณาเข้าสู่ระบบก่อน.",
+      buttons: [
+        DialogButton(
+          onPressed: () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, "/login");
+          },
+          width: 120,
+          child: Text(
+            "ตกลง",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+        )
+      ],
+    ).show();
   }
 
   @override
@@ -220,7 +346,9 @@ class _Click_List_PageState extends State<Click_List_Page> {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       ElevatedButton.icon(
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            setAddCart(productId);
+                                          },
                                           icon: Icon(Icons.shopping_cart),
                                           label: Padding(
                                             padding: const EdgeInsets.fromLTRB(

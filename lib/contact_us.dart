@@ -82,6 +82,7 @@ class _Contact_USState extends State<Contact_US> {
             decoration: BoxDecoration(color: Colors.white),
             children: <Widget>[
               BootstrapRow(
+                height: MediaQuery.of(context).size.height,
                 children: <BootstrapCol>[
                   BootstrapCol(
                       sizes: 'col-12',
@@ -261,8 +262,6 @@ class _Contact_USState extends State<Contact_US> {
                               child: Container(
                                 child: Container(
                                   child: TextFormField(
-                                    controller: TextEditingController()
-                                      ..text = 'พิเชฐศักดิ์ ดุเหว่า',
                                     cursorColor: Colors.black,
                                     style: TextStyle(color: Colors.black),
                                     decoration: InputDecoration(
@@ -314,8 +313,6 @@ class _Contact_USState extends State<Contact_US> {
                                 child: Container(
                                   child: TextFormField(
                                     keyboardType: TextInputType.emailAddress,
-                                    controller: TextEditingController()
-                                      ..text = 'sookma28@gmail.com',
                                     cursorColor: Colors.black,
                                     style: TextStyle(color: Colors.black),
                                     decoration: InputDecoration(
@@ -366,8 +363,6 @@ class _Contact_USState extends State<Contact_US> {
                               child: Container(
                                 child: Container(
                                   child: TextFormField(
-                                    controller: TextEditingController()
-                                      ..text = '0932430369',
                                     cursorColor: Colors.black,
                                     style: TextStyle(color: Colors.black),
                                     decoration: InputDecoration(
@@ -501,7 +496,7 @@ class _Contact_USState extends State<Contact_US> {
                                                       const EdgeInsets.only(
                                                           left: 10),
                                                   child: Icon(
-                                                    Iconsax.message,
+                                                    Icons.send,
                                                     color: Colors.white,
                                                   )),
                                             ),

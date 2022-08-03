@@ -5,7 +5,9 @@ import 'package:sell_books_web/check_out_page.dart';
 import 'package:sell_books_web/click_list_page.dart';
 import 'package:sell_books_web/contact_us.dart';
 import 'package:sell_books_web/homepage.dart';
+import 'package:sell_books_web/how_to_buy.dart';
 import 'package:sell_books_web/login_page.dart';
+import 'package:sell_books_web/policy.dart';
 import 'package:sell_books_web/registor_page.dart';
 import 'package:sell_books_web/shop_list_page.dart';
 import 'package:sell_books_web/thank_shop.dart';
@@ -39,6 +41,10 @@ class FluroRouters {
       handlerFunc: (context, Map<String, dynamic> params) => Thankyou_Shop());
   static Handler storyBuyHandler = Handler(
       handlerFunc: (context, Map<String, dynamic> params) => Thankyou_Shop());
+  static Handler howTobuyHandler = Handler(
+      handlerFunc: (context, Map<String, dynamic> params) => HowToBuyPage());
+  static Handler policyHandler = Handler(
+      handlerFunc: (context, Map<String, dynamic> params) => PolicyPage());
 
   static void setupRouter() {
     router.define('/',
@@ -61,5 +67,9 @@ class FluroRouters {
         handler: thankyouHandler, transitionType: TransitionType.native);
     router.define('/product',
         handler: productHandler, transitionType: TransitionType.native);
+    router.define('/how_to_buy',
+        handler: howTobuyHandler, transitionType: TransitionType.native);
+    router.define('/policy',
+        handler: policyHandler, transitionType: TransitionType.native);
   }
 }

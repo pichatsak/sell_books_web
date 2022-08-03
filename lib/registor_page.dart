@@ -374,7 +374,24 @@ class _Registor_PageState extends State<Registor_Page> {
                                         ),
                                       ),
                                     ),
-                                  )
+                                  ),
+                                  Text("หรือ"),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.pushNamed(context, "/login");
+                                    },
+                                    child: Text(
+                                      "เข้าสู่ระบบ",
+                                      style: TextStyle(
+                                          fontSize: 16, color: Colors.blue),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 30,
+                                  ),
                                 ],
                               ),
                             ),

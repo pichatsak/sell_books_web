@@ -27,9 +27,9 @@ class Check_Out_Page extends StatefulWidget {
 enum SingingCharacter { lafayette, jefferson }
 
 class _Check_Out_PageState extends State<Check_Out_Page> {
-  @override
   SingingCharacter? _character = SingingCharacter.lafayette;
 
+  @override
   Widget build(BuildContext context) {
     bootstrapGridParameters(gutterSize: 0);
 
@@ -98,1183 +98,9 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                               left: 20, top: 0, right: 20, bottom: 40),
                           child: Column(
                             children: [
-                              //สินค้าในตะกร้า
-
-                              //เส้น
-                              Padding(
-                                padding:
-                                    const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                                child: SizedBox(
-                                  height: 1,
-                                  width: double.infinity,
-                                  child: ColoredBox(color: Colors.black12),
-                                ),
-                              ),
-
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  top: 0,
-                                  right: 20,
-                                  left: 20,
-                                ),
-                                child: BootstrapRow(children: <BootstrapCol>[
-                                  BootstrapCol(
-                                    sizes: 'col-12 ',
-                                    child: Container(
-                                      child: Row(
-                                        // ignore: prefer_const_literals_to_create_immutables
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                right: 10),
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                color: Color.fromARGB(
-                                                    255, 101, 188, 231),
-                                                borderRadius:
-                                                    BorderRadius.circular(50),
-                                              ),
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsets.all(7.0),
-                                                child: Icon(
-                                                  Icons.house,
-                                                  color: Colors.white,
-                                                  size: 17,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          AutoSizeText(
-                                            'ข้อมูลผู้สั่งซื้อ :',
-                                            style: TextStyle(
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.w400),
-                                            minFontSize: 17,
-                                            maxLines: 1,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  )
-                                ]),
-                              ),
-
-                              //รายการ1
-
-                              Padding(
-                                padding: const EdgeInsets.only(top: 20),
-                                child: BootstrapRow(
-                                  children: <BootstrapCol>[
-                                    BootstrapCol(
-                                        sizes: 'col-12 col-md-6',
-                                        child: Container(
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20,
-                                                right: 20,
-                                                bottom: 20),
-                                            child: Column(
-                                              // ignore: prefer_const_literals_to_create_immutables
-                                              children: [
-                                                SizedBox(
-                                                  width: double.infinity,
-                                                  child: AutoSizeText(
-                                                    'ชื่อ - นามสกุล',
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        color: Colors.black),
-                                                    minFontSize: 14,
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                    top: 5,
-                                                  ),
-                                                  child: Container(
-                                                    child: Container(
-                                                      child: TextFormField(
-                                                        controller:
-                                                            TextEditingController()
-                                                              ..text =
-                                                                  'พิเชฐศักดิ์ ดุเหว่า',
-                                                        cursorColor:
-                                                            Colors.black,
-                                                        style: TextStyle(
-                                                            color:
-                                                                Colors.black),
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          // focusedBorder: InputBorder.none,
-                                                          // enabledBorder: InputBorder.none,
-                                                          errorBorder:
-                                                              InputBorder.none,
-                                                          disabledBorder:
-                                                              InputBorder.none,
-                                                          isDense: true,
-                                                          contentPadding:
-                                                              EdgeInsets
-                                                                  .fromLTRB(
-                                                                      15.0,
-                                                                      18.0,
-                                                                      0.0,
-                                                                      10.0),
-
-                                                          // fillColor: Color.fromARGB(31, 161, 161, 161),
-                                                          // filled: true,
-
-                                                          focusedBorder:
-                                                              OutlineInputBorder(
-                                                            borderSide:
-                                                                const BorderSide(
-                                                                    color: Colors
-                                                                        .black12,
-                                                                    width: 1),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        5.0),
-                                                          ),
-                                                          enabledBorder:
-                                                              OutlineInputBorder(
-                                                            borderSide:
-                                                                BorderSide(
-                                                                    color: Colors
-                                                                        .black12,
-                                                                    width: 1),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        5),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        )),
-                                    BootstrapCol(
-                                        sizes: 'col-12 col-md-6',
-                                        child: Container(
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20,
-                                                right: 20,
-                                                bottom: 20),
-                                            child: Column(
-                                              // ignore: prefer_const_literals_to_create_immutables
-                                              children: [
-                                                SizedBox(
-                                                  width: double.infinity,
-                                                  child: AutoSizeText(
-                                                    'เบอร์โทรศัพท์',
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        color: Colors.black),
-                                                    minFontSize: 14,
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                    top: 5,
-                                                  ),
-                                                  child: Container(
-                                                    child: Container(
-                                                      child: TextFormField(
-                                                        controller:
-                                                            TextEditingController()
-                                                              ..text =
-                                                                  '09324303691',
-                                                        cursorColor:
-                                                            Colors.black,
-                                                        style: TextStyle(
-                                                            color:
-                                                                Colors.black),
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          // focusedBorder: InputBorder.none,
-                                                          // enabledBorder: InputBorder.none,
-                                                          errorBorder:
-                                                              InputBorder.none,
-                                                          disabledBorder:
-                                                              InputBorder.none,
-                                                          isDense: true,
-                                                          contentPadding:
-                                                              EdgeInsets
-                                                                  .fromLTRB(
-                                                                      15.0,
-                                                                      18.0,
-                                                                      0.0,
-                                                                      10.0),
-
-                                                          // fillColor: Color.fromARGB(31, 161, 161, 161),
-                                                          // filled: true,
-
-                                                          focusedBorder:
-                                                              OutlineInputBorder(
-                                                            borderSide:
-                                                                const BorderSide(
-                                                                    color: Colors
-                                                                        .black12,
-                                                                    width: 1),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        5.0),
-                                                          ),
-                                                          enabledBorder:
-                                                              OutlineInputBorder(
-                                                            borderSide:
-                                                                BorderSide(
-                                                                    color: Colors
-                                                                        .black12,
-                                                                    width: 1),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        5),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        )),
-                                    BootstrapCol(
-                                        sizes: 'col-12 col-md-6',
-                                        child: Container(
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20,
-                                                right: 20,
-                                                bottom: 20),
-                                            child: Column(
-                                              // ignore: prefer_const_literals_to_create_immutables
-                                              children: [
-                                                SizedBox(
-                                                  width: double.infinity,
-                                                  child: AutoSizeText(
-                                                    'จังหวัด',
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        color: Colors.black),
-                                                    minFontSize: 14,
-                                                  ),
-                                                ),
-                                                // Padding(
-                                                //   padding:
-                                                //       const EdgeInsets.only(
-                                                //     top: 5,
-                                                //   ),
-                                                //   child: Container(
-                                                //     child: Container(
-                                                //       child: TextFormField(
-                                                //         controller:
-                                                //             TextEditingController()
-                                                //               ..text = 'พะเยา',
-                                                //         cursorColor:
-                                                //             Colors.black,
-                                                //         style: TextStyle(
-                                                //             color:
-                                                //                 Colors.black),
-                                                //         decoration:
-                                                //             InputDecoration(
-                                                //           border:
-                                                //               InputBorder.none,
-                                                //           // focusedBorder: InputBorder.none,
-                                                //           // enabledBorder: InputBorder.none,
-                                                //           errorBorder:
-                                                //               InputBorder.none,
-                                                //           disabledBorder:
-                                                //               InputBorder.none,
-                                                //           isDense: true,
-                                                //           contentPadding:
-                                                //               EdgeInsets
-                                                //                   .fromLTRB(
-                                                //                       15.0,
-                                                //                       18.0,
-                                                //                       0.0,
-                                                //                       10.0),
-
-                                                //           // fillColor: Color.fromARGB(31, 161, 161, 161),
-                                                //           // filled: true,
-
-                                                //           focusedBorder:
-                                                //               OutlineInputBorder(
-                                                //             borderSide:
-                                                //                 const BorderSide(
-                                                //                     color: Colors
-                                                //                         .black12,
-                                                //                     width: 1),
-                                                //             borderRadius:
-                                                //                 BorderRadius
-                                                //                     .circular(
-                                                //                         5.0),
-                                                //           ),
-                                                //           enabledBorder:
-                                                //               OutlineInputBorder(
-                                                //             borderSide:
-                                                //                 BorderSide(
-                                                //                     color: Colors
-                                                //                         .black12,
-                                                //                     width: 1),
-                                                //             borderRadius:
-                                                //                 BorderRadius
-                                                //                     .circular(
-                                                //                         5),
-                                                //           ),
-                                                //         ),
-                                                //       ),
-                                                //     ),
-                                                //   ),
-                                                // ),
-
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          top: 5),
-                                                  child: Container(
-                                                      height: 40,
-                                                      child: Province()),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        )),
-                                    BootstrapCol(
-                                        sizes: 'col-12 col-md-6',
-                                        child: Container(
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20,
-                                                right: 20,
-                                                bottom: 20),
-                                            child: Column(
-                                              // ignore: prefer_const_literals_to_create_immutables
-                                              children: [
-                                                SizedBox(
-                                                  width: double.infinity,
-                                                  child: AutoSizeText(
-                                                    'อำเภอ',
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        color: Colors.black),
-                                                    minFontSize: 14,
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                    top: 5,
-                                                  ),
-                                                  child: Container(
-                                                    child: Container(
-                                                      // child: TextFormField(
-                                                      //   controller:
-                                                      //       TextEditingController()
-                                                      //         ..text =
-                                                      //             'ภูกามยาว',
-                                                      //   cursorColor:
-                                                      //       Colors.black,
-                                                      //   style: TextStyle(
-                                                      //       color:
-                                                      //           Colors.black),
-                                                      //   decoration:
-                                                      //       InputDecoration(
-                                                      //     border:
-                                                      //         InputBorder.none,
-                                                      //     // focusedBorder: InputBorder.none,
-                                                      //     // enabledBorder: InputBorder.none,
-                                                      //     errorBorder:
-                                                      //         InputBorder.none,
-                                                      //     disabledBorder:
-                                                      //         InputBorder.none,
-                                                      //     isDense: true,
-                                                      //     contentPadding:
-                                                      //         EdgeInsets
-                                                      //             .fromLTRB(
-                                                      //                 15.0,
-                                                      //                 18.0,
-                                                      //                 0.0,
-                                                      //                 10.0),
-
-                                                      //     // fillColor: Color.fromARGB(31, 161, 161, 161),
-                                                      //     // filled: true,
-
-                                                      //     focusedBorder:
-                                                      //         OutlineInputBorder(
-                                                      //       borderSide:
-                                                      //           const BorderSide(
-                                                      //               color: Colors
-                                                      //                   .black12,
-                                                      //               width: 1),
-                                                      //       borderRadius:
-                                                      //           BorderRadius
-                                                      //               .circular(
-                                                      //                   5.0),
-                                                      //     ),
-                                                      //     enabledBorder:
-                                                      //         OutlineInputBorder(
-                                                      //       borderSide:
-                                                      //           BorderSide(
-                                                      //               color: Colors
-                                                      //                   .black12,
-                                                      //               width: 1),
-                                                      //       borderRadius:
-                                                      //           BorderRadius
-                                                      //               .circular(
-                                                      //                   5),
-                                                      //     ),
-                                                      //   ),
-                                                      // ),
-
-                                                      child: Container(
-                                                          height: 40,
-                                                          child: District()),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        )),
-                                    BootstrapCol(
-                                        sizes: 'col-12 col-md-6',
-                                        child: Container(
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20,
-                                                right: 20,
-                                                bottom: 20),
-                                            child: Column(
-                                              // ignore: prefer_const_literals_to_create_immutables
-                                              children: [
-                                                SizedBox(
-                                                  width: double.infinity,
-                                                  child: AutoSizeText(
-                                                    'ตำบล',
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        color: Colors.black),
-                                                    minFontSize: 14,
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                    top: 5,
-                                                  ),
-                                                  child: Container(
-                                                    child: Container(
-                                                      // child: TextFormField(
-                                                      //   controller:
-                                                      //       TextEditingController()
-                                                      //         ..text = 'ดงเจน',
-                                                      //   cursorColor:
-                                                      //       Colors.black,
-                                                      //   style: TextStyle(
-                                                      //       color:
-                                                      //           Colors.black),
-                                                      //   decoration:
-                                                      //       InputDecoration(
-                                                      //     border:
-                                                      //         InputBorder.none,
-                                                      //     // focusedBorder: InputBorder.none,
-                                                      //     // enabledBorder: InputBorder.none,
-                                                      //     errorBorder:
-                                                      //         InputBorder.none,
-                                                      //     disabledBorder:
-                                                      //         InputBorder.none,
-                                                      //     isDense: true,
-                                                      //     contentPadding:
-                                                      //         EdgeInsets
-                                                      //             .fromLTRB(
-                                                      //                 15.0,
-                                                      //                 18.0,
-                                                      //                 0.0,
-                                                      //                 10.0),
-
-                                                      //     // fillColor: Color.fromARGB(31, 161, 161, 161),
-                                                      //     // filled: true,
-
-                                                      //     focusedBorder:
-                                                      //         OutlineInputBorder(
-                                                      //       borderSide:
-                                                      //           const BorderSide(
-                                                      //               color: Colors
-                                                      //                   .black12,
-                                                      //               width: 1),
-                                                      //       borderRadius:
-                                                      //           BorderRadius
-                                                      //               .circular(
-                                                      //                   5.0),
-                                                      //     ),
-                                                      //     enabledBorder:
-                                                      //         OutlineInputBorder(
-                                                      //       borderSide:
-                                                      //           BorderSide(
-                                                      //               color: Colors
-                                                      //                   .black12,
-                                                      //               width: 1),
-                                                      //       borderRadius:
-                                                      //           BorderRadius
-                                                      //               .circular(
-                                                      //                   5),
-                                                      //     ),
-                                                      //   ),
-                                                      // ),
-
-                                                      child: Container(
-                                                          height: 40,
-                                                          child:
-                                                              District_Tambon()),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        )),
-                                    BootstrapCol(
-                                        sizes: 'col-12 col-md-6',
-                                        child: Container(
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20,
-                                                right: 20,
-                                                bottom: 20),
-                                            child: Column(
-                                              // ignore: prefer_const_literals_to_create_immutables
-                                              children: [
-                                                SizedBox(
-                                                  width: double.infinity,
-                                                  child: AutoSizeText(
-                                                    'รหัสไปรษณีย์',
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        color: Colors.black),
-                                                    minFontSize: 14,
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                    top: 5,
-                                                  ),
-                                                  child: Container(
-                                                    child: Container(
-                                                      child: TextFormField(
-                                                        controller:
-                                                            TextEditingController()
-                                                              ..text = '56000',
-                                                        cursorColor:
-                                                            Colors.black,
-                                                        style: TextStyle(
-                                                            color:
-                                                                Colors.black),
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          // focusedBorder: InputBorder.none,
-                                                          // enabledBorder: InputBorder.none,
-                                                          errorBorder:
-                                                              InputBorder.none,
-                                                          disabledBorder:
-                                                              InputBorder.none,
-                                                          isDense: true,
-                                                          contentPadding:
-                                                              EdgeInsets
-                                                                  .fromLTRB(
-                                                                      15.0,
-                                                                      18.0,
-                                                                      0.0,
-                                                                      10.0),
-
-                                                          // fillColor: Color.fromARGB(31, 161, 161, 161),
-                                                          // filled: true,
-
-                                                          focusedBorder:
-                                                              OutlineInputBorder(
-                                                            borderSide:
-                                                                const BorderSide(
-                                                                    color: Colors
-                                                                        .black12,
-                                                                    width: 1),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        5.0),
-                                                          ),
-                                                          enabledBorder:
-                                                              OutlineInputBorder(
-                                                            borderSide:
-                                                                BorderSide(
-                                                                    color: Colors
-                                                                        .black12,
-                                                                    width: 1),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        5),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        )),
-                                  ],
-                                ),
-                              ),
-
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    top: 0, right: 20, left: 20, bottom: 20),
-                                child: BootstrapRow(children: <BootstrapCol>[
-                                  BootstrapCol(
-                                      sizes: 'col-12 ',
-                                      child: Container(
-                                          child: Column(
-                                        children: [
-                                          SizedBox(
-                                            width: double.infinity,
-                                            child: AutoSizeText(
-                                              'ข้อมูลที่อยู่',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  color: Colors.black),
-                                              minFontSize: 14,
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                              top: 5,
-                                            ),
-                                            child: Container(
-                                              child: Container(
-                                                child: TextFormField(
-                                                  controller:
-                                                      TextEditingController()
-                                                        ..text = '',
-                                                  cursorColor: Colors.black,
-                                                  style: TextStyle(
-                                                      color: Colors.black),
-                                                  decoration: InputDecoration(
-                                                    border: InputBorder.none,
-                                                    // focusedBorder: InputBorder.none,
-                                                    // enabledBorder: InputBorder.none,
-                                                    errorBorder:
-                                                        InputBorder.none,
-                                                    disabledBorder:
-                                                        InputBorder.none,
-                                                    isDense: true,
-                                                    contentPadding:
-                                                        EdgeInsets.fromLTRB(
-                                                            15.0,
-                                                            50,
-                                                            0.0,
-                                                            10.0),
-
-                                                    // fillColor: Color.fromARGB(31, 161, 161, 161),
-                                                    // filled: true,
-
-                                                    focusedBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide:
-                                                          const BorderSide(
-                                                              color: Colors
-                                                                  .black12,
-                                                              width: 1),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              5.0),
-                                                    ),
-                                                    enabledBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                          color: Colors.black12,
-                                                          width: 1),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              5),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      )))
-                                ]),
-                              ),
-
-                              //เส้น
-                              Padding(
-                                padding:
-                                    const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                                child: SizedBox(
-                                  height: 1,
-                                  width: double.infinity,
-                                  child: ColoredBox(color: Colors.black12),
-                                ),
-                              ),
-
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  top: 0,
-                                  right: 20,
-                                  left: 20,
-                                ),
-                                child: BootstrapRow(children: <BootstrapCol>[
-                                  BootstrapCol(
-                                    sizes: 'col-12 ',
-                                    child: Container(
-                                      child: Row(
-                                        // ignore: prefer_const_literals_to_create_immutables
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                right: 10),
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                color: Color.fromARGB(
-                                                    255, 101, 188, 231),
-                                                borderRadius:
-                                                    BorderRadius.circular(50),
-                                              ),
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsets.all(7.0),
-                                                child: Icon(
-                                                  Iconsax.send_21,
-                                                  color: Colors.white,
-                                                  size: 17,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          AutoSizeText(
-                                            'ประเภทการจัดส่ง :',
-                                            style: TextStyle(
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.w400),
-                                            minFontSize: 17,
-                                            maxLines: 1,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  )
-                                ]),
-                              ),
-
-                              Padding(
-                                padding: const EdgeInsets.only(top: 20),
-                                child: BootstrapRow(
-                                  children: <BootstrapCol>[
-                                    BootstrapCol(
-                                        sizes: 'col-12 col-md-6',
-                                        child: Container(
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20, right: 20),
-                                            child: Column(
-                                              // ignore: prefer_const_literals_to_create_immutables
-                                              children: [
-                                                SizedBox(
-                                                  width: double.infinity,
-                                                  child: AutoSizeText(
-                                                    'เลือกประเภทการจัดส่ง',
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        color: Colors.black),
-                                                    minFontSize: 14,
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          top: 5),
-                                                  child: Container(
-                                                    child: Column(
-                                                      children: <Widget>[
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                                  border: Border
-                                                                      .all(
-                                                                    color: Color
-                                                                        .fromARGB(
-                                                                            255,
-                                                                            101,
-                                                                            188,
-                                                                            231),
-                                                                  ),
-                                                                  color: Color
-                                                                      .fromARGB(
-                                                                          255,
-                                                                          231,
-                                                                          243,
-                                                                          250),
-                                                                  //   color: Colors
-                                                                  //        .white,
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              5),
-                                                                  // ignore: prefer_const_literals_to_create_immutables
-                                                                  boxShadow: [
-                                                                // BoxShadow(
-                                                                //     blurRadius: 5,
-                                                                //     color:
-                                                                //         Color.fromARGB(255, 29, 29, 29)
-                                                                //             .withOpacity(.3),
-                                                                //     offset: Offset(-10, 20))
-                                                              ]),
-                                                          child: Column(
-                                                            children: [
-                                                              ListTile(
-                                                                title:
-                                                                    const Text(
-                                                                  'ไปรษณีย์',
-                                                                ),
-                                                                subtitle: Text(
-                                                                  'ราคาจัดส่ง 40 บาท',
-                                                                  style: TextStyle(
-                                                                      fontSize:
-                                                                          13),
-                                                                ),
-                                                                leading: Radio<
-                                                                    SingingCharacter>(
-                                                                  value: SingingCharacter
-                                                                      .lafayette,
-                                                                  groupValue:
-                                                                      _character,
-                                                                  onChanged:
-                                                                      (SingingCharacter?
-                                                                          value) {
-                                                                    setState(
-                                                                        () {
-                                                                      _character =
-                                                                          value;
-                                                                    });
-                                                                  },
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .only(
-                                                                  top: 10),
-                                                          child: Container(
-                                                            decoration:
-                                                                BoxDecoration(
-                                                                    border:
-                                                                        Border
-                                                                            .all(
-                                                                      color: Colors
-                                                                          .black12,
-                                                                    ),
-                                                                    //    color: Color.fromARGB(255, 101, 188, 231),
-                                                                    color: Colors
-                                                                        .white,
-                                                                    borderRadius:
-                                                                        BorderRadius
-                                                                            .circular(5),
-                                                                    // ignore: prefer_const_literals_to_create_immutables
-                                                                    boxShadow: [
-                                                                  // BoxShadow(
-                                                                  //     blurRadius: 5,
-                                                                  //     color:
-                                                                  //         Color.fromARGB(255, 29, 29, 29)
-                                                                  //             .withOpacity(.3),
-                                                                  //     offset: Offset(-10, 20))
-                                                                ]),
-                                                            child: ListTile(
-                                                              title: const Text(
-                                                                  'เดลิเวอร์ลี่'),
-                                                              subtitle: Text(
-                                                                'ราคาจัดส่ง 70 บาท',
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        13),
-                                                              ),
-                                                              leading: Radio<
-                                                                  SingingCharacter>(
-                                                                value: SingingCharacter
-                                                                    .jefferson,
-                                                                groupValue:
-                                                                    _character,
-                                                                onChanged:
-                                                                    (SingingCharacter?
-                                                                        value) {
-                                                                  setState(() {
-                                                                    _character =
-                                                                        value;
-                                                                  });
-                                                                },
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        )),
-                                    BootstrapCol(
-                                        sizes: 'col-12 col-md-6',
-                                        child: Container()),
-                                  ],
-                                ),
-                              ),
-
-                              //เส้น
-                              Padding(
-                                padding:
-                                    const EdgeInsets.fromLTRB(0, 40, 0, 20),
-                                child: SizedBox(
-                                  height: 1,
-                                  width: double.infinity,
-                                  child: ColoredBox(color: Colors.black12),
-                                ),
-                              ),
-
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  top: 0,
-                                  right: 20,
-                                  left: 20,
-                                ),
-                                child: BootstrapRow(children: <BootstrapCol>[
-                                  BootstrapCol(
-                                    sizes: 'col-12 ',
-                                    child: Container(
-                                      child: Row(
-                                        // ignore: prefer_const_literals_to_create_immutables
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                right: 10),
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                color: Color.fromARGB(
-                                                    255, 101, 188, 231),
-                                                borderRadius:
-                                                    BorderRadius.circular(50),
-                                              ),
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsets.all(7.0),
-                                                child: Icon(
-                                                  Icons.attach_money,
-                                                  color: Colors.white,
-                                                  size: 17,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          AutoSizeText(
-                                            'วิธีการชำระเงิน :',
-                                            style: TextStyle(
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.w400),
-                                            minFontSize: 17,
-                                            maxLines: 1,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  )
-                                ]),
-                              ),
-
-                              Padding(
-                                padding: const EdgeInsets.only(top: 20),
-                                child: BootstrapRow(
-                                  children: <BootstrapCol>[
-                                    BootstrapCol(
-                                        sizes: 'col-12 col-md-6',
-                                        child: Container(
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20, right: 20),
-                                            child: Column(
-                                              // ignore: prefer_const_literals_to_create_immutables
-                                              children: [
-                                                SizedBox(
-                                                  width: double.infinity,
-                                                  child: AutoSizeText(
-                                                    'เลือกวิธีการชำระเงิน',
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        color: Colors.black),
-                                                    minFontSize: 14,
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          top: 5),
-                                                  child: Container(
-                                                    child: Column(
-                                                      children: <Widget>[
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                                  border: Border
-                                                                      .all(
-                                                                    color: Color
-                                                                        .fromARGB(
-                                                                            255,
-                                                                            101,
-                                                                            188,
-                                                                            231),
-                                                                  ),
-                                                                  color: Color
-                                                                      .fromARGB(
-                                                                          255,
-                                                                          231,
-                                                                          243,
-                                                                          250),
-                                                                  //   color: Colors
-                                                                  //        .white,
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              5),
-                                                                  // ignore: prefer_const_literals_to_create_immutables
-                                                                  boxShadow: [
-                                                                // BoxShadow(
-                                                                //     blurRadius: 5,
-                                                                //     color:
-                                                                //         Color.fromARGB(255, 29, 29, 29)
-                                                                //             .withOpacity(.3),
-                                                                //     offset: Offset(-10, 20))
-                                                              ]),
-                                                          child: Column(
-                                                            children: [
-                                                              ListTile(
-                                                                title:
-                                                                    const Text(
-                                                                  'พร้อมเพย์',
-                                                                ),
-                                                                trailing: Icon(
-                                                                  Ionicons
-                                                                      .qr_code_outline,
-                                                                  color: Colors
-                                                                      .blue,
-                                                                ),
-                                                                leading: Radio<
-                                                                    SingingCharacter>(
-                                                                  value: SingingCharacter
-                                                                      .lafayette,
-                                                                  groupValue:
-                                                                      _character,
-                                                                  onChanged:
-                                                                      (SingingCharacter?
-                                                                          value) {
-                                                                    setState(
-                                                                        () {
-                                                                      _character =
-                                                                          value;
-                                                                    });
-                                                                  },
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .only(
-                                                                  top: 10),
-                                                          child: Container(
-                                                            decoration:
-                                                                BoxDecoration(
-                                                                    border:
-                                                                        Border
-                                                                            .all(
-                                                                      color: Colors
-                                                                          .black12,
-                                                                    ),
-                                                                    //    color: Color.fromARGB(255, 101, 188, 231),
-                                                                    color: Colors
-                                                                        .white,
-                                                                    borderRadius:
-                                                                        BorderRadius
-                                                                            .circular(5),
-                                                                    // ignore: prefer_const_literals_to_create_immutables
-                                                                    boxShadow: [
-                                                                  // BoxShadow(
-                                                                  //     blurRadius: 5,
-                                                                  //     color:
-                                                                  //         Color.fromARGB(255, 29, 29, 29)
-                                                                  //             .withOpacity(.3),
-                                                                  //     offset: Offset(-10, 20))
-                                                                ]),
-                                                            child: ListTile(
-                                                              title: const Text(
-                                                                  'เครดิต/เดบิต'),
-                                                              trailing: Icon(
-                                                                  Ionicons
-                                                                      .card_outline),
-                                                              leading: Radio<
-                                                                  SingingCharacter>(
-                                                                value: SingingCharacter
-                                                                    .jefferson,
-                                                                groupValue:
-                                                                    _character,
-                                                                onChanged:
-                                                                    (SingingCharacter?
-                                                                        value) {
-                                                                  setState(() {
-                                                                    _character =
-                                                                        value;
-                                                                  });
-                                                                },
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        )),
-                                    BootstrapCol(
-                                        sizes: 'col-12 col-md-6',
-                                        child: Container()),
-                                  ],
-                                ),
-                              ),
-
+                              contAdr(),
+                              contDeliChoose(),
+                              contPayChoose(),
                               //เครดิต/เดบิต
                               Padding(
                                 padding: const EdgeInsets.only(
@@ -1334,15 +160,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                                                                       BorderRadius
                                                                           .circular(
                                                                               5),
-                                                                  // ignore: prefer_const_literals_to_create_immutables
-                                                                  boxShadow: [
-                                                                // BoxShadow(
-                                                                //     blurRadius: 5,
-                                                                //     color:
-                                                                //         Color.fromARGB(255, 29, 29, 29)
-                                                                //             .withOpacity(.3),
-                                                                //     offset: Offset(-10, 20))
-                                                              ]),
+                                                                  boxShadow: []),
                                                           child: Row(
                                                             mainAxisAlignment:
                                                                 MainAxisAlignment
@@ -1467,8 +285,6 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                                                             InputDecoration(
                                                           border:
                                                               InputBorder.none,
-                                                          // focusedBorder: InputBorder.none,
-                                                          // enabledBorder: InputBorder.none,
                                                           errorBorder:
                                                               InputBorder.none,
                                                           disabledBorder:
@@ -1481,10 +297,6 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                                                                       18.0,
                                                                       0.0,
                                                                       10.0),
-
-                                                          // fillColor: Color.fromARGB(31, 161, 161, 161),
-                                                          // filled: true,
-
                                                           focusedBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
@@ -1527,7 +339,6 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                                                 right: 20,
                                                 bottom: 20),
                                             child: Column(
-                                              // ignore: prefer_const_literals_to_create_immutables
                                               children: [
                                                 SizedBox(
                                                   width: double.infinity,
@@ -1560,8 +371,6 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                                                             InputDecoration(
                                                           border:
                                                               InputBorder.none,
-                                                          // focusedBorder: InputBorder.none,
-                                                          // enabledBorder: InputBorder.none,
                                                           errorBorder:
                                                               InputBorder.none,
                                                           disabledBorder:
@@ -1574,10 +383,6 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                                                                       18.0,
                                                                       0.0,
                                                                       10.0),
-
-                                                          // fillColor: Color.fromARGB(31, 161, 161, 161),
-                                                          // filled: true,
-
                                                           focusedBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
@@ -1652,8 +457,6 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                                                             InputDecoration(
                                                           border:
                                                               InputBorder.none,
-                                                          // focusedBorder: InputBorder.none,
-                                                          // enabledBorder: InputBorder.none,
                                                           errorBorder:
                                                               InputBorder.none,
                                                           disabledBorder:
@@ -1666,10 +469,6 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                                                                       18.0,
                                                                       0.0,
                                                                       10.0),
-
-                                                          // fillColor: Color.fromARGB(31, 161, 161, 161),
-                                                          // filled: true,
-
                                                           focusedBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
@@ -1712,10 +511,8 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                                                 right: 20,
                                                 bottom: 20),
                                             child: Column(
-                                              // ignore: prefer_const_literals_to_create_immutables
                                               children: [
                                                 Row(
-                                                  // ignore: prefer_const_literals_to_create_immutables
                                                   children: [
                                                     SizedBox(
                                                       child: AutoSizeText(
@@ -1763,8 +560,6 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                                                             InputDecoration(
                                                           border:
                                                               InputBorder.none,
-                                                          // focusedBorder: InputBorder.none,
-                                                          // enabledBorder: InputBorder.none,
                                                           errorBorder:
                                                               InputBorder.none,
                                                           disabledBorder:
@@ -1777,10 +572,6 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                                                                       18.0,
                                                                       0.0,
                                                                       10.0),
-
-                                                          // fillColor: Color.fromARGB(31, 161, 161, 161),
-                                                          // filled: true,
-
                                                           focusedBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
@@ -2142,18 +933,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                                                     clipBehavior:
                                                         Clip.antiAlias,
                                                     child: Container(
-                                                      // decoration: BoxDecoration(
                                                       color: Colors.blue,
-                                                      //     borderRadius:
-                                                      //         BorderRadius.circular(32),
-                                                      //     boxShadow: [
-                                                      //       BoxShadow(
-                                                      //           blurRadius: 0,
-                                                      //           color: Color.fromARGB(
-                                                      //                   255, 29, 29, 29)
-                                                      //               .withOpacity(.0),
-                                                      //           offset: Offset(0, 0))
-                                                      //     ]),
                                                       child: Padding(
                                                         padding:
                                                             const EdgeInsets
@@ -2214,6 +994,685 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
               ])
         ]),
       ),
+    );
+  }
+
+  Widget contAdr() {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+          child: SizedBox(
+            height: 1,
+            width: double.infinity,
+            child: ColoredBox(color: Colors.black12),
+          ),
+        ),
+
+        Padding(
+          padding: const EdgeInsets.only(
+            top: 0,
+            right: 20,
+            left: 20,
+          ),
+          child: BootstrapRow(children: <BootstrapCol>[
+            BootstrapCol(
+              sizes: 'col-12 ',
+              child: Container(
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 101, 188, 231),
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(7.0),
+                          child: Icon(
+                            Icons.house,
+                            color: Colors.white,
+                            size: 17,
+                          ),
+                        ),
+                      ),
+                    ),
+                    AutoSizeText(
+                      'ข้อมูลผู้สั่งซื้อ :',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                      minFontSize: 17,
+                      maxLines: 1,
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ]),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: BootstrapRow(
+            children: <BootstrapCol>[
+              BootstrapCol(
+                  sizes: 'col-12 col-md-6',
+                  child: Container(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 20, right: 20, bottom: 20),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            width: double.infinity,
+                            child: AutoSizeText(
+                              'ชื่อ - นามสกุล',
+                              style:
+                                  TextStyle(fontSize: 15, color: Colors.black),
+                              minFontSize: 14,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              top: 5,
+                            ),
+                            child: Container(
+                              child: Container(
+                                child: TextFormField(
+                                  cursorColor: Colors.black,
+                                  style: TextStyle(color: Colors.black),
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    errorBorder: InputBorder.none,
+                                    disabledBorder: InputBorder.none,
+                                    isDense: true,
+                                    contentPadding: EdgeInsets.fromLTRB(
+                                        15.0, 18.0, 0.0, 10.0),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          color: Colors.black12, width: 1),
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: Colors.black12, width: 1),
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )),
+              BootstrapCol(
+                  sizes: 'col-12 col-md-6',
+                  child: Container(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 20, right: 20, bottom: 20),
+                      child: Column(
+                        // ignore: prefer_const_literals_to_create_immutables
+                        children: [
+                          SizedBox(
+                            width: double.infinity,
+                            child: AutoSizeText(
+                              'เบอร์โทรศัพท์',
+                              style:
+                                  TextStyle(fontSize: 15, color: Colors.black),
+                              minFontSize: 14,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              top: 5,
+                            ),
+                            child: Container(
+                              child: Container(
+                                child: TextFormField(
+                                  cursorColor: Colors.black,
+                                  style: TextStyle(color: Colors.black),
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    errorBorder: InputBorder.none,
+                                    disabledBorder: InputBorder.none,
+                                    isDense: true,
+                                    contentPadding: EdgeInsets.fromLTRB(
+                                        15.0, 18.0, 0.0, 10.0),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          color: Colors.black12, width: 1),
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: Colors.black12, width: 1),
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )),
+              BootstrapCol(
+                  sizes: 'col-12 col-md-6',
+                  child: Container(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 20, right: 20, bottom: 20),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            width: double.infinity,
+                            child: AutoSizeText(
+                              'จังหวัด',
+                              style:
+                                  TextStyle(fontSize: 15, color: Colors.black),
+                              minFontSize: 14,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 5),
+                            child: Container(height: 40, child: Province()),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )),
+              BootstrapCol(
+                  sizes: 'col-12 col-md-6',
+                  child: Container(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 20, right: 20, bottom: 20),
+                      child: Column(
+                        // ignore: prefer_const_literals_to_create_immutables
+                        children: [
+                          SizedBox(
+                            width: double.infinity,
+                            child: AutoSizeText(
+                              'อำเภอ',
+                              style:
+                                  TextStyle(fontSize: 15, color: Colors.black),
+                              minFontSize: 14,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              top: 5,
+                            ),
+                            child: Container(
+                              child: Container(
+                                child: Container(height: 40, child: District()),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )),
+              BootstrapCol(
+                  sizes: 'col-12 col-md-6',
+                  child: Container(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 20, right: 20, bottom: 20),
+                      child: Column(
+                        // ignore: prefer_const_literals_to_create_immutables
+                        children: [
+                          SizedBox(
+                            width: double.infinity,
+                            child: AutoSizeText(
+                              'ตำบล',
+                              style:
+                                  TextStyle(fontSize: 15, color: Colors.black),
+                              minFontSize: 14,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              top: 5,
+                            ),
+                            child: Container(
+                              child: Container(
+                                child: Container(
+                                    height: 40, child: District_Tambon()),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )),
+              BootstrapCol(
+                  sizes: 'col-12 col-md-6',
+                  child: Container(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 20, right: 20, bottom: 20),
+                      child: Column(
+                        // ignore: prefer_const_literals_to_create_immutables
+                        children: [
+                          SizedBox(
+                            width: double.infinity,
+                            child: AutoSizeText(
+                              'รหัสไปรษณีย์',
+                              style:
+                                  TextStyle(fontSize: 15, color: Colors.black),
+                              minFontSize: 14,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              top: 5,
+                            ),
+                            child: Container(
+                              child: Container(
+                                child: TextFormField(
+                                  controller: TextEditingController()
+                                    ..text = '56000',
+                                  cursorColor: Colors.black,
+                                  style: TextStyle(color: Colors.black),
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    errorBorder: InputBorder.none,
+                                    disabledBorder: InputBorder.none,
+                                    isDense: true,
+                                    contentPadding: EdgeInsets.fromLTRB(
+                                        15.0, 18.0, 0.0, 10.0),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          color: Colors.black12, width: 1),
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: Colors.black12, width: 1),
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )),
+            ],
+          ),
+        ),
+
+        Padding(
+          padding:
+              const EdgeInsets.only(top: 0, right: 20, left: 20, bottom: 20),
+          child: BootstrapRow(children: <BootstrapCol>[
+            BootstrapCol(
+                sizes: 'col-12 ',
+                child: Container(
+                    child: Column(
+                  children: [
+                    SizedBox(
+                      width: double.infinity,
+                      child: AutoSizeText(
+                        'ข้อมูลที่อยู่',
+                        style: TextStyle(fontSize: 15, color: Colors.black),
+                        minFontSize: 14,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 5,
+                      ),
+                      child: Container(
+                        child: Container(
+                          child: TextFormField(
+                            controller: TextEditingController()..text = '',
+                            cursorColor: Colors.black,
+                            style: TextStyle(color: Colors.black),
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              errorBorder: InputBorder.none,
+                              disabledBorder: InputBorder.none,
+                              isDense: true,
+                              contentPadding:
+                                  EdgeInsets.fromLTRB(15.0, 50, 0.0, 10.0),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    color: Colors.black12, width: 1),
+                                borderRadius: BorderRadius.circular(5.0),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.black12, width: 1),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                )))
+          ]),
+        ),
+
+        //เส้น
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+          child: SizedBox(
+            height: 1,
+            width: double.infinity,
+            child: ColoredBox(color: Colors.black12),
+          ),
+        ),
+
+        Padding(
+          padding: const EdgeInsets.only(
+            top: 0,
+            right: 20,
+            left: 20,
+          ),
+          child: BootstrapRow(children: <BootstrapCol>[
+            BootstrapCol(
+              sizes: 'col-12 ',
+              child: Container(
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 101, 188, 231),
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(7.0),
+                          child: Icon(
+                            Iconsax.send_21,
+                            color: Colors.white,
+                            size: 17,
+                          ),
+                        ),
+                      ),
+                    ),
+                    AutoSizeText(
+                      'ประเภทการจัดส่ง :',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                      minFontSize: 17,
+                      maxLines: 1,
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ]),
+        ),
+      ],
+    );
+  }
+
+  Widget contDeliChoose() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 20),
+      child: BootstrapRow(
+        children: <BootstrapCol>[
+          BootstrapCol(
+              sizes: 'col-12 col-md-6',
+              child: Container(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child: Column(
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      SizedBox(
+                        width: double.infinity,
+                        child: AutoSizeText(
+                          'เลือกประเภทการจัดส่ง',
+                          style: TextStyle(fontSize: 15, color: Colors.black),
+                          minFontSize: 14,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 5),
+                        child: Container(
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: Color.fromARGB(255, 101, 188, 231),
+                                    ),
+                                    color: Color.fromARGB(255, 231, 243, 250),
+                                    borderRadius: BorderRadius.circular(5),
+                                    boxShadow: []),
+                                child: Column(
+                                  children: [
+                                    ListTile(
+                                      title: const Text(
+                                        'ไปรษณีย์',
+                                      ),
+                                      subtitle: Text(
+                                        'ราคาจัดส่ง 40 บาท',
+                                        style: TextStyle(fontSize: 13),
+                                      ),
+                                      leading: Radio<SingingCharacter>(
+                                        value: SingingCharacter.lafayette,
+                                        groupValue: _character,
+                                        onChanged: (SingingCharacter? value) {
+                                          setState(() {
+                                            _character = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: Colors.black12,
+                                      ),
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(5),
+                                      boxShadow: []),
+                                  child: ListTile(
+                                    title: const Text('เดลิเวอร์ลี่'),
+                                    subtitle: Text(
+                                      'ราคาจัดส่ง 70 บาท',
+                                      style: TextStyle(fontSize: 13),
+                                    ),
+                                    leading: Radio<SingingCharacter>(
+                                      value: SingingCharacter.jefferson,
+                                      groupValue: _character,
+                                      onChanged: (SingingCharacter? value) {
+                                        setState(() {
+                                          _character = value;
+                                        });
+                                      },
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              )),
+          BootstrapCol(sizes: 'col-12 col-md-6', child: Container()),
+        ],
+      ),
+    );
+  }
+
+  Widget contPayChoose() {
+    return Column(
+      children: [
+        //เส้น
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0, 40, 0, 20),
+          child: SizedBox(
+            height: 1,
+            width: double.infinity,
+            child: ColoredBox(color: Colors.black12),
+          ),
+        ),
+
+        Padding(
+          padding: const EdgeInsets.only(
+            top: 0,
+            right: 20,
+            left: 20,
+          ),
+          child: BootstrapRow(children: <BootstrapCol>[
+            BootstrapCol(
+              sizes: 'col-12 ',
+              child: Container(
+                child: Row(
+                  // ignore: prefer_const_literals_to_create_immutables
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 101, 188, 231),
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(7.0),
+                          child: Icon(
+                            Icons.attach_money,
+                            color: Colors.white,
+                            size: 17,
+                          ),
+                        ),
+                      ),
+                    ),
+                    AutoSizeText(
+                      'วิธีการชำระเงิน :',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                      minFontSize: 17,
+                      maxLines: 1,
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ]),
+        ),
+
+        Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: BootstrapRow(
+            children: <BootstrapCol>[
+              BootstrapCol(
+                  sizes: 'col-12 col-md-6',
+                  child: Container(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            width: double.infinity,
+                            child: AutoSizeText(
+                              'เลือกวิธีการชำระเงิน',
+                              style:
+                                  TextStyle(fontSize: 15, color: Colors.black),
+                              minFontSize: 14,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 5),
+                            child: Container(
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: Color.fromARGB(
+                                              255, 101, 188, 231),
+                                        ),
+                                        color:
+                                            Color.fromARGB(255, 231, 243, 250),
+                                        borderRadius: BorderRadius.circular(5),
+                                        boxShadow: []),
+                                    child: Column(
+                                      children: [
+                                        ListTile(
+                                          title: const Text(
+                                            'พร้อมเพย์',
+                                          ),
+                                          trailing: Icon(
+                                            Ionicons.qr_code_outline,
+                                            color: Colors.blue,
+                                          ),
+                                          leading: Radio<SingingCharacter>(
+                                            value: SingingCharacter.lafayette,
+                                            groupValue: _character,
+                                            onChanged:
+                                                (SingingCharacter? value) {
+                                              setState(() {
+                                                _character = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 10),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                            color: Colors.black12,
+                                          ),
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                          boxShadow: []),
+                                      child: ListTile(
+                                        title: const Text('เครดิต/เดบิต'),
+                                        trailing: Icon(Ionicons.card_outline),
+                                        leading: Radio<SingingCharacter>(
+                                          value: SingingCharacter.jefferson,
+                                          groupValue: _character,
+                                          onChanged: (SingingCharacter? value) {
+                                            setState(() {
+                                              _character = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )),
+              BootstrapCol(sizes: 'col-12 col-md-6', child: Container()),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

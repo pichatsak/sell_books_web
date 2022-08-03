@@ -50,6 +50,14 @@ class _NavMainScreenState extends State<NavMainScreen> {
     }
   }
 
+  void goToAc() {
+    if (box.read("login")) {
+      Navigator.pushNamed(context, "/account");
+    } else {
+      _onErrorLogin(context);
+    }
+  }
+
   void getCartData() async {
     if (box.read("login")) {
       var url =
@@ -174,8 +182,7 @@ class _NavMainScreenState extends State<NavMainScreen> {
                                 children: [
                                   InkWell(
                                     onTap: () {
-                                      Navigator.of(context)
-                                          .pushNamed(Account.route);
+                                      goToAc();
                                     },
                                     child: Container(
                                         margin:
@@ -443,7 +450,9 @@ class _NavMainScreenState extends State<NavMainScreen> {
                         ),
                         // ignore: deprecated_member_use
                         FlatButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(context, "/how_to_buy");
+                            },
                             highlightColor: color,
                             splashColor: color,
                             hoverColor: color,
@@ -483,7 +492,9 @@ class _NavMainScreenState extends State<NavMainScreen> {
                         ),
                         // ignore: deprecated_member_use
                         FlatButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(context, "/policy");
+                            },
                             highlightColor: color,
                             splashColor: color,
                             hoverColor: color,
@@ -517,8 +528,7 @@ class _NavMainScreenState extends State<NavMainScreen> {
                               children: [
                                 InkWell(
                                   onTap: () {
-                                    Navigator.of(context)
-                                        .pushNamed(Account.route);
+                                    goToAc();
                                   },
                                   child: Container(
                                       margin: const EdgeInsets.fromLTRB(
@@ -783,8 +793,7 @@ class _NavMainScreenState extends State<NavMainScreen> {
                                       // ignore: deprecated_member_use
                                       child: FlatButton(
                                         onPressed: () {
-                                          Navigator.of(context)
-                                              .pushNamed(Account.route);
+                                          goToAc();
                                         },
                                         highlightColor: color,
                                         splashColor: color,
