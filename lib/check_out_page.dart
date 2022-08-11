@@ -1,27 +1,27 @@
 import 'dart:convert';
 
-import 'package:flutter/services.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import 'package:pattern_formatter/numeric_formatter.dart';
+import 'package:validators/validators.dart';
+
+import 'package:sell_books_web/dialog/dialog_web.dart';
 import 'package:sell_books_web/global.dart';
 import 'package:sell_books_web/models/amphure_model.dart';
 import 'package:sell_books_web/models/deli_type_model.dart';
 import 'package:sell_books_web/models/province_model.dart';
 import 'package:sell_books_web/models/tumbon_model.dart';
 import 'package:sell_books_web/tools/text_format_ultil.dart';
-import 'package:sell_books_web/dialog/dialog_web.dart';
-
 import 'package:sell_books_web/widget/nav_widget/drawers.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_main.dart';
-import 'package:http/http.dart' as http;
 import 'package:sell_books_web/widget/validate_buy.dart';
-import 'package:validators/validators.dart';
 
 class CheckOutPage extends StatefulWidget {
   const CheckOutPage({Key? key}) : super(key: key);
