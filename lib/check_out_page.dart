@@ -1,7 +1,6 @@
 // ignore_for_file: camel_case_types, depend_on_referenced_packages, prefer_const_constructors_in_immutables, prefer_const_constructors, avoid_unnecessary_containers, sort_child_properties_last
 
 import 'dart:convert';
-import 'dart:ui';
 
 import 'package:flutter/services.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -11,7 +10,6 @@ import 'package:flutter_bootstrap/flutter_bootstrap.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
-import 'package:ionicons/ionicons.dart';
 import 'package:pattern_formatter/numeric_formatter.dart';
 import 'package:sell_books_web/global.dart';
 import 'package:sell_books_web/models/AmphureModel.dart';
@@ -19,18 +17,17 @@ import 'package:sell_books_web/models/DeliTypeModel.dart';
 import 'package:sell_books_web/models/ProvinceModel.dart';
 import 'package:sell_books_web/models/TumbonModel.dart';
 import 'package:sell_books_web/tools/text_format_ultil.dart';
+import 'package:sell_books_web/dialog/dialog_web.dart';
 
 import 'package:sell_books_web/widget/nav_widget/drawers.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_main.dart';
 import 'package:http/http.dart' as http;
 import 'package:sell_books_web/widget/validateBuy.dart';
 import 'package:validators/validators.dart';
-import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
 class Check_Out_Page extends StatefulWidget {
   Check_Out_Page({Key? key}) : super(key: key);
   static const String route = '/checkout';
-  static const String _title = 'Flutter Code Sample';
 
   @override
   State<Check_Out_Page> createState() => _Check_Out_PageState();
@@ -177,11 +174,19 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
         "${Global.hostName}/check_stock.php?user_id=${box.read("user_id")}";
     var res = await http.get(Uri.parse(url));
     var getData = json.decode(res.body);
-    print(getData);
+    showDialog(
+        context: context,
+        builder: (BuildContext context) => dialogErr(context,
+            "สินค้าคงเหลือมีการเปลี่ยนแปลง \n กรุณาอัพเดทสินค้าในตะกร้าใหม่"));
+    if (getData["status"] == "ok") {
+    } else {}
   }
 
   void goTestPay() {
-    if (formKey.currentState!.validate()) {}
+    checkStock();
+    // if (formKey.currentState!.validate()) {
+    //   checkStock
+    // }
   }
 
   exampleCreateSource() async {}
@@ -1428,7 +1433,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                                 ),
                                 color: Color.fromARGB(255, 231, 243, 250),
                                 borderRadius: BorderRadius.circular(5),
-                                boxShadow: [])
+                              )
                             : BoxDecoration(
                                 border: Border.all(
                                   color: Colors.black12,
@@ -1553,7 +1558,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                                 ),
                           child: ListTile(
                             title: const Text('เครดิต/เดบิต'),
-                            trailing: Icon(Ionicons.card_outline),
+                            trailing: Icon(Icons.credit_card_rounded),
                             leading: Radio<int>(
                               value: 2,
                               groupValue: _typePay,
@@ -1590,9 +1595,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                           title: const Text(
                             'พร้อมเพย์',
                           ),
-                          trailing: Icon(
-                            Ionicons.qr_code_outline,
-                          ),
+                          trailing: Icon(Icons.qr_code_rounded),
                           leading: Radio<int>(
                             value: 1,
                             groupValue: _typePay,

@@ -15,7 +15,7 @@ import 'package:sell_books_web/widget/nav_widget/nav_main.dart';
 import 'package:http/http.dart' as http;
 
 class Account extends StatefulWidget {
-  Account({Key? key}) : super(key: key);
+  const Account({Key? key}) : super(key: key);
   static const String route = '/account';
 
   @override
@@ -76,7 +76,6 @@ class _AccountState extends State<Account> {
                           child: Center(
                               child: Padding(
                             padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-                            // ignore: avoid_unnecessary_containers
                             child: Container(
                               child: Column(
                                 children: [
@@ -89,11 +88,9 @@ class _AccountState extends State<Account> {
                                     ),
                                     height: 50,
                                     width: double.infinity,
-                                    // ignore: prefer_const_constructors
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
-                                      // ignore: prefer_const_literals_to_create_immutables
                                       children: [
                                         Padding(
                                           padding:
@@ -104,11 +101,9 @@ class _AccountState extends State<Account> {
                                             size: 32,
                                           ),
                                         ),
-                                        // ignore: prefer_const_constructors
                                         Container(
                                           child: Text(
                                             "บัญชีของฉัน",
-                                            // ignore: prefer_const_constructors
                                             style: TextStyle(
                                                 color: Colors.white,
                                                 fontWeight: FontWeight.w100,
@@ -127,7 +122,6 @@ class _AccountState extends State<Account> {
                                           bottomRight: Radius.circular(5),
                                           bottomLeft: Radius.circular(5)),
                                     ),
-                                    // ignore: avoid_unnecessary_containers
                                     child: Container(
                                       child: Padding(
                                         padding: const EdgeInsets.only(
@@ -139,8 +133,6 @@ class _AccountState extends State<Account> {
                                                   top: 20, bottom: 20),
                                               child: InkWell(
                                                 onTap: (() {}),
-
-                                                // ignore: sized_box_for_whitespace
                                                 child: Container(
                                                     child:
                                                         Text("ข้อมูลของฉัน")),
@@ -162,10 +154,8 @@ class _AccountState extends State<Account> {
                                                 onTap: (() {
                                                   Navigator.of(context)
                                                       .pushNamed(
-                                                          Story_Shop.route);
+                                                          StoryShop.route);
                                                 }),
-
-                                                // ignore: sized_box_for_whitespace
                                                 child: Container(
                                                     child: Text(
                                                         "ประวัติการสั่งซื้อ")),
@@ -187,10 +177,8 @@ class _AccountState extends State<Account> {
                                                 onTap: (() {
                                                   Navigator.of(context)
                                                       .pushNamed(
-                                                          Reset_Password.route);
+                                                          ResetPassword.route);
                                                 }),
-
-                                                // ignore: sized_box_for_whitespace
                                                 child: Container(
                                                     child: Text(
                                                         "ตั้งค่ารหัสผ่าน")),
@@ -212,8 +200,6 @@ class _AccountState extends State<Account> {
                                                 onTap: () {
                                                   goLogOut();
                                                 },
-
-                                                // ignore: sized_box_for_whitespace
                                                 child: Container(
                                                     child: Text(
                                                   "ออกจากระบบ",
@@ -292,7 +278,7 @@ class _AccountState extends State<Account> {
                                     child: InkWell(
                                       onTap: () {
                                         Navigator.of(context)
-                                            .pushNamed(Story_Shop.route);
+                                            .pushNamed(StoryShop.route);
                                       },
                                       child: Container(
                                         // decoration: BoxDecoration(
@@ -322,7 +308,7 @@ class _AccountState extends State<Account> {
                                     child: InkWell(
                                       onTap: () {
                                         Navigator.of(context)
-                                            .pushNamed(Reset_Password.route);
+                                            .pushNamed(ResetPassword.route);
                                       },
                                       child: Container(
                                         // decoration: BoxDecoration(

@@ -1,7 +1,6 @@
 // ignore_for_file: avoid_unnecessary_containers, unused_local_variable, camel_case_types, implementation_imports, unnecessary_import, prefer_const_constructors, sort_child_properties_last, unnecessary_new
 
 import 'dart:convert';
-import 'dart:html';
 import 'dart:ui';
 
 import 'package:auto_size_text/auto_size_text.dart';
@@ -48,10 +47,13 @@ class _Login_PageState extends State<Login_Page> {
       box.write("user_email", getData["data"]["user_email"]);
       box.write("user_name", getData["data"]["user_name"]);
       box.write("user_phone", getData["data"]["user_phone"]);
+      // ignore: use_build_context_synchronously
       Navigator.pushNamed(context, "/");
     } else if (getData["status"] == "no") {
+      // ignore: use_build_context_synchronously
       _onErrorUser(context);
     } else if (getData["status"] == "nopassword") {
+      // ignore: use_build_context_synchronously
       _onErrorPass(context);
     }
   }

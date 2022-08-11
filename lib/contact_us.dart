@@ -5,7 +5,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:sell_books_web/widget/nav_widget/drawers.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_main.dart';
 
@@ -25,7 +24,6 @@ class _Contact_USState extends State<Contact_US> {
   Widget build(BuildContext context) {
     bootstrapGridParameters(gutterSize: 0);
     return Scaffold(
-      // ignore: prefer_const_constructors
       backgroundColor: Color.fromRGBO(238, 238, 238, 1),
       drawer: NavDrawer(),
       body: SingleChildScrollView(
@@ -449,7 +447,7 @@ class _Contact_USState extends State<Contact_US> {
                                   top: 40, left: 15, right: 15, bottom: 30),
                               child: InkWell(
                                 onTap: () {},
-                                child: Container(
+                                child: SizedBox(
                                   width: 200,
                                   child: Card(
                                     shadowColor: Colors.black,

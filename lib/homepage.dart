@@ -63,7 +63,7 @@ class _HomepageState extends State<Homepage> {
   void setAddCart(int pid) async {
     if (box.read("login")) {
       var dataForm = {
-        "product_id": "${pid}",
+        "product_id": "$pid",
         "num": "1",
         "user_id": "${box.read("user_id")}"
       };
@@ -71,10 +71,13 @@ class _HomepageState extends State<Homepage> {
       var res = await http.post(Uri.parse(url), body: dataForm);
       var getData = json.decode(res.body);
       if (getData["status"] == "ok") {
+        // ignore: use_build_context_synchronously
         _onSuccessAlert(context);
       } else if (getData["status"] == "no") {
+        // ignore: use_build_context_synchronously
         _onError(context);
       } else if (getData["status"] == "nostock") {
+        // ignore: use_build_context_synchronously
         _onErrorStock(context);
       }
     } else {
@@ -96,14 +99,14 @@ class _HomepageState extends State<Homepage> {
       desc: "เพิ่มในตะกร้าเรียบร้อย.",
       buttons: [
         DialogButton(
-          child: Text(
-            "ตกลง",
-            style: TextStyle(color: Colors.white, fontSize: 20),
-          ),
           onPressed: () {
             Navigator.pop(context);
           },
           width: 120,
+          child: Text(
+            "ตกลง",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
         )
       ],
     ).show();

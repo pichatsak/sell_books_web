@@ -16,12 +16,12 @@ class ProvinceModel {
   });
 
   factory ProvinceModel.fromJson(Map<String, dynamic> json) => ProvinceModel(
-        id: json["id"] == null ? null : json["id"],
-        nameTh: json["name_th"] == null ? null : json["name_th"],
+        id: json["id"],
+        nameTh: json["name_th"],
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id == null ? null : id,
-        "name_th": nameTh == null ? null : nameTh,
+        "id": id,
+        "name_th": nameTh,
       };
 }

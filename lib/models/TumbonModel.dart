@@ -23,16 +23,16 @@ class TumbonModel {
   });
 
   factory TumbonModel.fromJson(Map<String, dynamic> json) => TumbonModel(
-        id: json["id"] == null ? null : json["id"],
-        zipCode: json["zip_code"] == null ? null : json["zip_code"],
-        nameTh: json["name_th"] == null ? null : json["name_th"],
-        amphureId: json["amphure_id"] == null ? null : json["amphure_id"],
+        id: json["id"],
+        zipCode: json["zip_code"],
+        nameTh: json["name_th"],
+        amphureId: json["amphure_id"],
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id == null ? null : id,
-        "zip_code": zipCode == null ? null : zipCode,
-        "name_th": nameTh == null ? null : nameTh,
-        "amphure_id": amphureId == null ? null : amphureId,
+        "id": id,
+        "zip_code": zipCode,
+        "name_th": nameTh,
+        "amphure_id": amphureId,
       };
 }

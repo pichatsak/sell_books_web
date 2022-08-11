@@ -1,28 +1,21 @@
-// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, sized_box_for_whitespace
-
-import 'dart:ui';
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
-import 'package:iconsax/iconsax.dart';
 import 'package:pager/pager.dart';
 import 'package:sell_books_web/account.dart';
 import 'package:sell_books_web/reset_passowrd.dart';
 import 'package:sell_books_web/widget/nav_widget/drawers.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_main.dart';
 
-class Story_Shop extends StatefulWidget {
-  Story_Shop({Key? key}) : super(key: key);
+class StoryShop extends StatefulWidget {
+  const StoryShop({Key? key}) : super(key: key);
   static const String route = '/history';
 
   @override
-  State<Story_Shop> createState() => _Story_ShopState();
+  State<StoryShop> createState() => _StoryShopState();
 }
 
-class _Story_ShopState extends State<Story_Shop> {
+class _StoryShopState extends State<StoryShop> {
   @override
   Widget build(BuildContext context) {
     bootstrapGridParameters(gutterSize: 0);
@@ -158,7 +151,7 @@ class _Story_ShopState extends State<Story_Shop> {
                                                 onTap: (() {
                                                   Navigator.of(context)
                                                       .pushNamed(
-                                                          Reset_Password.route);
+                                                          ResetPassword.route);
                                                 }),
 
                                                 // ignore: sized_box_for_whitespace
@@ -291,7 +284,7 @@ class _Story_ShopState extends State<Story_Shop> {
                                     child: InkWell(
                                       onTap: () {
                                         Navigator.of(context)
-                                            .pushNamed(Reset_Password.route);
+                                            .pushNamed(ResetPassword.route);
                                       },
                                       child: Container(
                                         // decoration: BoxDecoration(

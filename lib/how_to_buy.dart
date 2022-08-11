@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:sell_books_web/global.dart';
 import 'package:sell_books_web/widget/nav_widget/drawers.dart';
@@ -11,7 +10,7 @@ import 'package:sell_books_web/widget/nav_widget/nav_main.dart';
 import 'package:http/http.dart' as http;
 
 class HowToBuyPage extends StatefulWidget {
-  HowToBuyPage({Key? key}) : super(key: key);
+  const HowToBuyPage({Key? key}) : super(key: key);
 
   @override
   State<HowToBuyPage> createState() => _HowToBuyPageState();
@@ -37,16 +36,14 @@ class _HowToBuyPageState extends State<HowToBuyPage> {
   Widget build(BuildContext context) {
     bootstrapGridParameters(gutterSize: 0);
     return Scaffold(
-      // ignore: prefer_const_constructors
-      backgroundColor: Color.fromRGBO(238, 238, 238, 1),
+      backgroundColor: const Color.fromRGBO(238, 238, 238, 1),
       drawer: NavDrawer(),
       body: SingleChildScrollView(
-          // ignore: prefer_const_literals_to_create_immutables
           child: Column(children: [
         NavMainScreen(),
         BootstrapContainer(
             fluid: false,
-            decoration: BoxDecoration(color: Colors.white),
+            decoration: const BoxDecoration(color: Colors.white),
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.only(
@@ -54,51 +51,47 @@ class _HowToBuyPageState extends State<HowToBuyPage> {
                 child: BootstrapRow(children: <BootstrapCol>[
                   BootstrapCol(
                       sizes: 'col-12',
-                      child: Container(
-                        child: Container(
-                          child: Row(
-                            // ignore: prefer_const_literals_to_create_immutables
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(right: 10),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Color.fromARGB(255, 101, 188, 231),
-                                    borderRadius: BorderRadius.circular(50),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(10.0),
-                                    child: Icon(
-                                      Icons.how_to_vote_rounded,
-                                      color: Colors.white,
-                                    ),
-                                  ),
+                      child: Row(
+                        // ignore: prefer_const_literals_to_create_immutables
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 10),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 101, 188, 231),
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                              child: const Padding(
+                                padding: EdgeInsets.all(10.0),
+                                child: Icon(
+                                  Icons.how_to_vote_rounded,
+                                  color: Colors.white,
                                 ),
                               ),
-                              AutoSizeText(
-                                'วิธีการสั่งซื้อ',
-                                style: TextStyle(
-                                    fontSize: 23, fontWeight: FontWeight.bold),
-                                minFontSize: 20,
-                                maxLines: 1,
-                              ),
-                            ],
+                            ),
                           ),
-                        ),
+                          const AutoSizeText(
+                            'วิธีการสั่งซื้อ',
+                            style: TextStyle(
+                                fontSize: 23, fontWeight: FontWeight.bold),
+                            minFontSize: 20,
+                            maxLines: 1,
+                          ),
+                        ],
                       )),
                 ]),
               )
             ]),
         BootstrapContainer(
             fluid: false,
-            decoration: BoxDecoration(color: Colors.white),
+            decoration: const BoxDecoration(color: Colors.white),
             children: <Widget>[
               BootstrapRow(children: <BootstrapCol>[
                 BootstrapCol(
                     sizes: 'col-12',
                     child: Column(
                       children: [
-                        Padding(
+                        const Padding(
                           padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
                           child: SizedBox(
                             height: 1,
@@ -107,10 +100,10 @@ class _HowToBuyPageState extends State<HowToBuyPage> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
+                          padding: const EdgeInsets.fromLTRB(40, 20, 40, 20),
                           child: HtmlWidget(
                             contentShow,
-                            textStyle: TextStyle(
+                            textStyle: const TextStyle(
                                 fontFamily: "Prompt",
                                 fontWeight: FontWeight.w100),
                           ),

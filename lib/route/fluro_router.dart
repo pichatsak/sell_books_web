@@ -16,9 +16,10 @@ class FluroRouters {
   static final FluroRouter router = FluroRouter();
   TransitionType transitionType = TransitionType.fadeIn;
   static Handler homeHandler = Handler(
-      handlerFunc: (context, Map<String, dynamic> params) => Homepage());
+      handlerFunc: (context, Map<String, dynamic> params) => const Homepage());
   static Handler loginHandler = Handler(
-      handlerFunc: (context, Map<String, dynamic> params) => Login_Page());
+      handlerFunc: (context, Map<String, dynamic> params) =>
+          const Login_Page());
   static Handler productHandler =
       Handler(handlerFunc: (context, Map<String, dynamic> params) {
     var id = params['id']?.first;
@@ -28,23 +29,26 @@ class FluroRouters {
   });
 
   static Handler regisHandler = Handler(
-      handlerFunc: (context, Map<String, dynamic> params) => Registor_Page());
+      handlerFunc: (context, Map<String, dynamic> params) =>
+          const Registor_Page());
   static Handler cartHandler = Handler(
       handlerFunc: (context, Map<String, dynamic> params) => Shop_List_Page());
   static Handler checkOutHandler = Handler(
       handlerFunc: (context, Map<String, dynamic> params) => Check_Out_Page());
   static Handler contactHandler = Handler(
       handlerFunc: (context, Map<String, dynamic> params) => Contact_US());
-  static Handler acHandler =
-      Handler(handlerFunc: (context, Map<String, dynamic> params) => Account());
+  static Handler acHandler = Handler(
+      handlerFunc: (context, Map<String, dynamic> params) => const Account());
   static Handler thankyouHandler = Handler(
       handlerFunc: (context, Map<String, dynamic> params) => Thankyou_Shop());
   static Handler storyBuyHandler = Handler(
       handlerFunc: (context, Map<String, dynamic> params) => Thankyou_Shop());
   static Handler howTobuyHandler = Handler(
-      handlerFunc: (context, Map<String, dynamic> params) => HowToBuyPage());
+      handlerFunc: (context, Map<String, dynamic> params) =>
+          const HowToBuyPage());
   static Handler policyHandler = Handler(
-      handlerFunc: (context, Map<String, dynamic> params) => PolicyPage());
+      handlerFunc: (context, Map<String, dynamic> params) =>
+          const PolicyPage());
 
   static void setupRouter() {
     router.define('/',

@@ -2,9 +2,6 @@
 
 import 'dart:async';
 import 'dart:convert';
-import 'dart:html';
-import 'dart:ui';
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
@@ -53,12 +50,15 @@ class _Registor_PageState extends State<Registor_Page> {
     var getData = json.decode(res.body);
     if (getData["status"] == "ok") {
       context.loaderOverlay.hide();
+      // ignore: use_build_context_synchronously
       _onSuccessAlert(context);
     } else if (getData["status"] == "no") {
       context.loaderOverlay.hide();
+      // ignore: use_build_context_synchronously
       _onError(context);
     } else if (getData["status"] == "repleat") {
       context.loaderOverlay.hide();
+      // ignore: use_build_context_synchronously
       _onRepleateEmail(context);
     }
   }
@@ -143,7 +143,6 @@ class _Registor_PageState extends State<Registor_Page> {
   @override
   Widget build(BuildContext context) {
     bootstrapGridParameters(gutterSize: 0);
-    var color = Colors.transparent;
 
     return LoaderOverlay(
       useDefaultLoading: false,

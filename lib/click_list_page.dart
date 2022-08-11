@@ -17,8 +17,7 @@ import 'package:http/http.dart' as http;
 
 class Click_List_Page extends StatefulWidget {
   final String idGet;
-  const Click_List_Page({Key? key, required String this.idGet})
-      : super(key: key);
+  const Click_List_Page({Key? key, required this.idGet}) : super(key: key);
   static const String route = '/product';
 
   @override
@@ -83,7 +82,7 @@ class _Click_List_PageState extends State<Click_List_Page> {
   void setAddCart(int pid) async {
     if (box.read("login")) {
       var dataForm = {
-        "product_id": "${pid}",
+        "product_id": "$pid",
         "num": "1",
         "user_id": "${box.read("user_id")}"
       };
@@ -91,10 +90,13 @@ class _Click_List_PageState extends State<Click_List_Page> {
       var res = await http.post(Uri.parse(url), body: dataForm);
       var getData = json.decode(res.body);
       if (getData["status"] == "ok") {
+        // ignore: use_build_context_synchronously
         _onSuccessAlert(context);
       } else if (getData["status"] == "no") {
+        // ignore: use_build_context_synchronously
         _onError(context);
       } else if (getData["status"] == "nostock") {
+        // ignore: use_build_context_synchronously
         _onErrorStock(context);
       }
     } else {
@@ -116,14 +118,14 @@ class _Click_List_PageState extends State<Click_List_Page> {
       desc: "เพิ่มในตะกร้าเรียบร้อย.",
       buttons: [
         DialogButton(
-          child: Text(
-            "ตกลง",
-            style: TextStyle(color: Colors.white, fontSize: 20),
-          ),
           onPressed: () {
             Navigator.pop(context);
           },
           width: 120,
+          child: Text(
+            "ตกลง",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
         )
       ],
     ).show();
@@ -205,7 +207,6 @@ class _Click_List_PageState extends State<Click_List_Page> {
   @override
   Widget build(BuildContext context) {
     bootstrapGridParameters(gutterSize: 0);
-    var color = Colors.transparent;
     return Scaffold(
       backgroundColor: Color.fromRGBO(238, 238, 238, 1),
       body: SingleChildScrollView(
@@ -228,11 +229,11 @@ class _Click_List_PageState extends State<Click_List_Page> {
                     BootstrapCol(
                       sizes: 'col-12  col-md-12 col-lg-4',
                       child: Center(
-                        child: Container(
+                        child: SizedBox(
                           height: 300,
                           child: productPic != ""
                               ? Image.network(
-                                  "${Global.hostImg}/${productId}/${productPic}",
+                                  "${Global.hostImg}/$productId/$productPic",
                                   fit: BoxFit.cover,
                                   width: 220,
                                   height: 230,
@@ -290,7 +291,7 @@ class _Click_List_PageState extends State<Click_List_Page> {
                                     child: Container(
                                       margin: EdgeInsets.fromLTRB(8, 0, 0, 0),
                                       child: AutoSizeText(
-                                        'ผู้เขียน ${prodWriter}',
+                                        'ผู้เขียน $prodWriter',
                                         style: TextStyle(
                                             fontSize: 15,
                                             fontWeight: FontWeight.w600),
@@ -326,7 +327,7 @@ class _Click_List_PageState extends State<Click_List_Page> {
                                     child: Container(
                                       margin: EdgeInsets.fromLTRB(8, 0, 0, 0),
                                       child: AutoSizeText(
-                                        'คงเหลือ : ${prodAmount} เล่ม',
+                                        'คงเหลือ : $prodAmount เล่ม',
                                         style: TextStyle(
                                           fontSize: 15,
                                           fontWeight: FontWeight.w100,
@@ -484,7 +485,7 @@ class _Click_List_PageState extends State<Click_List_Page> {
                             Padding(
                               padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                               child: AutoSizeText(
-                                ':  ${productIsbn}',
+                                ':  $productIsbn',
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.w100),
                                 minFontSize: 15,
@@ -513,7 +514,7 @@ class _Click_List_PageState extends State<Click_List_Page> {
                             Padding(
                               padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                               child: AutoSizeText(
-                                ':  ${productWide} x ${productWidth} x ${productHeight} มม.',
+                                ':  $productWide x $productWidth x $productHeight มม.',
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.w100),
                                 minFontSize: 15,
@@ -542,7 +543,7 @@ class _Click_List_PageState extends State<Click_List_Page> {
                             Padding(
                               padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                               child: AutoSizeText(
-                                ':  ${productWeight} กรัม',
+                                ':  $productWeight กรัม',
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.w100),
                                 minFontSize: 15,
@@ -571,7 +572,7 @@ class _Click_List_PageState extends State<Click_List_Page> {
                             Padding(
                               padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                               child: AutoSizeText(
-                                ':  ${productPrintColor}',
+                                ':  $productPrintColor}',
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.w100),
                                 minFontSize: 15,
@@ -600,7 +601,7 @@ class _Click_List_PageState extends State<Click_List_Page> {
                             Padding(
                               padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                               child: AutoSizeText(
-                                ':  ${productPaper}',
+                                ':  $productPaper',
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.w100),
                                 minFontSize: 15,
@@ -629,7 +630,7 @@ class _Click_List_PageState extends State<Click_List_Page> {
                             Padding(
                               padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                               child: AutoSizeText(
-                                ':  ${productOwner}',
+                                ':  $productOwner',
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.w100),
                                 minFontSize: 15,
@@ -658,7 +659,7 @@ class _Click_List_PageState extends State<Click_List_Page> {
                             Padding(
                               padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                               child: AutoSizeText(
-                                ':  ${productYear}',
+                                ':  $productYear',
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.w100),
                                 minFontSize: 15,

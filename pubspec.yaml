@@ -43,7 +43,6 @@ dependencies:
   pager: ^0.0.3
   url_strategy: ^0.2.0
   drawer_manager: ^0.0.4
-  ionicons: ^0.1.2
   flutter_svg: ^1.1.1+1
   http: ^0.13.4
   intl: ^0.17.0

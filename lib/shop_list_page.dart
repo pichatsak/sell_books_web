@@ -1,14 +1,11 @@
 // ignore_for_file: camel_case_types, depend_on_referenced_packages, prefer_const_constructors_in_immutables, prefer_const_constructors, avoid_unnecessary_containers, sort_child_properties_last
 
 import 'dart:convert';
-import 'dart:html';
-import 'dart:ui';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:intl/intl.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:sell_books_web/check_out_page.dart';
@@ -66,12 +63,12 @@ class _Shop_List_PageState extends State<Shop_List_Page> {
   }
 
   void goUpdateCart() async {
-    var jsonGet = jsonEncode(cartAllData.map((e) => e.toJson()).toList());
-    var dataForm = {"data": jsonGet, "user_id": "${box.read("user_id")}"};
-    var url = "${Global.hostName}/cart_update.php";
-    var res = await http.post(Uri.parse(url), body: dataForm);
-    isEdit = false;
-    getCartAll();
+    // var jsonGet = jsonEncode(cartAllData.map((e) => e.toJson()).toList());
+    // var dataForm = {"data": jsonGet, "user_id": "${box.read("user_id")}"};
+    // var url = "${Global.hostName}/cart_update.php";
+    // var res = await http.post(Uri.parse(url), body: dataForm);
+    // isEdit = false;
+    // getCartAll();
   }
 
   void setDeleteCart(int cartId) async {
@@ -84,6 +81,7 @@ class _Shop_List_PageState extends State<Shop_List_Page> {
     if (getData["status"] == "ok") {
       getCartAll();
     } else if (getData["status"] == "no") {
+      // ignore: use_build_context_synchronously
       _onError(context);
     }
   }
@@ -329,8 +327,7 @@ class _Shop_List_PageState extends State<Shop_List_Page> {
                                                   fontFamily: "Prompt"),
                                               shape: RoundedRectangleBorder(
                                                 borderRadius:
-                                                    new BorderRadius.circular(
-                                                        10.0),
+                                                    BorderRadius.circular(10.0),
                                               ),
                                             ),
                                           )
