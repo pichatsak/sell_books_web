@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'dart:convert';
 
 import 'package:auto_size_text/auto_size_text.dart';
@@ -277,13 +275,13 @@ class _NavMainScreenState extends State<NavMainScreen> {
                               width: 60,
                               height: 40,
                               margin: const EdgeInsets.fromLTRB(0, 0, 20, 0),
-                              child: FlatButton(
+                              child: TextButton(
                                 onPressed: () {
                                   goToCart();
                                 },
-                                highlightColor: color,
-                                splashColor: color,
-                                hoverColor: color,
+                                // highlightColor: color,
+                                // splashColor: color,
+                                // hoverColor: color,
                                 child: Stack(children: <Widget>[
                                   const Icon(
                                     Icons.shopping_cart,
@@ -377,13 +375,13 @@ class _NavMainScreenState extends State<NavMainScreen> {
                     child: (SizedBox(
                       height: 80,
                       child: Row(children: [
-                        FlatButton(
+                        TextButton(
                             onPressed: () {
                               Navigator.pushNamed(context, "/");
                             },
-                            highlightColor: color,
-                            splashColor: color,
-                            hoverColor: color,
+                            // highlightColor: color,
+                            // splashColor: color,
+                            // hoverColor: color,
                             child: const AutoSizeText(
                               'หน้าแรก',
                               style: TextStyle(
@@ -397,13 +395,13 @@ class _NavMainScreenState extends State<NavMainScreen> {
                         const SizedBox(
                           width: 10,
                         ),
-                        FlatButton(
+                        TextButton(
                             onPressed: () {
                               Navigator.pushNamed(context, "/how_to_buy");
                             },
-                            highlightColor: color,
-                            splashColor: color,
-                            hoverColor: color,
+                            // highlightColor: color,
+                            // splashColor: color,
+                            // hoverColor: color,
                             child: const AutoSizeText(
                               'วิธีการสั่งซื้อ',
                               style: TextStyle(
@@ -417,13 +415,13 @@ class _NavMainScreenState extends State<NavMainScreen> {
                         const SizedBox(
                           width: 10,
                         ),
-                        FlatButton(
+                        TextButton(
                             onPressed: () {
                               Navigator.pushNamed(context, "/contact_us");
                             },
-                            highlightColor: color,
-                            splashColor: color,
-                            hoverColor: color,
+                            // highlightColor: color,
+                            // splashColor: color,
+                            // hoverColor: color,
                             child: const AutoSizeText(
                               'ติดต่อเรา',
                               style: TextStyle(
@@ -437,13 +435,13 @@ class _NavMainScreenState extends State<NavMainScreen> {
                         const SizedBox(
                           width: 10,
                         ),
-                        FlatButton(
+                        TextButton(
                             onPressed: () {
                               Navigator.pushNamed(context, "/policy");
                             },
-                            highlightColor: color,
-                            splashColor: color,
-                            hoverColor: color,
+                            // highlightColor: color,
+                            // splashColor: color,
+                            // hoverColor: color,
                             child: const AutoSizeText(
                               'นโยบายการคืนสินค้า',
                               style: TextStyle(
@@ -592,13 +590,13 @@ class _NavMainScreenState extends State<NavMainScreen> {
                               width: 60,
                               height: 40,
                               margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                              child: FlatButton(
+                              child: TextButton(
                                 onPressed: () {
                                   goToCart();
                                 },
-                                highlightColor: color,
-                                splashColor: color,
-                                hoverColor: color,
+                                // highlightColor: color,
+                                // splashColor: color,
+                                // hoverColor: color,
                                 child: Stack(children: <Widget>[
                                   const Icon(
                                     Icons.shopping_cart,
@@ -652,8 +650,6 @@ class _NavMainScreenState extends State<NavMainScreen> {
   }
 
   Widget mobileContentView(BuildContext context) {
-    var color = Colors.transparent;
-
     return SingleChildScrollView(
         child: BootstrapContainer(
             fluid: true,
@@ -698,13 +694,13 @@ class _NavMainScreenState extends State<NavMainScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
-                                    FlatButton(
+                                    TextButton(
                                       onPressed: () {
                                         goToAc();
                                       },
-                                      highlightColor: color,
-                                      splashColor: color,
-                                      hoverColor: color,
+                                      // highlightColor: color,
+                                      // splashColor: color,
+                                      // hoverColor: color,
                                       child: Row(
                                         children: [
                                           Container(
@@ -774,13 +770,13 @@ class _NavMainScreenState extends State<NavMainScreen> {
                                               height: 40,
                                               margin: const EdgeInsets.fromLTRB(
                                                   0, 0, 20, 0),
-                                              child: FlatButton(
+                                              child: TextButton(
                                                 onPressed: () {
                                                   goToCart();
                                                 },
-                                                highlightColor: color,
-                                                splashColor: color,
-                                                hoverColor: color,
+                                                // highlightColor: color,
+                                                // splashColor: color,
+                                                // hoverColor: color,
                                                 child: Stack(children: <Widget>[
                                                   const Icon(
                                                     Icons.shopping_cart,

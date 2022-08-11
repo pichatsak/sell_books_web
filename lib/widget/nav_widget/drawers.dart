@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_unnecessary_containers
-
 import 'package:flutter/material.dart';
 import 'package:sell_books_web/contact_us.dart';
 import 'package:sell_books_web/homepage.dart';
@@ -24,12 +22,11 @@ class _NavDrawerState extends State<NavDrawer> {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(top: 30),
-              child: Container(
-                  child: Image.asset(
+              child: Image.asset(
                 "images/logo1.png",
                 width: 80,
                 height: 60,
-              )),
+              ),
             ),
             // buildHeader(
             //   urlImage: urlImage,
@@ -187,7 +184,7 @@ class _NavDrawerState extends State<NavDrawer> {
         break;
       case 2:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => Contact_US(),
+          builder: (context) => const ContactUS(),
         ));
         break;
       case 3:

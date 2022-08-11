@@ -82,83 +82,80 @@ class _ResetPasswordState extends State<ResetPassword> {
                                         bottomRight: Radius.circular(5),
                                         bottomLeft: Radius.circular(5)),
                                   ),
-                                  // ignore: avoid_unnecessary_containers
-                                  child: Container(
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 10, right: 10),
-                                      child: Column(
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                top: 20, bottom: 20),
-                                            child: InkWell(
-                                              onTap: (() {
-                                                Navigator.of(context)
-                                                    .pushNamed(Account.route);
-                                              }),
-                                              child: const Text("ข้อมูลของฉัน"),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 10, right: 10),
+                                    child: Column(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 20, bottom: 20),
+                                          child: InkWell(
+                                            onTap: (() {
+                                              Navigator.of(context)
+                                                  .pushNamed(Account.route);
+                                            }),
+                                            child: const Text("ข้อมูลของฉัน"),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.fromLTRB(
+                                              15, 0, 15, 0),
+                                          child: Container(
+                                            height: 1,
+                                            color: Colors.black12,
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 20, bottom: 20),
+                                          child: InkWell(
+                                            onTap: (() {
+                                              Navigator.of(context)
+                                                  .pushNamed(StoryShop.route);
+                                            }),
+                                            child: const Text(
+                                                "ประวัติการสั่งซื้อ"),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.fromLTRB(
+                                              15, 0, 15, 0),
+                                          child: Container(
+                                            height: 1,
+                                            color: Colors.black12,
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 20, bottom: 20),
+                                          child: InkWell(
+                                            onTap: (() {}),
+                                            child:
+                                                const Text("ตั้งค่ารหัสผ่าน"),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.fromLTRB(
+                                              15, 0, 15, 0),
+                                          child: Container(
+                                            height: 1,
+                                            color: Colors.black12,
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 20, bottom: 20),
+                                          child: InkWell(
+                                            onTap: (() {}),
+                                            child: const Text(
+                                              "ออกจากระบบ",
+                                              style: TextStyle(
+                                                  color: Colors.redAccent),
                                             ),
                                           ),
-                                          Padding(
-                                            padding: const EdgeInsets.fromLTRB(
-                                                15, 0, 15, 0),
-                                            child: Container(
-                                              height: 1,
-                                              color: Colors.black12,
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                top: 20, bottom: 20),
-                                            child: InkWell(
-                                              onTap: (() {
-                                                Navigator.of(context)
-                                                    .pushNamed(StoryShop.route);
-                                              }),
-                                              child: const Text(
-                                                  "ประวัติการสั่งซื้อ"),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.fromLTRB(
-                                                15, 0, 15, 0),
-                                            child: Container(
-                                              height: 1,
-                                              color: Colors.black12,
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                top: 20, bottom: 20),
-                                            child: InkWell(
-                                              onTap: (() {}),
-                                              child:
-                                                  const Text("ตั้งค่ารหัสผ่าน"),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.fromLTRB(
-                                                15, 0, 15, 0),
-                                            child: Container(
-                                              height: 1,
-                                              color: Colors.black12,
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                top: 20, bottom: 20),
-                                            child: InkWell(
-                                              onTap: (() {}),
-                                              child: const Text(
-                                                "ออกจากระบบ",
-                                                style: TextStyle(
-                                                    color: Colors.redAccent),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
@@ -338,7 +335,6 @@ class _ResetPasswordState extends State<ResetPassword> {
                                           padding: const EdgeInsets.only(
                                               left: 20, right: 20, bottom: 20),
                                           child: Column(
-                                            // ignore: prefer_const_literals_to_create_immutables
                                             children: [
                                               const SizedBox(
                                                 width: double.infinity,
@@ -415,7 +411,6 @@ class _ResetPasswordState extends State<ResetPassword> {
                                           padding: const EdgeInsets.only(
                                               left: 20, right: 20, bottom: 20),
                                           child: Column(
-                                            // ignore: prefer_const_literals_to_create_immutables
                                             children: [
                                               const SizedBox(
                                                 width: double.infinity,

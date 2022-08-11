@@ -17,26 +17,25 @@ class FluroRouters {
   static Handler homeHandler = Handler(
       handlerFunc: (context, Map<String, dynamic> params) => const Homepage());
   static Handler loginHandler = Handler(
-      handlerFunc: (context, Map<String, dynamic> params) =>
-          const Login_Page());
+      handlerFunc: (context, Map<String, dynamic> params) => const LoginPage());
   static Handler productHandler =
       Handler(handlerFunc: (context, Map<String, dynamic> params) {
     var id = params['id']?.first;
-    return Click_List_Page(
+    return ClickListPage(
       idGet: id,
     );
   });
 
   static Handler regisHandler = Handler(
       handlerFunc: (context, Map<String, dynamic> params) =>
-          const Registor_Page());
+          const RegistorPage());
   static Handler cartHandler = Handler(
       handlerFunc: (context, Map<String, dynamic> params) => Shop_List_Page());
   static Handler checkOutHandler = Handler(
       handlerFunc: (context, Map<String, dynamic> params) =>
           const CheckOutPage());
   static Handler contactHandler = Handler(
-      handlerFunc: (context, Map<String, dynamic> params) => Contact_US());
+      handlerFunc: (context, Map<String, dynamic> params) => const ContactUS());
   static Handler acHandler = Handler(
       handlerFunc: (context, Map<String, dynamic> params) => const Account());
   static Handler thankyouHandler = Handler(

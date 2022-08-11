@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final tumbonModel = tumbonModelFromJson(jsonString);
-
 import 'dart:convert';
 
 List<TumbonModel> tumbonModelFromJson(String str) => List<TumbonModel>.from(

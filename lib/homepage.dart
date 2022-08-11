@@ -1,5 +1,3 @@
-// ignore_for_file: unnecessary_const, deprecated_member_use, unused_local_variable, avoid_unnecessary_containers, prefer_const_constructors, duplicate_ignore, sized_box_for_whitespace
-
 import 'dart:convert';
 import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
@@ -47,7 +45,6 @@ class _HomepageState extends State<Homepage> {
   Future<void> getCateAll() async {
     var url = "${Global.hostName}/category_get.php";
     var res = await http.get(Uri.parse(url));
-    var getData = json.decode(res.body);
     cateAllData = [];
     await json.decode(res.body)['data'].map((data) {
       cateAllData.add(CategoryModel(
@@ -90,7 +87,7 @@ class _HomepageState extends State<Homepage> {
     Alert(
       context: context,
       type: AlertType.success,
-      style: AlertStyle(
+      style: const AlertStyle(
         isOverlayTapDismiss: false,
         isCloseButton: false,
         overlayColor: Color.fromARGB(113, 0, 0, 0),
@@ -103,7 +100,7 @@ class _HomepageState extends State<Homepage> {
             Navigator.pop(context);
           },
           width: 120,
-          child: Text(
+          child: const Text(
             "ตกลง",
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
@@ -116,7 +113,7 @@ class _HomepageState extends State<Homepage> {
     Alert(
       context: context,
       type: AlertType.warning,
-      style: AlertStyle(
+      style: const AlertStyle(
         overlayColor: Color.fromARGB(113, 0, 0, 0),
       ),
       title: "ไม่สำเร็จ",
@@ -127,7 +124,7 @@ class _HomepageState extends State<Homepage> {
             Navigator.pop(context);
           },
           width: 120,
-          child: Text(
+          child: const Text(
             "ตกลง",
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
@@ -140,7 +137,7 @@ class _HomepageState extends State<Homepage> {
     Alert(
       context: context,
       type: AlertType.warning,
-      style: AlertStyle(
+      style: const AlertStyle(
         overlayColor: Color.fromARGB(113, 0, 0, 0),
       ),
       title: "ไม่สำเร็จ",
@@ -151,7 +148,7 @@ class _HomepageState extends State<Homepage> {
             Navigator.pop(context);
           },
           width: 120,
-          child: Text(
+          child: const Text(
             "ตกลง",
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
@@ -164,7 +161,7 @@ class _HomepageState extends State<Homepage> {
     Alert(
       context: context,
       type: AlertType.warning,
-      style: AlertStyle(
+      style: const AlertStyle(
         overlayColor: Color.fromARGB(113, 0, 0, 0),
       ),
       title: "ไม่สำเร็จ",
@@ -176,7 +173,7 @@ class _HomepageState extends State<Homepage> {
             Navigator.pushNamed(context, "/login");
           },
           width: 120,
-          child: Text(
+          child: const Text(
             "ตกลง",
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
@@ -233,134 +230,116 @@ class _HomepageState extends State<Homepage> {
     bootstrapGridParameters(gutterSize: 0);
 
     return Scaffold(
-      backgroundColor: Color.fromRGBO(238, 238, 238, 1),
-      drawer: NavDrawer(),
+      backgroundColor: const Color.fromRGBO(238, 238, 238, 1),
+      drawer: const NavDrawer(),
       body: SingleChildScrollView(
-        // ignore: avoid_unnecessary_containers
         child: Column(
           children: [
-            Container(
-              child: Column(
-                children: [
-                  //NAV_START
-                  NavMainScreen(),
-                  //NAV_END
-                  //BODY_START
-                  BootstrapContainer(
-                      fluid: false,
-                      decoration: BoxDecoration(color: Colors.white),
-                      children: <Widget>[
-                        BootstrapRow(children: <BootstrapCol>[
-                          BootstrapCol(
-                              invisibleForSizes: "sm xs ",
-                              sizes: 'col-3',
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.fromLTRB(25, 15, 0, 7),
-                                // ignore: avoid_unnecessary_containers
-                                child: Container(
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        decoration: BoxDecoration(
-                                          color: Color.fromARGB(
-                                              255, 101, 188, 231),
-                                          borderRadius: BorderRadius.only(
-                                              topRight: Radius.circular(20),
-                                              topLeft: Radius.circular(20)),
-                                        ),
-                                        height: 50,
-                                        width: double.infinity,
-                                        // ignore: prefer_const_constructors
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          // ignore: prefer_const_literals_to_create_immutables
-                                          children: [
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  right: 10),
-                                              child: Icon(
-                                                Icons.category,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                            // ignore: prefer_const_constructors
-                                            Container(
-                                              child: Text(
-                                                "หมวดหมู่",
-                                                // ignore: prefer_const_constructors
-                                                style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.w100,
-                                                    fontSize: 16),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Container(
-                                        decoration: BoxDecoration(
-                                          border: Border.all(
-                                              color: Colors.black12, width: 1),
-                                          borderRadius: BorderRadius.only(
-                                              bottomRight: Radius.circular(5),
-                                              bottomLeft: Radius.circular(5)),
-                                        ),
-                                        // ignore: avoid_unnecessary_containers
-                                        child: Container(
-                                          child: ListView.builder(
-                                            itemCount: numCate,
-                                            shrinkWrap: true,
-                                            physics:
-                                                NeverScrollableScrollPhysics(),
-                                            itemBuilder: (context, index) {
-                                              return getContCateView(
-                                                  cateAllData[index]);
-                                            },
+            Column(
+              children: [
+                //NAV_START
+                const NavMainScreen(),
+                //NAV_END
+                //BODY_START
+                BootstrapContainer(
+                    fluid: false,
+                    decoration: const BoxDecoration(color: Colors.white),
+                    children: <Widget>[
+                      BootstrapRow(children: <BootstrapCol>[
+                        BootstrapCol(
+                            invisibleForSizes: "sm xs ",
+                            sizes: 'col-3',
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(25, 15, 0, 7),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    decoration: const BoxDecoration(
+                                      color: Color.fromARGB(255, 101, 188, 231),
+                                      borderRadius: BorderRadius.only(
+                                          topRight: Radius.circular(20),
+                                          topLeft: Radius.circular(20)),
+                                    ),
+                                    height: 50,
+                                    width: double.infinity,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: const [
+                                        Padding(
+                                          padding: EdgeInsets.only(right: 10),
+                                          child: Icon(
+                                            Icons.category,
+                                            color: Colors.white,
                                           ),
                                         ),
-                                      ),
-                                    ],
+                                        Text(
+                                          "หมวดหมู่",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w100,
+                                              fontSize: 16),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              )),
-                          BootstrapCol(
-                            sizes: 'col-12 col-sm-12 col-md-9',
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.fromLTRB(27.5, 15, 27.5, 0),
-                              child: Container(
-                                child: Center(
-                                  child: Column(
-                                    children: [
-                                      searchBar(),
-                                      getCateMobile(),
-                                      sortBar(),
-                                      if (!isEmptyProduct)
-                                        posView == 1
-                                            ? getListData()
-                                            : getGroupData()
-                                      else
-                                        getShowEmpty(),
-                                      SizedBox(
-                                        height: 50,
-                                      ),
-                                      totalPage > 0 ? getContPagi() : Center(),
-                                      SizedBox(
-                                        height: 100,
-                                      ),
-                                      //ในกรอบข้อมูล
-                                    ],
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                          color: Colors.black12, width: 1),
+                                      borderRadius: const BorderRadius.only(
+                                          bottomRight: Radius.circular(5),
+                                          bottomLeft: Radius.circular(5)),
+                                    ),
+                                    child: ListView.builder(
+                                      itemCount: numCate,
+                                      shrinkWrap: true,
+                                      physics:
+                                          const NeverScrollableScrollPhysics(),
+                                      itemBuilder: (context, index) {
+                                        return getContCateView(
+                                            cateAllData[index]);
+                                      },
+                                    ),
                                   ),
-                                ),
+                                ],
+                              ),
+                            )),
+                        BootstrapCol(
+                          sizes: 'col-12 col-sm-12 col-md-9',
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.fromLTRB(27.5, 15, 27.5, 0),
+                            child: Center(
+                              child: Column(
+                                children: [
+                                  searchBar(),
+                                  getCateMobile(),
+                                  sortBar(),
+                                  if (!isEmptyProduct)
+                                    posView == 1
+                                        ? getListData()
+                                        : getGroupData()
+                                  else
+                                    getShowEmpty(),
+                                  const SizedBox(
+                                    height: 50,
+                                  ),
+                                  totalPage > 0
+                                      ? getContPagi()
+                                      : const Center(),
+                                  const SizedBox(
+                                    height: 100,
+                                  ),
+                                  //ในกรอบข้อมูล
+                                ],
                               ),
                             ),
                           ),
-                        ])
-                      ]),
-                ],
-              ),
+                        ),
+                      ])
+                    ]),
+              ],
             ),
           ],
         ),
@@ -448,14 +427,14 @@ class _HomepageState extends State<Homepage> {
       padding: const EdgeInsets.only(bottom: 10),
       child: Container(
         decoration: BoxDecoration(
-          color: Color.fromARGB(31, 161, 161, 161),
+          color: const Color.fromARGB(31, 161, 161, 161),
           borderRadius: BorderRadius.circular(32),
         ),
         child: Container(
-          margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
+          margin: const EdgeInsets.fromLTRB(20, 0, 0, 0),
           child: TextFormField(
             cursorColor: Colors.black,
-            style: TextStyle(color: Colors.black),
+            style: const TextStyle(color: Colors.black),
             decoration: InputDecoration(
               border: InputBorder.none,
               focusedBorder: InputBorder.none,
@@ -463,21 +442,18 @@ class _HomepageState extends State<Homepage> {
               errorBorder: InputBorder.none,
               disabledBorder: InputBorder.none,
               hintText: "ค้นหาสินค้าที่ต้องการ",
-
-              hintStyle: TextStyle(
+              hintStyle: const TextStyle(
                   color: Colors.grey,
                   fontSize: 16,
                   fontWeight: FontWeight.w100),
-              // fillColor: Color.fromARGB(31, 161, 161, 161),
-              // filled: true,
               suffixIcon: Container(
-                margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
                 child: IconButton(
                   onPressed: () {},
                   highlightColor: color,
                   splashColor: color,
                   hoverColor: color,
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.search,
                     color: Colors.black,
                   ),
@@ -493,68 +469,63 @@ class _HomepageState extends State<Homepage> {
   Widget sortBar() {
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-      child: Container(
-        child:
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        SizedBox(
+          height: 40,
+          width: 115,
+          child: orderBar(),
+        ),
+        Row(children: [
           Container(
             height: 40,
-            width: 115,
-            child: orderBar(),
+            decoration: posView == 0
+                ? BoxDecoration(
+                    color: const Color.fromARGB(31, 122, 122, 122),
+                    borderRadius: BorderRadius.circular(32),
+                  )
+                : null,
+            child: IconButton(
+              onPressed: (() {
+                setState(() {
+                  posView = 0;
+                });
+              }),
+              highlightColor: color,
+              splashColor: color,
+              hoverColor: color,
+              icon: const Icon(Icons.apps_outlined),
+              color: const Color.fromRGBO(65, 176, 231, 1),
+            ),
           ),
           Container(
-            child: Row(children: [
-              Container(
-                height: 40,
-                decoration: posView == 0
-                    ? BoxDecoration(
-                        color: Color.fromARGB(31, 122, 122, 122),
-                        borderRadius: BorderRadius.circular(32),
-                      )
-                    : null,
-                child: IconButton(
-                  onPressed: (() {
-                    setState(() {
-                      posView = 0;
-                    });
-                  }),
-                  highlightColor: color,
-                  splashColor: color,
-                  hoverColor: color,
-                  icon: Icon(Icons.apps_outlined),
-                  color: Color.fromRGBO(65, 176, 231, 1),
-                ),
-              ),
-              Container(
-                height: 25,
-                width: 1,
-                color: Colors.grey,
-                margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-              ),
-              Container(
-                height: 40,
-                decoration: posView == 1
-                    ? BoxDecoration(
-                        color: Color.fromARGB(31, 122, 122, 122),
-                        borderRadius: BorderRadius.circular(32),
-                      )
-                    : null,
-                child: IconButton(
-                  onPressed: (() {
-                    setState(() {
-                      posView = 1;
-                    });
-                  }),
-                  highlightColor: color,
-                  splashColor: color,
-                  hoverColor: color,
-                  icon: Icon(Icons.menu),
-                  color: Color.fromRGBO(65, 176, 231, 1),
-                ),
-              ),
-            ]),
+            height: 25,
+            width: 1,
+            color: Colors.grey,
+            margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+          ),
+          Container(
+            height: 40,
+            decoration: posView == 1
+                ? BoxDecoration(
+                    color: const Color.fromARGB(31, 122, 122, 122),
+                    borderRadius: BorderRadius.circular(32),
+                  )
+                : null,
+            child: IconButton(
+              onPressed: (() {
+                setState(() {
+                  posView = 1;
+                });
+              }),
+              highlightColor: color,
+              splashColor: color,
+              hoverColor: color,
+              icon: const Icon(Icons.menu),
+              color: const Color.fromRGBO(65, 176, 231, 1),
+            ),
           ),
         ]),
-      ),
+      ]),
     );
   }
 
@@ -565,9 +536,8 @@ class _HomepageState extends State<Homepage> {
         sizes: 'col-12',
         child: Padding(
           padding: const EdgeInsets.only(top: 0),
-          child: Container(
+          child: SizedBox(
             width: double.infinity,
-            // ignore: prefer_const_literals_to_create_immutables
             child: Column(children: <Widget>[
               Card(
                 shadowColor: Colors.black,
@@ -582,25 +552,22 @@ class _HomepageState extends State<Homepage> {
                       .copyWith(dividerColor: Colors.transparent),
                   child: ExpansionTile(
                     key: GlobalKey(),
-                    leading: Icon(
+                    leading: const Icon(
                       Icons.category,
                       size: 20,
                       color: Colors.white,
                     ),
                     iconColor: Colors.white,
-                    backgroundColor: Color.fromARGB(255, 101, 188, 231),
+                    backgroundColor: const Color.fromARGB(255, 101, 188, 231),
                     maintainState: true,
-                    title: Text(
+                    title: const Text(
                       'หมวดหมู่',
                       style: TextStyle(
                           fontWeight: FontWeight.w500, color: Colors.white),
                     ),
                     collapsedIconColor: Colors.white,
                     collapsedBackgroundColor:
-                        Color.fromARGB(255, 101, 188, 231),
-
-                    // subtitle: Text(
-                    //     'Trailing expansion arrow icon'),
+                        const Color.fromARGB(255, 101, 188, 231),
                     children: <Widget>[
                       ...cateAllData.map((e) => ListTile(
                             onTap: () {
@@ -610,7 +577,7 @@ class _HomepageState extends State<Homepage> {
                             },
                             title: Text(
                               e.cateName,
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                             ),
                           ))
                     ],
@@ -634,7 +601,7 @@ class _HomepageState extends State<Homepage> {
           ),
         ),
         Container(
-          margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+          margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -654,10 +621,10 @@ class _HomepageState extends State<Homepage> {
   }
 
   Widget getShowEmpty() {
-    return Container(
+    return SizedBox(
       height: MediaQuery.of(context).size.height,
-      child: Padding(
-        padding: const EdgeInsets.only(top: 100),
+      child: const Padding(
+        padding: EdgeInsets.only(top: 100),
         child: Text(
           "ไม่พบสินค้า",
           textAlign: TextAlign.center,
@@ -675,7 +642,7 @@ class _HomepageState extends State<Homepage> {
         padding: const EdgeInsets.only(left: 15, right: 15, top: 5, bottom: 5),
         child: Container(
             color: cateIdCur == data.categoryId.toString()
-                ? Color.fromARGB(255, 226, 238, 248)
+                ? const Color.fromARGB(255, 226, 238, 248)
                 : null,
             height: 55,
             child:
@@ -693,7 +660,7 @@ class _HomepageState extends State<Homepage> {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     softWrap: true,
-                    style: TextStyle(fontSize: 14),
+                    style: const TextStyle(fontSize: 14),
                   ),
                 ),
               ),
@@ -721,8 +688,7 @@ class _HomepageState extends State<Homepage> {
                     child: Padding(
                       padding:
                           const EdgeInsets.only(top: 20, left: 10, right: 10),
-                      child: Container(
-                          child: InkWell(
+                      child: InkWell(
                         onTap: () {
                           Navigator.pushNamed(
                               context, "/product?id=${prod.productId}");
@@ -732,7 +698,7 @@ class _HomepageState extends State<Homepage> {
                             fit: BoxFit.cover,
                             width: 200,
                             height: 280),
-                      )),
+                      ),
                     ),
                   ),
                   Padding(
@@ -747,7 +713,7 @@ class _HomepageState extends State<Homepage> {
                         },
                         child: AutoSizeText(
                           prod.productName,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 19, fontWeight: FontWeight.w600),
                           minFontSize: 18,
                           maxLines: 1,
@@ -757,14 +723,14 @@ class _HomepageState extends State<Homepage> {
                     ),
                   ),
                   Container(
-                      margin: EdgeInsets.fromLTRB(15, 15, 15, 0),
+                      margin: const EdgeInsets.fromLTRB(15, 15, 15, 0),
                       child: SizedBox(
                         width: double.infinity,
                         child: Container(
-                          margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                          margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                           child: AutoSizeText(
                             prod.productDetailEt,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 15,
                                 color: Color.fromARGB(255, 104, 104, 104),
                                 fontWeight: FontWeight.w100),
@@ -775,14 +741,14 @@ class _HomepageState extends State<Homepage> {
                         ),
                       )),
                   Container(
-                    margin: EdgeInsets.fromLTRB(15, 10, 15, 0),
+                    margin: const EdgeInsets.fromLTRB(15, 10, 15, 0),
                     child: SizedBox(
                       width: double.infinity,
                       child: Container(
-                        margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                         child: AutoSizeText(
                           'ผู้เขียน ${prod.productWriter}',
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 15, fontWeight: FontWeight.w600),
                           minFontSize: 14,
                           maxLines: 1,
@@ -792,12 +758,12 @@ class _HomepageState extends State<Homepage> {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                     child: Container(
-                      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                       child: AutoSizeText(
                         '${formatter.format(prod.productPrice)} บาท',
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 15, fontWeight: FontWeight.w600),
                         minFontSize: 14,
                         maxLines: 1,
@@ -806,14 +772,14 @@ class _HomepageState extends State<Homepage> {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                     child: ElevatedButton.icon(
                         onPressed: () {
                           setAddCart(prod.productId);
                         },
-                        icon: Icon(Icons.shopping_cart),
-                        label: Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                        icon: const Icon(Icons.shopping_cart),
+                        label: const Padding(
+                          padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
                           child: Text(
                             "เพิ่มลงตะกร้า",
                             style: TextStyle(
@@ -848,8 +814,7 @@ class _HomepageState extends State<Homepage> {
                               invisibleForSizes: " lg xl ",
                               sizes: 'col-12',
                               child: Center(
-                                child: Container(
-                                    child: InkWell(
+                                child: InkWell(
                                   onTap: () {
                                     Navigator.pushNamed(context,
                                         "/product?id=${prod.productId}");
@@ -859,7 +824,7 @@ class _HomepageState extends State<Homepage> {
                                       fit: BoxFit.cover,
                                       width: 200,
                                       height: 210),
-                                )),
+                                ),
                               ),
                             )
                           ]),
@@ -868,8 +833,7 @@ class _HomepageState extends State<Homepage> {
                               invisibleForSizes: " md sm xs",
                               sizes: 'col-12',
                               child: Center(
-                                child: Container(
-                                    child: InkWell(
+                                child: InkWell(
                                   onTap: () {
                                     Navigator.pushNamed(context,
                                         "/product?id=${prod.productId}");
@@ -879,7 +843,7 @@ class _HomepageState extends State<Homepage> {
                                       fit: BoxFit.cover,
                                       width: 200,
                                       height: 280),
-                                )),
+                                ),
                               ),
                             )
                           ]),
@@ -900,7 +864,7 @@ class _HomepageState extends State<Homepage> {
                                 },
                                 child: AutoSizeText(
                                   prod.productName,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 19,
                                       fontWeight: FontWeight.w600),
                                   minFontSize: 18,
@@ -910,14 +874,15 @@ class _HomepageState extends State<Homepage> {
                               ),
                             ),
                             Container(
-                                margin: EdgeInsets.fromLTRB(0, 15, 0, 0),
+                                margin: const EdgeInsets.fromLTRB(0, 15, 0, 0),
                                 child: SizedBox(
                                   width: double.infinity,
                                   child: Container(
-                                    margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                    margin:
+                                        const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                     child: AutoSizeText(
                                       prod.productDetailEt,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontSize: 15,
                                           color: Color.fromARGB(
                                               255, 104, 104, 104),
@@ -929,14 +894,14 @@ class _HomepageState extends State<Homepage> {
                                   ),
                                 )),
                             Container(
-                              margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                              margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                               child: SizedBox(
                                 width: double.infinity,
                                 child: Container(
-                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                   child: AutoSizeText(
                                     'ผู้เขียน ${prod.productWriter}',
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontSize: 15,
                                         fontWeight: FontWeight.w600),
                                     minFontSize: 14,
@@ -947,14 +912,14 @@ class _HomepageState extends State<Homepage> {
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                              margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                               child: SizedBox(
                                 width: double.infinity,
                                 child: Container(
-                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                   child: AutoSizeText(
                                     '${formatter.format(prod.productPrice)} บาท',
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontSize: 15,
                                         fontWeight: FontWeight.w600),
                                     minFontSize: 14,
@@ -965,28 +930,26 @@ class _HomepageState extends State<Homepage> {
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                              margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  Container(
-                                    child: ElevatedButton.icon(
-                                        onPressed: () {
-                                          setAddCart(prod.productId);
-                                        },
-                                        icon: Icon(Icons.shopping_cart),
-                                        label: Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 10, 0, 10),
-                                          child: Text(
-                                            "เพิ่มลงตะกร้า",
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.w100),
-                                          ),
-                                        )),
-                                  ),
+                                  ElevatedButton.icon(
+                                      onPressed: () {
+                                        setAddCart(prod.productId);
+                                      },
+                                      icon: const Icon(Icons.shopping_cart),
+                                      label: const Padding(
+                                        padding:
+                                            EdgeInsets.fromLTRB(0, 10, 0, 10),
+                                        child: Text(
+                                          "เพิ่มลงตะกร้า",
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w100),
+                                        ),
+                                      )),
                                 ],
                               ),
                             )
