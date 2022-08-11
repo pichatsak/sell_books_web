@@ -10,8 +10,8 @@ import 'package:intl/intl.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:sell_books_web/check_out_page.dart';
 import 'package:sell_books_web/global.dart';
-import 'package:sell_books_web/models/CartListModel.dart';
-import 'package:sell_books_web/models/CartViewModel.dart';
+import 'package:sell_books_web/models/cart_list_model.dart';
+import 'package:sell_books_web/models/cart_view_model.dart';
 import 'package:sell_books_web/widget/nav_widget/drawers.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_main.dart';
 import 'package:http/http.dart' as http;
@@ -810,7 +810,7 @@ class _Shop_List_PageState extends State<Shop_List_Page> {
             padding: const EdgeInsets.only(top: 100),
             child: InkWell(
               onTap: () {
-                Navigator.of(context).pushNamed(Check_Out_Page.route);
+                Navigator.of(context).pushNamed(CheckOutPage.route);
               },
               child: Card(
                 shadowColor: Colors.black,

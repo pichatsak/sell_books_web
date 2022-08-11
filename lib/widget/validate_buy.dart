@@ -7,21 +7,21 @@ class ThemeValidBuy {
       border: InputBorder.none,
       disabledBorder: InputBorder.none,
       isDense: true,
-      contentPadding: EdgeInsets.fromLTRB(15.0, 18.0, 0.0, 10.0),
+      contentPadding: const EdgeInsets.fromLTRB(15.0, 18.0, 0.0, 10.0),
       focusedBorder: OutlineInputBorder(
         borderSide: const BorderSide(color: Colors.black12, width: 1),
         borderRadius: BorderRadius.circular(5.0),
       ),
       enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.black12, width: 1),
+        borderSide: const BorderSide(color: Colors.black12, width: 1),
         borderRadius: BorderRadius.circular(5),
       ),
       errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
-          borderSide: BorderSide(color: Colors.red, width: 1)),
+          borderSide: const BorderSide(color: Colors.red, width: 1)),
       focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
-          borderSide: BorderSide(color: Colors.red, width: 1)),
+          borderSide: const BorderSide(color: Colors.red, width: 1)),
     );
   }
 
@@ -38,7 +38,7 @@ class ThemeValidBuy {
   BoxDecoration buttonBoxDecoration(BuildContext context,
       [String color1 = "", String color2 = ""]) {
     Color c1 = Theme.of(context).primaryColor;
-    Color c2 = Theme.of(context).accentColor;
+    Color c2 = Theme.of(context).colorScheme.secondary;
     if (color1.isEmpty == false) {
       c1 = HexColor(color1);
     }
@@ -47,13 +47,13 @@ class ThemeValidBuy {
     }
 
     return BoxDecoration(
-      boxShadow: [
+      boxShadow: const [
         BoxShadow(color: Colors.black26, offset: Offset(0, 4), blurRadius: 5.0)
       ],
       gradient: LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
-        stops: [0.0, 1.0],
+        stops: const [0.0, 1.0],
         colors: [
           c1,
           c2,
@@ -71,31 +71,31 @@ class ThemeValidBuy {
           borderRadius: BorderRadius.circular(30.0),
         ),
       ),
-      minimumSize: MaterialStateProperty.all(Size(50, 50)),
+      minimumSize: MaterialStateProperty.all(const Size(50, 50)),
       backgroundColor: MaterialStateProperty.all(Colors.transparent),
       shadowColor: MaterialStateProperty.all(Colors.transparent),
     );
   }
 
-  AlertDialog alartDialog(String title, String content, BuildContext context) {
-    return AlertDialog(
-      title: Text(title),
-      content: Text(content),
-      actions: [
-        TextButton(
-          child: Text(
-            "OK",
-            style: TextStyle(color: Colors.white),
-          ),
-          style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.black38)),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
-      ],
-    );
-  }
+  // AlertDialog alartDialog(String title, String content, BuildContext context) {
+  //   return AlertDialog(
+  //     title: Text(title),
+  //     content: Text(content),
+  //     actions: [
+  //       TextButton(
+  //         child: const Text(
+  //           "OK",
+  //           style: TextStyle(color: Colors.white),
+  //         ),
+  //         style: ButtonStyle(
+  //             backgroundColor: MaterialStateProperty.all(Colors.black38)),
+  //         onPressed: () {
+  //           Navigator.of(context).pop();
+  //         },
+  //       ),
+  //     ],
+  //   );
+  // }
 }
 
 class ThemeValidCard {
@@ -105,21 +105,21 @@ class ThemeValidCard {
       disabledBorder: InputBorder.none,
       hintText: hintText,
       isDense: true,
-      contentPadding: EdgeInsets.fromLTRB(15.0, 18.0, 0.0, 10.0),
+      contentPadding: const EdgeInsets.fromLTRB(15.0, 18.0, 0.0, 10.0),
       focusedBorder: OutlineInputBorder(
         borderSide: const BorderSide(color: Colors.black12, width: 1),
         borderRadius: BorderRadius.circular(5.0),
       ),
       enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.black12, width: 1),
+        borderSide: const BorderSide(color: Colors.black12, width: 1),
         borderRadius: BorderRadius.circular(5),
       ),
       errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
-          borderSide: BorderSide(color: Colors.red, width: 1)),
+          borderSide: const BorderSide(color: Colors.red, width: 1)),
       focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
-          borderSide: BorderSide(color: Colors.red, width: 1)),
+          borderSide: const BorderSide(color: Colors.red, width: 1)),
     );
   }
 
@@ -136,7 +136,7 @@ class ThemeValidCard {
   BoxDecoration buttonBoxDecoration(BuildContext context,
       [String color1 = "", String color2 = ""]) {
     Color c1 = Theme.of(context).primaryColor;
-    Color c2 = Theme.of(context).accentColor;
+    Color c2 = Theme.of(context).colorScheme.secondary;
     if (color1.isEmpty == false) {
       c1 = HexColor(color1);
     }
@@ -145,13 +145,13 @@ class ThemeValidCard {
     }
 
     return BoxDecoration(
-      boxShadow: [
+      boxShadow: const [
         BoxShadow(color: Colors.black26, offset: Offset(0, 4), blurRadius: 5.0)
       ],
       gradient: LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
-        stops: [0.0, 1.0],
+        stops: const [0.0, 1.0],
         colors: [
           c1,
           c2,
@@ -169,29 +169,29 @@ class ThemeValidCard {
           borderRadius: BorderRadius.circular(30.0),
         ),
       ),
-      minimumSize: MaterialStateProperty.all(Size(50, 50)),
+      minimumSize: MaterialStateProperty.all(const Size(50, 50)),
       backgroundColor: MaterialStateProperty.all(Colors.transparent),
       shadowColor: MaterialStateProperty.all(Colors.transparent),
     );
   }
 
-  AlertDialog alartDialog(String title, String content, BuildContext context) {
-    return AlertDialog(
-      title: Text(title),
-      content: Text(content),
-      actions: [
-        TextButton(
-          child: Text(
-            "OK",
-            style: TextStyle(color: Colors.white),
-          ),
-          style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.black38)),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
-      ],
-    );
-  }
+  // AlertDialog alartDialog(String title, String content, BuildContext context) {
+  //   return AlertDialog(
+  //     title: Text(title),
+  //     content: Text(content),
+  //     actions: [
+  //       TextButton(
+  //         child: Text(
+  //           "OK",
+  //           style: TextStyle(color: Colors.white),
+  //         ),
+  //         style: ButtonStyle(
+  //             backgroundColor: MaterialStateProperty.all(Colors.black38)),
+  //         onPressed: () {
+  //           Navigator.of(context).pop();
+  //         },
+  //       ),
+  //     ],
+  //   );
+  // }
 }

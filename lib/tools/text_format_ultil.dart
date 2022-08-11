@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/services.dart';
-import 'package:pattern_formatter/numeric_formatter.dart';
 
 // class ExpireCardFormatter extends TextInputFormatter {
 //   @override
@@ -36,10 +35,7 @@ class ExpireCardFormatter extends NumberInputFormatters {
   @override
   String _formatPattern(String digits) {
     StringBuffer buffer = StringBuffer();
-    int offset = 0;
-    int count = min(2, digits.length);
 
-    final length = digits.length;
     if (digits.length <= 2) {
       buffer.write(digits);
     } else {

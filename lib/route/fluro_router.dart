@@ -1,5 +1,4 @@
 import 'package:fluro/fluro.dart';
-import 'package:flutter/material.dart';
 import 'package:sell_books_web/account.dart';
 import 'package:sell_books_web/check_out_page.dart';
 import 'package:sell_books_web/click_list_page.dart';
@@ -34,15 +33,18 @@ class FluroRouters {
   static Handler cartHandler = Handler(
       handlerFunc: (context, Map<String, dynamic> params) => Shop_List_Page());
   static Handler checkOutHandler = Handler(
-      handlerFunc: (context, Map<String, dynamic> params) => Check_Out_Page());
+      handlerFunc: (context, Map<String, dynamic> params) =>
+          const CheckOutPage());
   static Handler contactHandler = Handler(
       handlerFunc: (context, Map<String, dynamic> params) => Contact_US());
   static Handler acHandler = Handler(
       handlerFunc: (context, Map<String, dynamic> params) => const Account());
   static Handler thankyouHandler = Handler(
-      handlerFunc: (context, Map<String, dynamic> params) => Thankyou_Shop());
+      handlerFunc: (context, Map<String, dynamic> params) =>
+          const ThankyouShop());
   static Handler storyBuyHandler = Handler(
-      handlerFunc: (context, Map<String, dynamic> params) => Thankyou_Shop());
+      handlerFunc: (context, Map<String, dynamic> params) =>
+          const ThankyouShop());
   static Handler howTobuyHandler = Handler(
       handlerFunc: (context, Map<String, dynamic> params) =>
           const HowToBuyPage());

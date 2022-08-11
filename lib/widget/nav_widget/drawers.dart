@@ -1,31 +1,25 @@
 // ignore_for_file: avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bootstrap/flutter_bootstrap.dart';
 import 'package:sell_books_web/contact_us.dart';
 import 'package:sell_books_web/homepage.dart';
 import 'package:sell_books_web/how_to_buy.dart';
 import 'package:sell_books_web/policy.dart';
 
 class NavDrawer extends StatefulWidget {
-  NavDrawer({Key? key}) : super(key: key);
+  const NavDrawer({Key? key}) : super(key: key);
 
   @override
   State<NavDrawer> createState() => _NavDrawerState();
 }
 
 class _NavDrawerState extends State<NavDrawer> {
-  final padding = EdgeInsets.symmetric(horizontal: 20);
+  final padding = const EdgeInsets.symmetric(horizontal: 20);
   @override
   Widget build(BuildContext context) {
-    final name = 'Sarah Abs';
-    final email = 'sarah@abs.com';
-    final urlImage =
-        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80';
-
     return Drawer(
       child: Material(
-        color: Color.fromRGBO(65, 176, 231, 1),
+        color: const Color.fromRGBO(65, 176, 231, 1),
         child: ListView(
           children: <Widget>[
             Padding(
@@ -106,7 +100,7 @@ class _NavDrawerState extends State<NavDrawer> {
       //   onTap: onClicked,
       //   child:
       Container(
-        padding: padding.add(EdgeInsets.symmetric(vertical: 40)),
+        padding: padding.add(const EdgeInsets.symmetric(vertical: 40)),
         child: Row(
           children: [
             // CircleAvatar(radius: 30, backgroundImage: NetworkImage(urlImage)),
@@ -116,12 +110,12 @@ class _NavDrawerState extends State<NavDrawer> {
               children: [
                 Text(
                   name,
-                  style: TextStyle(fontSize: 20, color: Colors.white),
+                  style: const TextStyle(fontSize: 20, color: Colors.white),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   email,
-                  style: TextStyle(fontSize: 14, color: Colors.white),
+                  style: const TextStyle(fontSize: 14, color: Colors.white),
                 ),
               ],
             ),
@@ -137,15 +131,16 @@ class _NavDrawerState extends State<NavDrawer> {
   // );
 
   Widget buildSearchField() {
-    final color = Colors.white;
+    const color = Colors.white;
 
     return TextField(
-      style: TextStyle(color: color),
+      style: const TextStyle(color: color),
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
         hintText: 'Search',
-        hintStyle: TextStyle(color: color),
-        prefixIcon: Icon(Icons.search, color: color),
+        hintStyle: const TextStyle(color: color),
+        prefixIcon: const Icon(Icons.search, color: color),
         filled: true,
         fillColor: Colors.white12,
         enabledBorder: OutlineInputBorder(
@@ -165,12 +160,12 @@ class _NavDrawerState extends State<NavDrawer> {
     required IconData icon,
     VoidCallback? onClicked,
   }) {
-    final color = Colors.white;
-    final hoverColor = Colors.black12;
+    const color = Colors.white;
+    const hoverColor = Colors.black12;
 
     return ListTile(
       leading: Icon(icon, color: color),
-      title: Text(text, style: TextStyle(color: color, fontSize: 16)),
+      title: Text(text, style: const TextStyle(color: color, fontSize: 16)),
       hoverColor: hoverColor,
       onTap: onClicked,
     );
@@ -182,12 +177,12 @@ class _NavDrawerState extends State<NavDrawer> {
     switch (index) {
       case 0:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => Homepage(),
+          builder: (context) => const Homepage(),
         ));
         break;
       case 1:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => HowToBuyPage(),
+          builder: (context) => const HowToBuyPage(),
         ));
         break;
       case 2:
@@ -197,7 +192,7 @@ class _NavDrawerState extends State<NavDrawer> {
         break;
       case 3:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => PolicyPage(),
+          builder: (context) => const PolicyPage(),
         ));
         break;
     }

@@ -21,10 +21,10 @@ class _ResetPasswordState extends State<ResetPassword> {
     bootstrapGridParameters(gutterSize: 0);
     return Scaffold(
       backgroundColor: const Color.fromRGBO(238, 238, 238, 1),
-      drawer: NavDrawer(),
+      drawer: const NavDrawer(),
       body: SingleChildScrollView(
           child: Column(children: [
-        NavMainScreen(),
+        const NavMainScreen(),
         BootstrapContainer(
             fluid: false,
             decoration: const BoxDecoration(color: Colors.white),

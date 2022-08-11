@@ -9,28 +9,28 @@ class ThemeHelper {
       fillColor: Colors.white,
       filled: true,
       prefixIcon: Container(
-        margin: EdgeInsets.fromLTRB(20, 0, 15, 0),
+        margin: const EdgeInsets.fromLTRB(20, 0, 15, 0),
         child: Icon(
           iconGet,
           color: Colors.black,
         ),
       ),
-      hintStyle: TextStyle(
+      hintStyle: const TextStyle(
           color: Colors.grey, fontSize: 16, fontWeight: FontWeight.w100),
       focusedBorder: OutlineInputBorder(
         borderSide: const BorderSide(color: Colors.black12, width: 1),
         borderRadius: BorderRadius.circular(30.0),
       ),
       enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.black12, width: 1),
+        borderSide: const BorderSide(color: Colors.black12, width: 1),
         borderRadius: BorderRadius.circular(30),
       ),
       errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.0),
-          borderSide: BorderSide(color: Colors.red, width: 1)),
+          borderSide: const BorderSide(color: Colors.red, width: 1)),
       focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(100.0),
-          borderSide: BorderSide(color: Colors.red, width: 1)),
+          borderSide: const BorderSide(color: Colors.red, width: 1)),
     );
   }
 
@@ -47,7 +47,7 @@ class ThemeHelper {
   BoxDecoration buttonBoxDecoration(BuildContext context,
       [String color1 = "", String color2 = ""]) {
     Color c1 = Theme.of(context).primaryColor;
-    Color c2 = Theme.of(context).accentColor;
+    Color c2 = Theme.of(context).colorScheme.secondary;
     if (color1.isEmpty == false) {
       c1 = HexColor(color1);
     }
@@ -56,13 +56,13 @@ class ThemeHelper {
     }
 
     return BoxDecoration(
-      boxShadow: [
+      boxShadow: const [
         BoxShadow(color: Colors.black26, offset: Offset(0, 4), blurRadius: 5.0)
       ],
       gradient: LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
-        stops: [0.0, 1.0],
+        stops: const [0.0, 1.0],
         colors: [
           c1,
           c2,
@@ -80,29 +80,29 @@ class ThemeHelper {
           borderRadius: BorderRadius.circular(30.0),
         ),
       ),
-      minimumSize: MaterialStateProperty.all(Size(50, 50)),
+      minimumSize: MaterialStateProperty.all(const Size(50, 50)),
       backgroundColor: MaterialStateProperty.all(Colors.transparent),
       shadowColor: MaterialStateProperty.all(Colors.transparent),
     );
   }
 
-  AlertDialog alartDialog(String title, String content, BuildContext context) {
-    return AlertDialog(
-      title: Text(title),
-      content: Text(content),
-      actions: [
-        TextButton(
-          child: Text(
-            "OK",
-            style: TextStyle(color: Colors.white),
-          ),
-          style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.black38)),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
-      ],
-    );
-  }
+  // AlertDialog alartDialog(String title, String content, BuildContext context) {
+  //   return AlertDialog(
+  //     title: Text(title),
+  //     content: Text(content),
+  //     actions: [
+  //       TextButton(
+  //         child: const Text(
+  //           "OK",
+  //           style: TextStyle(color: Colors.white),
+  //         ),
+  //         style: ButtonStyle(
+  //             backgroundColor: MaterialStateProperty.all(Colors.black38)),
+  //         onPressed: () {
+  //           Navigator.of(context).pop();
+  //         },
+  //       ),
+  //     ],
+  //   );
+  // }
 }

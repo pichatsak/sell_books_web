@@ -1,5 +1,3 @@
-// ignore_for_file: camel_case_types, depend_on_referenced_packages, prefer_const_constructors_in_immutables, prefer_const_constructors, avoid_unnecessary_containers, sort_child_properties_last
-
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
@@ -12,25 +10,25 @@ import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
 import 'package:pattern_formatter/numeric_formatter.dart';
 import 'package:sell_books_web/global.dart';
-import 'package:sell_books_web/models/AmphureModel.dart';
-import 'package:sell_books_web/models/DeliTypeModel.dart';
-import 'package:sell_books_web/models/ProvinceModel.dart';
-import 'package:sell_books_web/models/TumbonModel.dart';
+import 'package:sell_books_web/models/amphure_model.dart';
+import 'package:sell_books_web/models/deli_type_model.dart';
+import 'package:sell_books_web/models/province_model.dart';
+import 'package:sell_books_web/models/tumbon_model.dart';
 import 'package:sell_books_web/tools/text_format_ultil.dart';
 import 'package:sell_books_web/dialog/dialog_web.dart';
 
 import 'package:sell_books_web/widget/nav_widget/drawers.dart';
 import 'package:sell_books_web/widget/nav_widget/nav_main.dart';
 import 'package:http/http.dart' as http;
-import 'package:sell_books_web/widget/validateBuy.dart';
+import 'package:sell_books_web/widget/validate_buy.dart';
 import 'package:validators/validators.dart';
 
-class Check_Out_Page extends StatefulWidget {
-  Check_Out_Page({Key? key}) : super(key: key);
+class CheckOutPage extends StatefulWidget {
+  const CheckOutPage({Key? key}) : super(key: key);
   static const String route = '/checkout';
 
   @override
-  State<Check_Out_Page> createState() => _Check_Out_PageState();
+  State<CheckOutPage> createState() => _CheckOutPageState();
 }
 
 enum SingingCharacter { lafayette, jefferson }
@@ -40,13 +38,13 @@ InputDecoration styleInput = InputDecoration(
   errorBorder: InputBorder.none,
   disabledBorder: InputBorder.none,
   isDense: true,
-  contentPadding: EdgeInsets.fromLTRB(15.0, 18.0, 0.0, 10.0),
+  contentPadding: const EdgeInsets.fromLTRB(15.0, 18.0, 0.0, 10.0),
   focusedBorder: OutlineInputBorder(
     borderSide: const BorderSide(color: Colors.black12, width: 1),
     borderRadius: BorderRadius.circular(5.0),
   ),
   enabledBorder: OutlineInputBorder(
-    borderSide: BorderSide(color: Colors.black12, width: 1),
+    borderSide: const BorderSide(color: Colors.black12, width: 1),
     borderRadius: BorderRadius.circular(5),
   ),
 );
@@ -55,24 +53,24 @@ InputDecoration styleInputSelect = InputDecoration(
   border: InputBorder.none,
   disabledBorder: InputBorder.none,
   isDense: true,
-  contentPadding: EdgeInsets.fromLTRB(15.0, 18.0, 0.0, 10.0),
+  contentPadding: const EdgeInsets.fromLTRB(15.0, 18.0, 0.0, 10.0),
   focusedBorder: OutlineInputBorder(
     borderSide: const BorderSide(color: Colors.black12, width: 1),
     borderRadius: BorderRadius.circular(5.0),
   ),
   enabledBorder: OutlineInputBorder(
-    borderSide: BorderSide(color: Colors.black12, width: 1),
+    borderSide: const BorderSide(color: Colors.black12, width: 1),
     borderRadius: BorderRadius.circular(5),
   ),
   errorBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(5),
-      borderSide: BorderSide(color: Colors.red, width: 1)),
+      borderSide: const BorderSide(color: Colors.red, width: 1)),
   focusedErrorBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(5),
-      borderSide: BorderSide(color: Colors.red, width: 1)),
+      borderSide: const BorderSide(color: Colors.red, width: 1)),
 );
 
-class _Check_Out_PageState extends State<Check_Out_Page> {
+class _CheckOutPageState extends State<CheckOutPage> {
   var formatter = NumberFormat('#,###,##0.00');
   int? _typePay = 2;
   int? _typePayMb = 1;
@@ -196,14 +194,14 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
     bootstrapGridParameters(gutterSize: 0);
 
     return Scaffold(
-      backgroundColor: Color.fromRGBO(238, 238, 238, 1),
-      drawer: NavDrawer(),
+      backgroundColor: const Color.fromRGBO(238, 238, 238, 1),
+      drawer: const NavDrawer(),
       body: SingleChildScrollView(
         child: Column(children: [
-          NavMainScreen(),
+          const NavMainScreen(),
           BootstrapContainer(fluid: false, children: <Widget>[
             Container(
-              decoration: BoxDecoration(color: Colors.white),
+              decoration: const BoxDecoration(color: Colors.white),
               child: Column(
                 children: [
                   headerView(),
@@ -225,7 +223,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                                     ? conFillCredit()
                                     : _typePay == 3
                                         ? conChooseMb()
-                                        : Center()
+                                        : const Center()
                               ],
                             ),
                           ),
@@ -250,8 +248,8 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
   Widget conChooseMb() {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(0, 40, 0, 20),
+        const Padding(
+          padding: EdgeInsets.fromLTRB(0, 40, 0, 20),
           child: SizedBox(
             height: 1,
             width: double.infinity,
@@ -268,9 +266,9 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                 decoration: _typePayMb == 1
                     ? BoxDecoration(
                         border: Border.all(
-                          color: Color.fromARGB(255, 101, 188, 231),
+                          color: const Color.fromARGB(255, 101, 188, 231),
                         ),
-                        color: Color.fromARGB(255, 231, 243, 250),
+                        color: const Color.fromARGB(255, 231, 243, 250),
                         borderRadius: BorderRadius.circular(5),
                       )
                     : BoxDecoration(
@@ -310,9 +308,9 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                 decoration: _typePayMb == 2
                     ? BoxDecoration(
                         border: Border.all(
-                          color: Color.fromARGB(255, 101, 188, 231),
+                          color: const Color.fromARGB(255, 101, 188, 231),
                         ),
-                        color: Color.fromARGB(255, 231, 243, 250),
+                        color: const Color.fromARGB(255, 231, 243, 250),
                         borderRadius: BorderRadius.circular(5),
                       )
                     : BoxDecoration(
@@ -352,9 +350,9 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                 decoration: _typePayMb == 3
                     ? BoxDecoration(
                         border: Border.all(
-                          color: Color.fromARGB(255, 101, 188, 231),
+                          color: const Color.fromARGB(255, 101, 188, 231),
                         ),
-                        color: Color.fromARGB(255, 231, 243, 250),
+                        color: const Color.fromARGB(255, 231, 243, 250),
                         borderRadius: BorderRadius.circular(5),
                       )
                     : BoxDecoration(
@@ -393,8 +391,8 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
   Widget conFillCredit() {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(0, 40, 0, 20),
+        const Padding(
+          padding: EdgeInsets.fromLTRB(0, 40, 0, 20),
           child: SizedBox(
             height: 1,
             width: double.infinity,
@@ -407,207 +405,175 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
             children: <BootstrapCol>[
               BootstrapCol(
                   sizes: 'col-12 col-md-6',
-                  child: Container(
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 20, right: 20, bottom: 20),
-                      child: Column(
-                        // ignore: prefer_const_literals_to_create_immutables
-                        children: [
-                          SizedBox(
-                            width: double.infinity,
-                            child: AutoSizeText(
-                              'ชื่อที่ปรากฏบนบัตร',
-                              style:
-                                  TextStyle(fontSize: 15, color: Colors.black),
-                              minFontSize: 14,
-                            ),
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          width: double.infinity,
+                          child: AutoSizeText(
+                            'ชื่อที่ปรากฏบนบัตร',
+                            style: TextStyle(fontSize: 15, color: Colors.black),
+                            minFontSize: 14,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              top: 5,
-                            ),
-                            child: Container(
-                              child: Container(
-                                child: TextFormField(
-                                  cursorColor: Colors.black,
-                                  style: TextStyle(color: Colors.black),
-                                  decoration:
-                                      ThemeValidCard().textInputDecoration(""),
-                                  validator: (val) {
-                                    if (val!.isEmpty) {
-                                      return "กรุณากรอกชื่อที่ปรากฏบนบัตร";
-                                    }
-                                    return null;
-                                  },
-                                ),
-                              ),
-                            ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: 5,
                           ),
-                        ],
-                      ),
+                          child: TextFormField(
+                            cursorColor: Colors.black,
+                            style: const TextStyle(color: Colors.black),
+                            decoration:
+                                ThemeValidCard().textInputDecoration(""),
+                            validator: (val) {
+                              if (val!.isEmpty) {
+                                return "กรุณากรอกชื่อที่ปรากฏบนบัตร";
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+                      ],
                     ),
                   )),
               BootstrapCol(
                   sizes: 'col-12 col-md-6',
-                  child: Container(
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 20, right: 20, bottom: 20),
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            width: double.infinity,
-                            child: AutoSizeText(
-                              'หมายเลขบัตร',
-                              style:
-                                  TextStyle(fontSize: 15, color: Colors.black),
-                              minFontSize: 14,
-                            ),
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          width: double.infinity,
+                          child: AutoSizeText(
+                            'หมายเลขบัตร',
+                            style: TextStyle(fontSize: 15, color: Colors.black),
+                            minFontSize: 14,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              top: 5,
-                            ),
-                            child: Container(
-                              child: Container(
-                                child: TextFormField(
-                                  cursorColor: Colors.black,
-                                  inputFormatters: [
-                                    LengthLimitingTextInputFormatter(19),
-                                    CreditCardFormatter(),
-                                  ],
-                                  style: TextStyle(color: Colors.black),
-                                  decoration: ThemeValidCard()
-                                      .textInputDecoration(
-                                          "xxxx xxxx xxxx xxxx"),
-                                  validator: (val) {
-                                    if (val!.isEmpty) {
-                                      return "กรุณากรอกหมายเลขบัตร";
-                                    } else if (val.length < 19) {
-                                      return "หมายเลขบัตรไม่ครบ";
-                                    }
-                                    return null;
-                                  },
-                                ),
-                              ),
-                            ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: 5,
                           ),
-                        ],
-                      ),
-                    ),
-                  )),
-              BootstrapCol(
-                  sizes: 'col-12 col-md-6',
-                  child: Container(
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 20, right: 20, bottom: 20),
-                      child: Column(
-                        // ignore: prefer_const_literals_to_create_immutables
-                        children: [
-                          SizedBox(
-                            width: double.infinity,
-                            child: AutoSizeText(
-                              'วันหมดอายุ',
-                              style:
-                                  TextStyle(fontSize: 15, color: Colors.black),
-                              minFontSize: 14,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              top: 5,
-                            ),
-                            child: Container(
-                              child: Container(
-                                child: TextFormField(
-                                  cursorColor: Colors.black,
-                                  style: TextStyle(color: Colors.black),
-                                  inputFormatters: [
-                                    LengthLimitingTextInputFormatter(7),
-                                    ExpireCardFormatter(),
-                                    // FilteringTextInputFormatter.deny(
-                                    //     RegExp(r'[/]'))
-                                  ],
-                                  decoration: ThemeValidCard()
-                                      .textInputDecoration("MM/YYYY"),
-                                  validator: (val) {
-                                    if (val!.isEmpty) {
-                                      return "กรุณากรอกวันหมดอายุ";
-                                    } else if (val.length < 7) {
-                                      return "วันหมดอายุไม่ถูกต้อง";
-                                    }
-                                    return null;
-                                  },
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  )),
-              BootstrapCol(
-                  sizes: 'col-12 col-md-6',
-                  child: Container(
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 20, right: 20, bottom: 20),
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              SizedBox(
-                                child: AutoSizeText(
-                                  'CVV',
-                                  style: TextStyle(
-                                      fontSize: 15, color: Colors.black),
-                                  minFontSize: 14,
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 5),
-                                child: InkWell(
-                                    onTap: () {},
-                                    child: SvgPicture.asset(
-                                      "images/qs.svg",
-                                      color: Colors.black54,
-                                      width: 15,
-                                    )),
-                              )
+                          child: TextFormField(
+                            cursorColor: Colors.black,
+                            inputFormatters: [
+                              LengthLimitingTextInputFormatter(19),
+                              CreditCardFormatter(),
                             ],
+                            style: const TextStyle(color: Colors.black),
+                            decoration: ThemeValidCard()
+                                .textInputDecoration("xxxx xxxx xxxx xxxx"),
+                            validator: (val) {
+                              if (val!.isEmpty) {
+                                return "กรุณากรอกหมายเลขบัตร";
+                              } else if (val.length < 19) {
+                                return "หมายเลขบัตรไม่ครบ";
+                              }
+                              return null;
+                            },
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              top: 5,
-                            ),
-                            child: Container(
-                              child: Container(
-                                child: TextFormField(
-                                  inputFormatters: [
-                                    LengthLimitingTextInputFormatter(3),
-                                    FilteringTextInputFormatter.allow(
-                                        RegExp(r'[0-9]')),
-                                  ],
-                                  cursorColor: Colors.black,
-                                  style: TextStyle(color: Colors.black),
-                                  decoration: ThemeValidCard()
-                                      .textInputDecoration("xxx"),
-                                  validator: (val) {
-                                    if (val!.isEmpty) {
-                                      return "กรุณากรอก CVV";
-                                    } else if (val.length < 3) {
-                                      return "กรุณากรอก CVV ให้ครบ";
-                                    }
-                                    return null;
-                                  },
-                                ),
+                        ),
+                      ],
+                    ),
+                  )),
+              BootstrapCol(
+                  sizes: 'col-12 col-md-6',
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          width: double.infinity,
+                          child: AutoSizeText(
+                            'วันหมดอายุ',
+                            style: TextStyle(fontSize: 15, color: Colors.black),
+                            minFontSize: 14,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: 5,
+                          ),
+                          child: TextFormField(
+                            cursorColor: Colors.black,
+                            style: const TextStyle(color: Colors.black),
+                            inputFormatters: [
+                              LengthLimitingTextInputFormatter(7),
+                              ExpireCardFormatter(),
+                            ],
+                            decoration:
+                                ThemeValidCard().textInputDecoration("MM/YYYY"),
+                            validator: (val) {
+                              if (val!.isEmpty) {
+                                return "กรุณากรอกวันหมดอายุ";
+                              } else if (val.length < 7) {
+                                return "วันหมดอายุไม่ถูกต้อง";
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+              BootstrapCol(
+                  sizes: 'col-12 col-md-6',
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            const SizedBox(
+                              child: AutoSizeText(
+                                'CVV',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.black),
+                                minFontSize: 14,
                               ),
                             ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 5),
+                              child: InkWell(
+                                  onTap: () {},
+                                  child: SvgPicture.asset(
+                                    "images/qs.svg",
+                                    color: Colors.black54,
+                                    width: 15,
+                                  )),
+                            )
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: 5,
                           ),
-                        ],
-                      ),
+                          child: TextFormField(
+                            inputFormatters: [
+                              LengthLimitingTextInputFormatter(3),
+                              FilteringTextInputFormatter.allow(
+                                  RegExp(r'[0-9]')),
+                            ],
+                            cursorColor: Colors.black,
+                            style: const TextStyle(color: Colors.black),
+                            decoration:
+                                ThemeValidCard().textInputDecoration("xxx"),
+                            validator: (val) {
+                              if (val!.isEmpty) {
+                                return "กรุณากรอก CVV";
+                              } else if (val.length < 3) {
+                                return "กรุณากรอก CVV ให้ครบ";
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+                      ],
                     ),
                   )),
             ],
@@ -624,13 +590,13 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
         height: 450,
         width: 375,
         decoration: BoxDecoration(
-            color: Color.fromARGB(255, 101, 188, 231),
+            color: const Color.fromARGB(255, 101, 188, 231),
             borderRadius: BorderRadius.circular(32),
             boxShadow: [
               BoxShadow(
                   blurRadius: 5,
-                  color: Color.fromARGB(255, 29, 29, 29).withOpacity(.3),
-                  offset: Offset(-10, 20))
+                  color: const Color.fromARGB(255, 29, 29, 29).withOpacity(.3),
+                  offset: const Offset(-10, 20))
             ]),
         child: Padding(
           padding: const EdgeInsets.all(10.0),
@@ -645,9 +611,9 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                     boxShadow: [
                       BoxShadow(
                           blurRadius: 5,
-                          color:
-                              Color.fromARGB(255, 29, 29, 29).withOpacity(.3),
-                          offset: Offset(0, 0))
+                          color: const Color.fromARGB(255, 29, 29, 29)
+                              .withOpacity(.3),
+                          offset: const Offset(0, 0))
                     ]),
                 child: Column(
                   children: [
@@ -660,11 +626,11 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                             padding: const EdgeInsets.only(right: 10),
                             child: Container(
                               decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 101, 188, 231),
+                                color: const Color.fromARGB(255, 101, 188, 231),
                                 borderRadius: BorderRadius.circular(50),
                               ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                              child: const Padding(
+                                padding: EdgeInsets.all(8.0),
                                 child: Icon(
                                   Icons.receipt,
                                   color: Colors.white,
@@ -673,7 +639,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                               ),
                             ),
                           ),
-                          AutoSizeText(
+                          const AutoSizeText(
                             'บิลของฉัน',
                             style: TextStyle(
                                 fontSize: 22, fontWeight: FontWeight.w600),
@@ -685,8 +651,8 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                     ),
 
                     //เส้น
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(15, 20, 15, 10),
+                    const Padding(
+                      padding: EdgeInsets.fromLTRB(15, 20, 15, 10),
                       child: SizedBox(
                         height: 1,
                         width: double.infinity,
@@ -700,8 +666,8 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 10),
                             child: AutoSizeText(
                               'ยอดรวมสินค้า',
                               style: TextStyle(
@@ -715,7 +681,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                             padding: const EdgeInsets.only(right: 10),
                             child: AutoSizeText(
                               formatter.format(totalAll),
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 18,
                                 color: Colors.black,
                               ),
@@ -731,8 +697,8 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 10),
                             child: AutoSizeText(
                               'ค่าจัดส่ง',
                               style: TextStyle(
@@ -746,7 +712,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                             padding: const EdgeInsets.only(right: 10),
                             child: AutoSizeText(
                               formatter.format(totalDeli),
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 18,
                                 color: Colors.black,
                               ),
@@ -762,8 +728,8 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 10),
                             child: AutoSizeText(
                               'ยอดที่ต้องชำระ',
                               style: TextStyle(
@@ -777,7 +743,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                             padding: const EdgeInsets.only(right: 10),
                             child: AutoSizeText(
                               formatter.format(totalFinal),
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 18,
                                   color: Colors.redAccent,
                                   fontWeight: FontWeight.w600),
@@ -788,7 +754,8 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 110, left: 15, right: 15),
+                      padding:
+                          const EdgeInsets.only(top: 110, left: 15, right: 15),
                       child: ElevatedButton(
                         style: ButtonStyle(
                             shape: MaterialStateProperty.all<
@@ -803,20 +770,18 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                           padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left: 0),
-                                  child: AutoSizeText(
-                                    'ยืนยันการสั่งซื้อ',
-                                    style: TextStyle(
-                                        fontSize: 18, color: Colors.white),
-                                    minFontSize: 14,
-                                  ),
+                            children: const [
+                              Padding(
+                                padding: EdgeInsets.only(left: 0),
+                                child: AutoSizeText(
+                                  'ยืนยันการสั่งซื้อ',
+                                  style: TextStyle(
+                                      fontSize: 18, color: Colors.white),
+                                  minFontSize: 14,
                                 ),
                               ),
                               Padding(
-                                  padding: const EdgeInsets.only(left: 10),
+                                  padding: EdgeInsets.only(left: 10),
                                   child: Icon(
                                     Icons.shopping_cart,
                                     color: Colors.white,
@@ -842,36 +807,31 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
       child: BootstrapRow(children: <BootstrapCol>[
         BootstrapCol(
             sizes: 'col-12',
-            child: Container(
-              child: Container(
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 10),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 101, 188, 231),
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Icon(
-                            Icons.location_on,
-                            color: Colors.white,
-                          ),
-                        ),
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 10),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 101, 188, 231),
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: Icon(
+                        Icons.location_on,
+                        color: Colors.white,
                       ),
                     ),
-                    AutoSizeText(
-                      'ที่อยู่ในการจัดส่ง',
-                      style:
-                          TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
-                      minFontSize: 20,
-                      maxLines: 1,
-                    ),
-                  ],
+                  ),
                 ),
-              ),
+                const AutoSizeText(
+                  'ที่อยู่ในการจัดส่ง',
+                  style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                  minFontSize: 20,
+                  maxLines: 1,
+                ),
+              ],
             ))
       ]),
     );
@@ -1109,8 +1069,8 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
   Widget contAdr() {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+        const Padding(
+          padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
           child: SizedBox(
             height: 1,
             width: double.infinity,
@@ -1127,35 +1087,32 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
           child: BootstrapRow(children: <BootstrapCol>[
             BootstrapCol(
               sizes: 'col-12 ',
-              child: Container(
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 10),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 101, 188, 231),
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(7.0),
-                          child: Icon(
-                            Icons.house,
-                            color: Colors.white,
-                            size: 17,
-                          ),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 101, 188, 231),
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      child: const Padding(
+                        padding: EdgeInsets.all(7.0),
+                        child: Icon(
+                          Icons.house,
+                          color: Colors.white,
+                          size: 17,
                         ),
                       ),
                     ),
-                    AutoSizeText(
-                      'ข้อมูลผู้สั่งซื้อ :',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-                      minFontSize: 17,
-                      maxLines: 1,
-                    ),
-                  ],
-                ),
+                  ),
+                  const AutoSizeText(
+                    'ข้อมูลผู้สั่งซื้อ :',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                    minFontSize: 17,
+                    maxLines: 1,
+                  ),
+                ],
               ),
             )
           ]),
@@ -1172,7 +1129,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        AutoSizeText(
+                        const AutoSizeText(
                           'ชื่อ - นามสกุล',
                           style: TextStyle(fontSize: 15, color: Colors.black),
                           minFontSize: 14,
@@ -1191,7 +1148,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                               return null;
                             },
                             cursorColor: Colors.black,
-                            style: TextStyle(color: Colors.black),
+                            style: const TextStyle(color: Colors.black),
                           ),
                         ),
                       ],
@@ -1205,7 +1162,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        AutoSizeText(
+                        const AutoSizeText(
                           'เบอร์โทรศัพท์',
                           style: TextStyle(fontSize: 15, color: Colors.black),
                           minFontSize: 14,
@@ -1227,7 +1184,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                               }
                             },
                             cursorColor: Colors.black,
-                            style: TextStyle(color: Colors.black),
+                            style: const TextStyle(color: Colors.black),
                           ),
                         ),
                       ],
@@ -1241,7 +1198,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        AutoSizeText(
+                        const AutoSizeText(
                           'จังหวัด',
                           style: TextStyle(fontSize: 15, color: Colors.black),
                           minFontSize: 14,
@@ -1258,7 +1215,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        AutoSizeText(
+                        const AutoSizeText(
                           'อำเภอ',
                           style: TextStyle(fontSize: 15, color: Colors.black),
                           minFontSize: 14,
@@ -1275,7 +1232,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        AutoSizeText(
+                        const AutoSizeText(
                           'ตำบล',
                           style: TextStyle(fontSize: 15, color: Colors.black),
                           minFontSize: 14,
@@ -1292,7 +1249,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        AutoSizeText(
+                        const AutoSizeText(
                           'รหัสไปรษณีย์',
                           style: TextStyle(fontSize: 15, color: Colors.black),
                           minFontSize: 14,
@@ -1311,7 +1268,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                               return null;
                             },
                             cursorColor: Colors.black,
-                            style: TextStyle(color: Colors.black),
+                            style: const TextStyle(color: Colors.black),
                           ),
                         ),
                       ],
@@ -1327,7 +1284,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AutoSizeText(
+              const AutoSizeText(
                 'ข้อมูลที่อยู่',
                 style: TextStyle(fontSize: 15, color: Colors.black),
                 minFontSize: 14,
@@ -1340,7 +1297,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                   maxLines: 3,
                   controller: adr,
                   cursorColor: Colors.black,
-                  style: TextStyle(color: Colors.black),
+                  style: const TextStyle(color: Colors.black),
                   decoration: ThemeValidBuy().textInputDecoration(),
                   validator: (val) {
                     if (val!.isEmpty) {
@@ -1355,8 +1312,8 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
         ),
 
         //เส้น
-        Padding(
-          padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+        const Padding(
+          padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
           child: SizedBox(
             height: 1,
             width: double.infinity,
@@ -1376,11 +1333,11 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                 padding: const EdgeInsets.only(right: 10),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 101, 188, 231),
+                    color: const Color.fromARGB(255, 101, 188, 231),
                     borderRadius: BorderRadius.circular(50),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(7.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(7.0),
                     child: Icon(
                       Icons.fire_truck,
                       color: Colors.white,
@@ -1389,7 +1346,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                   ),
                 ),
               ),
-              AutoSizeText(
+              const AutoSizeText(
                 'ประเภทการจัดส่ง :',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                 minFontSize: 17,
@@ -1410,7 +1367,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               child: AutoSizeText(
                 'เลือกประเภทการจัดส่ง',
                 style: TextStyle(fontSize: 15, color: Colors.black),
@@ -1429,9 +1386,10 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                         decoration: groupValue == dataDeli.deliveryId
                             ? BoxDecoration(
                                 border: Border.all(
-                                  color: Color.fromARGB(255, 101, 188, 231),
+                                  color:
+                                      const Color.fromARGB(255, 101, 188, 231),
                                 ),
-                                color: Color.fromARGB(255, 231, 243, 250),
+                                color: const Color.fromARGB(255, 231, 243, 250),
                                 borderRadius: BorderRadius.circular(5),
                               )
                             : BoxDecoration(
@@ -1447,7 +1405,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                           ),
                           subtitle: Text(
                             'ราคาจัดส่ง ${dataDeli.deliveryPrice} บาท',
-                            style: TextStyle(fontSize: 13),
+                            style: const TextStyle(fontSize: 13),
                           ),
                           leading: Radio<int>(
                             value: dataDeli.deliveryId,
@@ -1478,8 +1436,8 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(0, 40, 0, 20),
+        const Padding(
+          padding: EdgeInsets.fromLTRB(0, 40, 0, 20),
           child: SizedBox(
             height: 1,
             width: double.infinity,
@@ -1498,11 +1456,11 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                 padding: const EdgeInsets.only(right: 10),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 101, 188, 231),
+                    color: const Color.fromARGB(255, 101, 188, 231),
                     borderRadius: BorderRadius.circular(50),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(7.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(7.0),
                     child: Icon(
                       Icons.credit_card,
                       color: Colors.white,
@@ -1511,7 +1469,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                   ),
                 ),
               ),
-              AutoSizeText(
+              const AutoSizeText(
                 'วิธีการชำระเงิน :',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                 minFontSize: 17,
@@ -1527,12 +1485,12 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AutoSizeText(
+                  const AutoSizeText(
                     'เลือกวิธีการชำระเงิน',
                     style: TextStyle(fontSize: 15, color: Colors.black),
                     minFontSize: 14,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   BootstrapRow(children: <BootstrapCol>[
@@ -1544,9 +1502,11 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                           decoration: _typePay == 2
                               ? BoxDecoration(
                                   border: Border.all(
-                                    color: Color.fromARGB(255, 101, 188, 231),
+                                    color: const Color.fromARGB(
+                                        255, 101, 188, 231),
                                   ),
-                                  color: Color.fromARGB(255, 231, 243, 250),
+                                  color:
+                                      const Color.fromARGB(255, 231, 243, 250),
                                   borderRadius: BorderRadius.circular(5),
                                 )
                               : BoxDecoration(
@@ -1558,7 +1518,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                                 ),
                           child: ListTile(
                             title: const Text('เครดิต/เดบิต'),
-                            trailing: Icon(Icons.credit_card_rounded),
+                            trailing: const Icon(Icons.credit_card_rounded),
                             leading: Radio<int>(
                               value: 2,
                               groupValue: _typePay,
@@ -1579,9 +1539,10 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                         decoration: _typePay == 1
                             ? BoxDecoration(
                                 border: Border.all(
-                                  color: Color.fromARGB(255, 101, 188, 231),
+                                  color:
+                                      const Color.fromARGB(255, 101, 188, 231),
                                 ),
-                                color: Color.fromARGB(255, 231, 243, 250),
+                                color: const Color.fromARGB(255, 231, 243, 250),
                                 borderRadius: BorderRadius.circular(5),
                               )
                             : BoxDecoration(
@@ -1595,7 +1556,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                           title: const Text(
                             'พร้อมเพย์',
                           ),
-                          trailing: Icon(Icons.qr_code_rounded),
+                          trailing: const Icon(Icons.qr_code_rounded),
                           leading: Radio<int>(
                             value: 1,
                             groupValue: _typePay,
@@ -1616,9 +1577,11 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                           decoration: _typePay == 3
                               ? BoxDecoration(
                                   border: Border.all(
-                                    color: Color.fromARGB(255, 101, 188, 231),
+                                    color: const Color.fromARGB(
+                                        255, 101, 188, 231),
                                   ),
-                                  color: Color.fromARGB(255, 231, 243, 250),
+                                  color:
+                                      const Color.fromARGB(255, 231, 243, 250),
                                   borderRadius: BorderRadius.circular(5),
                                 )
                               : BoxDecoration(
@@ -1630,7 +1593,7 @@ class _Check_Out_PageState extends State<Check_Out_Page> {
                                 ),
                           child: ListTile(
                             title: const Text('Mobile banking'),
-                            trailing: Icon(Icons.smartphone_outlined),
+                            trailing: const Icon(Icons.smartphone_outlined),
                             leading: Radio<int>(
                               value: 3,
                               groupValue: _typePay,
