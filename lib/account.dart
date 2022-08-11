@@ -1,15 +1,12 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, sized_box_for_whitespace
 
 import 'dart:convert';
-import 'dart:ui';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get_storage/get_storage.dart';
 
-import 'package:iconsax/iconsax.dart';
 import 'package:sell_books_web/global.dart';
 import 'package:sell_books_web/reset_passowrd.dart';
 import 'package:sell_books_web/story_shop.dart';

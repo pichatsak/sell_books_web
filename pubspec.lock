@@ -429,6 +429,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  omise_flutter:
+    dependency: "direct main"
+    description:
+      name: omise_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.6"
   pager:
     dependency: "direct main"
     description:
@@ -506,6 +513,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  pattern_formatter:
+    dependency: "direct main"
+    description:
+      name: pattern_formatter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   pedantic:
     dependency: transitive
     description:
@@ -791,6 +805,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.0"
+  web_smooth_scroll:
+    dependency: "direct main"
+    description:
+      name: web_smooth_scroll
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   webview_flutter:
     dependency: transitive
     description:

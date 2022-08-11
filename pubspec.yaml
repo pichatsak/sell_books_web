@@ -52,9 +52,11 @@ dependencies:
   hexcolor: ^2.0.6
   get_storage: ^2.0.3
   rflutter_alert: ^2.0.4
-  
+  pattern_formatter: ^2.0.0
   loading_animation_widget: ^1.2.0+2
   loader_overlay: ^2.0.10
+  omise_flutter: ^0.1.6
+  web_smooth_scroll: ^1.0.0
 
   
 
