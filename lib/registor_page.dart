@@ -155,7 +155,8 @@ class _RegistorPageState extends State<RegistorPage> {
           child: Column(
             children: [
               //NAV_START
-              const NavMainScreen(),
+              // ignore: prefer_const_constructors
+              NavMainScreen(),
               //NAV_END
               //BODY_START
               Container(

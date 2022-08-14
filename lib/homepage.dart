@@ -11,8 +11,9 @@ import 'package:sell_books_web/global.dart';
 import 'package:sell_books_web/models/category_model.dart';
 import 'package:sell_books_web/models/product_model.dart';
 import 'package:sell_books_web/widget/nav_widget/drawers.dart';
-import 'package:sell_books_web/widget/nav_widget/nav_main.dart';
 import 'package:http/http.dart' as http;
+
+import 'widget/nav_widget/nav_main.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -238,7 +239,8 @@ class _HomepageState extends State<Homepage> {
             Column(
               children: [
                 //NAV_START
-                const NavMainScreen(),
+                // ignore: prefer_const_constructors
+                NavMainScreen(),
                 //NAV_END
                 //BODY_START
                 BootstrapContainer(

@@ -109,7 +109,8 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: [
             //NAV_START
-            const NavMainScreen(),
+            // ignore: prefer_const_constructors
+            NavMainScreen(),
             //NAV_END
             //BODY_START
             Container(

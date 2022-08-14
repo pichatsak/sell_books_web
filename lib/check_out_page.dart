@@ -198,7 +198,8 @@ class _CheckOutPageState extends State<CheckOutPage> {
       drawer: const NavDrawer(),
       body: SingleChildScrollView(
         child: Column(children: [
-          const NavMainScreen(),
+          // ignore: prefer_const_constructors
+          NavMainScreen(),
           BootstrapContainer(fluid: false, children: <Widget>[
             Container(
               decoration: const BoxDecoration(color: Colors.white),

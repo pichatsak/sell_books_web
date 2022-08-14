@@ -24,7 +24,8 @@ class _ResetPasswordState extends State<ResetPassword> {
       drawer: const NavDrawer(),
       body: SingleChildScrollView(
           child: Column(children: [
-        const NavMainScreen(),
+        // ignore: prefer_const_constructors
+        NavMainScreen(),
         BootstrapContainer(
             fluid: false,
             decoration: const BoxDecoration(color: Colors.white),
