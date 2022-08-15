@@ -93,10 +93,16 @@ class _CheckOutPageState extends State<CheckOutPage> {
   String? selectedValueDict;
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  TextEditingController name = TextEditingController();
-  TextEditingController phone = TextEditingController();
+  TextEditingController name = TextEditingController(text: "นิติพล");
+  TextEditingController phone = TextEditingController(text: "0967958451");
   TextEditingController postCode = TextEditingController();
-  TextEditingController adr = TextEditingController();
+  TextEditingController adr = TextEditingController(text: "81 ถนน");
+  TextEditingController nameCard =
+      TextEditingController(text: "Somchai Prasert");
+  TextEditingController noCard =
+      TextEditingController(text: "4242 4242 4242 4242");
+  TextEditingController expireCard = TextEditingController(text: "10/2022");
+  TextEditingController cvcCard = TextEditingController(text: "123");
 
   @override
   void initState() {
@@ -172,19 +178,76 @@ class _CheckOutPageState extends State<CheckOutPage> {
         "${Global.hostName}/check_stock.php?user_id=${box.read("user_id")}";
     var res = await http.get(Uri.parse(url));
     var getData = json.decode(res.body);
-    showDialog(
-        context: context,
-        builder: (BuildContext context) => dialogErr(context,
-            "สินค้าคงเหลือมีการเปลี่ยนแปลง \n กรุณาอัพเดทสินค้าในตะกร้าใหม่"));
     if (getData["status"] == "ok") {
-    } else {}
+      goPayConfirm();
+    } else {
+      showDialog(
+          context: context,
+          builder: (BuildContext context) => dialogErr(context,
+              "สินค้าคงเหลือมีการเปลี่ยนแปลง \n กรุณาอัพเดทสินค้าในตะกร้าใหม่"));
+    }
+  }
+
+  void goPayConfirm() {
+    if (_typePay == 2) {
+      gopayCredit();
+    }
+  }
+
+  void gopayCredit() async {
+    int totalAllGet = totalAll;
+    String nameCardGet = nameCard.text;
+    String noCardGet = noCard.text;
+    String expireCardGet = expireCard.text;
+    String cvcCardGet = cvcCard.text;
+    var dataForm = {
+      "total": "$totalAllGet",
+      "nameCard": nameCardGet,
+      "noCard": noCardGet,
+      "expireCard": expireCardGet,
+      "cvcCard": cvcCardGet
+    };
+
+    var url = "${Global.hostName}/pay_card.php";
+    var res = await http.post(Uri.parse(url), body: dataForm);
+    var getData = json.decode(res.body);
+    if (getData["status"] == "successful") {
+      setBuySuccess(getData);
+    } else if (getData["status"] == "pending") {
+    } else if (getData["status"] == "no") {}
+  }
+
+  void setBuySuccess(getData) async {
+    var dataForm = {
+      "user_id": "${box.read("user_id")}",
+      "order_total": "$totalAll",
+      "order_total_all": "$totalFinal",
+      "order_deli_price": "$totalDeli",
+      "type_deli": "$groupValue",
+      "order_name": name.text.toString(),
+      "order_phone": phone.text.toString(),
+      "order_adr": adr.text.toString(),
+      "order_province": "$selectedValueProv",
+      "order_amphur": "$selectedValueAmp",
+      "order_tumbon": "$selectedValueDict",
+      "order_postcode": postCode.text.toString(),
+      "order_buy_form": "web",
+      "omise_net": getData["net"].toString(),
+      "omise_fee": getData["fee"].toString(),
+      "omise_fee_vat": getData["fee_vat"].toString(),
+      "omise_key_secret": "",
+      "omise_key_charge": getData["charge_id"].toString()
+    };
+
+    var url = "${Global.hostName}/set_order.php";
+    var res = await http.post(Uri.parse(url), body: dataForm);
+    print(res.body);
   }
 
   void goTestPay() {
-    checkStock();
-    // if (formKey.currentState!.validate()) {
-    //   checkStock
-    // }
+    if (formKey.currentState!.validate()) {
+      checkStock();
+    }
   }
 
   exampleCreateSource() async {}
@@ -426,6 +489,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                           child: TextFormField(
                             cursorColor: Colors.black,
                             style: const TextStyle(color: Colors.black),
+                            controller: nameCard,
                             decoration:
                                 ThemeValidCard().textInputDecoration(""),
                             validator: (val) {
@@ -459,6 +523,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                             top: 5,
                           ),
                           child: TextFormField(
+                            controller: noCard,
                             cursorColor: Colors.black,
                             inputFormatters: [
                               LengthLimitingTextInputFormatter(19),
@@ -500,6 +565,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                             top: 5,
                           ),
                           child: TextFormField(
+                            controller: expireCard,
                             cursorColor: Colors.black,
                             style: const TextStyle(color: Colors.black),
                             inputFormatters: [
@@ -555,6 +621,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                             top: 5,
                           ),
                           child: TextFormField(
+                            controller: cvcCard,
                             inputFormatters: [
                               LengthLimitingTextInputFormatter(3),
                               FilteringTextInputFormatter.allow(
