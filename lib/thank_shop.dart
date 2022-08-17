@@ -31,7 +31,6 @@ class _ThankyouShopState extends State<ThankyouShop> {
   }
 
   void checkData() async {
-    var txtCurBill = box.read("cur_pay");
     getShowBill(box.read("cur_bill"));
   }
 

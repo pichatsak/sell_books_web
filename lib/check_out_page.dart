@@ -270,7 +270,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
       "order_total": "$totalAll",
       "order_total_all": "$totalFinal",
       "order_deli_price": "$totalDeli",
-      "type_pay": "$groupValue",
+      "type_pay": typePayStr.toString(),
       "order_name": name.text.toString(),
       "order_phone": phone.text.toString(),
       "order_adr": adr.text.toString(),
@@ -312,7 +312,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
       "order_total": "$totalAll",
       "order_total_all": "$totalFinal",
       "order_deli_price": "$totalDeli",
-      "type_pay": "$groupValue",
+      "type_pay": typePayStr.toString(),
       "order_name": name.text.toString(),
       "order_phone": phone.text.toString(),
       "order_adr": adr.text.toString(),
@@ -374,7 +374,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
       "order_total": "$totalAll",
       "order_total_all": "$totalFinal",
       "order_deli_price": "$totalDeli",
-      "type_pay": "$groupValue",
+      "type_pay": typePayStr.toString(),
       "order_name": name.text.toString(),
       "order_phone": phone.text.toString(),
       "order_adr": adr.text.toString(),
@@ -400,6 +400,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
     if (getRes["status"] == "ok") {
       box.write("cur_pay", "credit");
       box.write("cur_bill", getRes["data"]);
+      // ignore: use_build_context_synchronously
       Navigator.pushNamed(context, "/thankyou");
     } else {
       showDialog(

@@ -8,7 +8,9 @@ import 'package:sell_books_web/how_to_buy.dart';
 import 'package:sell_books_web/login_page.dart';
 import 'package:sell_books_web/policy.dart';
 import 'package:sell_books_web/registor_page.dart';
+import 'package:sell_books_web/reset_passowrd.dart';
 import 'package:sell_books_web/shop_list_page.dart';
+import 'package:sell_books_web/story_shop.dart';
 import 'package:sell_books_web/thank_shop.dart';
 
 class FluroRouters {
@@ -42,14 +44,17 @@ class FluroRouters {
       handlerFunc: (context, Map<String, dynamic> params) =>
           const ThankyouShop());
   static Handler storyBuyHandler = Handler(
-      handlerFunc: (context, Map<String, dynamic> params) =>
-          const ThankyouShop());
+      handlerFunc: (context, Map<String, dynamic> params) => const StoryShop());
   static Handler howTobuyHandler = Handler(
       handlerFunc: (context, Map<String, dynamic> params) =>
           const HowToBuyPage());
   static Handler policyHandler = Handler(
       handlerFunc: (context, Map<String, dynamic> params) =>
           const PolicyPage());
+
+  static Handler changePassHandler = Handler(
+      handlerFunc: (context, Map<String, dynamic> params) =>
+          const ResetPassword());
 
   static void setupRouter() {
     router.define('/',
@@ -76,5 +81,7 @@ class FluroRouters {
         handler: howTobuyHandler, transitionType: TransitionType.native);
     router.define('/policy',
         handler: policyHandler, transitionType: TransitionType.native);
+    router.define('/change_password',
+        handler: changePassHandler, transitionType: TransitionType.native);
   }
 }

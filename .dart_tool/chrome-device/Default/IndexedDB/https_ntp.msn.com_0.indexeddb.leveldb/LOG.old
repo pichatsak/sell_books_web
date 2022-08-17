@@ -1,3 +1,7 @@
-2022/08/15-23:35:47.143 68cc Reusing MANIFEST C:\Users\nitip\AppData\Local\Temp\flutter_tools.96111dd5\flutter_tools_chrome_device.6fca48c8\Default\IndexedDB\https_ntp.msn.com_0.indexeddb.leveldb/MANIFEST-000001
-2022/08/15-23:35:47.144 68cc Recovering log #3
-2022/08/15-23:35:47.150 68cc Reusing old log C:\Users\nitip\AppData\Local\Temp\flutter_tools.96111dd5\flutter_tools_chrome_device.6fca48c8\Default\IndexedDB\https_ntp.msn.com_0.indexeddb.leveldb/000003.log 
+2022/08/17-15:49:05.065 3a88 Reusing MANIFEST C:\Users\nitip\AppData\Local\Temp\flutter_tools.3700d81b\flutter_tools_chrome_device.307765a5\Default\IndexedDB\https_ntp.msn.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/08/17-15:49:05.066 3a88 Recovering log #3
+2022/08/17-15:49:05.093 3a88 Reusing old log C:\Users\nitip\AppData\Local\Temp\flutter_tools.3700d81b\flutter_tools_chrome_device.307765a5\Default\IndexedDB\https_ntp.msn.com_0.indexeddb.leveldb/000003.log 
+2022/08/17-15:49:43.956 ca8 Level-0 table #5: started
+2022/08/17-15:49:43.986 ca8 Level-0 table #5: 1257004 bytes OK
+2022/08/17-15:49:43.988 ca8 Delete type=0 #3
+2022/08/17-15:49:43.989 ca8 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

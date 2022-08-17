@@ -146,3 +146,42 @@
 {"logTime": "0816/042817", "correlationVector":"SEmHbGPcR7YFga+4LqwHyC","action":"Poll GetUpdate request", "result":""}
 {"logTime": "0816/042817", "correlationVector":"SEmHbGPcR7YFga+4LqwHyC.1","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"48F630A6-CB1B-4CC7-86AF-0F6627234B58|106", "server":"SG2PEPF00000C91"}}
 {"logTime": "0816/042817", "correlationVector":"SEmHbGPcR7YFga+4LqwHyC.2","action":"GetUpdates Response", "result":"SYNCER_OK"}
+{"logTime": "0817/052116", "correlationVector":"EY/p7VOyg6qvH4Ehlf22GA.0","action":"FeedSettingFetch_homeCloud", "result":"0", "context":{}}
+{"logTime": "0817/052116", "correlationVector":"nAN649xqHhOaJCVujM6FxT.1","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"48F630A6-CB1B-4CC7-86AF-0F6627234B58|106", "server":"SG2PEPF00000CBF"}}
+{"logTime": "0817/052116", "correlationVector":"nAN649xqHhOaJCVujM6FxT","action":"Initial GetUpdates", "result":""}
+{"logTime": "0817/052116", "correlationVector":"nAN649xqHhOaJCVujM6FxT.2","action":"GetUpdates Response", "result":"SYNCER_OK"}
+{"logTime": "0817/052116", "correlationVector":"meVBliA2pkQKOjN518g1FI","action":"Normal GetUpdate request", "result":""}
+{"logTime": "0817/052116", "correlationVector":"meVBliA2pkQKOjN518g1FI.1","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"48F630A6-CB1B-4CC7-86AF-0F6627234B58|106", "server":"SG2PEPF00000CBF"}}
+{"logTime": "0817/052116", "correlationVector":"meVBliA2pkQKOjN518g1FI.2","action":"GetUpdates Response", "result":"SYNCER_OK"}
+{"logTime": "0817/052116", "correlationVector":"hezhlW8C/mGJuoLF+bIHTk","action":"Commit Request", "result":""}
+{"logTime": "0817/052116", "correlationVector":"hezhlW8C/mGJuoLF+bIHTk.1","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"48F630A6-CB1B-4CC7-86AF-0F6627234B58|106", "server":"SG2PEPF00000CBF"}}
+{"logTime": "0817/052116", "correlationVector":"hezhlW8C/mGJuoLF+bIHTk.2","action":"Commit Response", "result":"SYNCER_OK"}
+{"logTime": "0817/052230", "correlationVector":"o/ud4y2TbUfMheTyprlkWF","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"", "server":""}}
+{"logTime": "0817/052230", "correlationVector":"LKg5Xi9E/SRUpuA53VEgt3","action":"Poll GetUpdate request", "result":""}
+{"logTime": "0817/052230", "correlationVector":"LKg5Xi9E/SRUpuA53VEgt3.1","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"48F630A6-CB1B-4CC7-86AF-0F6627234B58|106", "server":"SG2PEPF00000CBF"}}
+{"logTime": "0817/052230", "correlationVector":"LKg5Xi9E/SRUpuA53VEgt3.2","action":"GetUpdates Response", "result":"SYNCER_OK"}
+{"logTime": "0817/052230", "correlationVector":"MxXMQTZAsvkfkvDg35jqGW","action":"Normal GetUpdate request", "result":""}
+{"logTime": "0817/052230", "correlationVector":"MxXMQTZAsvkfkvDg35jqGW.1","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"48F630A6-CB1B-4CC7-86AF-0F6627234B58|106", "server":"SG2PEPF00000CBF"}}
+{"logTime": "0817/052230", "correlationVector":"MxXMQTZAsvkfkvDg35jqGW.2","action":"GetUpdates Response", "result":"SYNCER_OK"}
+{"logTime": "0817/061834", "correlationVector":"shXJA5cdt5IJ4KB6Ystiis.0","action":"FeedSettingFetch_homeCloud", "result":"0", "context":{}}
+{"logTime": "0817/061834", "correlationVector":"tCAZP6wgHtnahMDk3wGKlc.1","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"48F630A6-CB1B-4CC7-86AF-0F6627234B58|106", "server":"SG2PEPF00000C97"}}
+{"logTime": "0817/061834", "correlationVector":"tCAZP6wgHtnahMDk3wGKlc","action":"Initial GetUpdates", "result":""}
+{"logTime": "0817/061834", "correlationVector":"tCAZP6wgHtnahMDk3wGKlc.2","action":"GetUpdates Response", "result":"SYNCER_OK"}
+{"logTime": "0817/061834", "correlationVector":"o/5t9qwDYSqtlVk3/iv+Pv","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"", "server":""}}
+{"logTime": "0817/061834", "correlationVector":"dfpB27rij8L9aunKvyNsdn","action":"Normal GetUpdate request", "result":""}
+{"logTime": "0817/061834", "correlationVector":"dfpB27rij8L9aunKvyNsdn.1","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"48F630A6-CB1B-4CC7-86AF-0F6627234B58|106", "server":"SG2PEPF00000C97"}}
+{"logTime": "0817/061834", "correlationVector":"dfpB27rij8L9aunKvyNsdn.2","action":"GetUpdates Response", "result":"SYNCER_OK"}
+{"logTime": "0817/061834", "correlationVector":"93ZRVBt4waLwZp/dunXuNp","action":"Normal GetUpdate request", "result":""}
+{"logTime": "0817/061834", "correlationVector":"93ZRVBt4waLwZp/dunXuNp.1","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"48F630A6-CB1B-4CC7-86AF-0F6627234B58|106", "server":"SG2PEPF00000C97"}}
+{"logTime": "0817/061834", "correlationVector":"93ZRVBt4waLwZp/dunXuNp.2","action":"GetUpdates Response", "result":"SYNCER_OK"}
+{"logTime": "0817/065649", "correlationVector":"iBp5u2tCzVx5QfIDWE1a+O.0","action":"FeedSettingFetch_homeCloud", "result":"0", "context":{}}
+{"logTime": "0817/065649", "correlationVector":"hCDxWWPo395BEegv0izUD9.1","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"48F630A6-CB1B-4CC7-86AF-0F6627234B58|106", "server":"SG2PEPF00000CA8"}}
+{"logTime": "0817/065649", "correlationVector":"hCDxWWPo395BEegv0izUD9","action":"Initial GetUpdates", "result":""}
+{"logTime": "0817/065649", "correlationVector":"hCDxWWPo395BEegv0izUD9.2","action":"GetUpdates Response", "result":"SYNCER_OK"}
+{"logTime": "0817/065649", "correlationVector":"ud1Ux/24syJeugAJayF0Ec","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"", "server":""}}
+{"logTime": "0817/065649", "correlationVector":"udm7MlQGyDvrR03HsqOPRW","action":"Normal GetUpdate request", "result":""}
+{"logTime": "0817/065649", "correlationVector":"udm7MlQGyDvrR03HsqOPRW.1","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"48F630A6-CB1B-4CC7-86AF-0F6627234B58|106", "server":"SG2PEPF00000CA8"}}
+{"logTime": "0817/065649", "correlationVector":"udm7MlQGyDvrR03HsqOPRW.2","action":"GetUpdates Response", "result":"SYNCER_OK"}
+{"logTime": "0817/065649", "correlationVector":"j7pxmIN7FD6G1Z8otga08J","action":"Normal GetUpdate request", "result":""}
+{"logTime": "0817/065649", "correlationVector":"j7pxmIN7FD6G1Z8otga08J.1","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"48F630A6-CB1B-4CC7-86AF-0F6627234B58|106", "server":"SG2PEPF00000CA8"}}
+{"logTime": "0817/065649", "correlationVector":"j7pxmIN7FD6G1Z8otga08J.2","action":"GetUpdates Response", "result":"SYNCER_OK"}
