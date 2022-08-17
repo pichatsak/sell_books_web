@@ -54,7 +54,7 @@ dependencies:
   pattern_formatter: ^2.0.0
   loading_animation_widget: ^1.2.0+2
   loader_overlay: ^2.0.10
-  
+  url_launcher: ^6.1.5
 
   
 

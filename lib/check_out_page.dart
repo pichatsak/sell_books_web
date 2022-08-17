@@ -1,5 +1,7 @@
+import 'dart:async';
 import 'dart:convert';
-
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html' as html;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +11,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
+import 'package:loader_overlay/loader_overlay.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:pattern_formatter/numeric_formatter.dart';
 import 'package:validators/validators.dart';
 
@@ -73,6 +77,7 @@ InputDecoration styleInputSelect = InputDecoration(
 class _CheckOutPageState extends State<CheckOutPage> {
   var formatter = NumberFormat('#,###,##0.00');
   int? _typePay = 2;
+  String typePayStr = "credit";
   int? _typePayMb = 1;
   final box = GetStorage();
   int totalAll = 0;
@@ -81,7 +86,8 @@ class _CheckOutPageState extends State<CheckOutPage> {
   int groupValue = 1;
   int totalDeli = 0;
   int totalFinal = 0;
-
+  bool isPay = false;
+  late Timer inTimer;
   List<ProvinceModel> itemsProv = [];
 
   List<AmphureModel> itemsAmp = [];
@@ -179,6 +185,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
     var res = await http.get(Uri.parse(url));
     var getData = json.decode(res.body);
     if (getData["status"] == "ok") {
+      context.loaderOverlay.show();
       goPayConfirm();
     } else {
       showDialog(
@@ -191,6 +198,144 @@ class _CheckOutPageState extends State<CheckOutPage> {
   void goPayConfirm() {
     if (_typePay == 2) {
       gopayCredit();
+    } else if (_typePay == 3) {
+      goPayMbank();
+    } else if (_typePay == 1) {
+      goPayPrompay();
+    }
+  }
+
+  void goPayPrompay() async {
+    int totalAllGet = totalAll;
+    var dataForm = {"total": "$totalAllGet"};
+    var url = "${Global.hostName}/pay_promptpay.php";
+    var res = await http.post(Uri.parse(url), body: dataForm);
+    var getData = json.decode(res.body);
+    box.write("keypay", getData["uid"]);
+    setTempPayPrompay(getData);
+  }
+
+  void setTempPayPrompay(getData) async {
+    var dataForm = {
+      "user_id": "${box.read("user_id")}",
+      "charge_id": "${getData['charge_id']}",
+      "key_temp": "${getData['uid']}",
+      "typepay": "4",
+    };
+    var url = "${Global.hostName}/set_temp_pay.php";
+    await http.post(Uri.parse(url), body: dataForm);
+
+    context.loaderOverlay.hide();
+    showDialog(
+        context: context,
+        builder: (BuildContext context) =>
+            dialogQrcode(context, getData["url_qrcode"]));
+    inTimer = Timer.periodic(const Duration(seconds: 5), (timer) {
+      if (!isPay) {
+        checkPayed(getData);
+      } else {
+        inTimer.cancel();
+        Navigator.pushNamed(context, "/thankyou");
+      }
+    });
+  }
+
+  void goPayMbank() async {
+    int totalAllGet = totalAll;
+    var dataForm = {"total": "$totalAllGet", "type_bank": "$_typePayMb"};
+    var url = "${Global.hostName}/pay_mb_kbank.php";
+    var res = await http.post(Uri.parse(url), body: dataForm);
+    var getData = json.decode(res.body);
+    box.write("keypay", getData["uid"]);
+    setTempPayMbank(getData);
+  }
+
+  void setTempPayMbank(getData) async {
+    var dataForm = {
+      "user_id": "${box.read("user_id")}",
+      "charge_id": "${getData['charge_id']}",
+      "key_temp": "${getData['uid']}",
+      "typepay": "${getData['typepay']}",
+    };
+    var url = "${Global.hostName}/set_temp_pay.php";
+    await http.post(Uri.parse(url), body: dataForm);
+
+    box.write("cur_pay", "mbank");
+    box.write("cur_charge", getData['charge_id']);
+
+    var dataFormTemp = {
+      "user_id": "${box.read("user_id")}",
+      "key_temp": "${getData['uid']}",
+      "charge_id": "${getData['charge_id']}",
+      "order_total": "$totalAll",
+      "order_total_all": "$totalFinal",
+      "order_deli_price": "$totalDeli",
+      "type_pay": "$groupValue",
+      "order_name": name.text.toString(),
+      "order_phone": phone.text.toString(),
+      "order_adr": adr.text.toString(),
+      "order_province": "$selectedValueProv",
+      "order_amphur": "$selectedValueAmp",
+      "order_tumbon": "$selectedValueDict",
+      "order_postcode": postCode.text.toString(),
+      "order_buy_form": "web",
+      "order_type_deli": "$_typePay",
+      "omise_net": getData["net"].toString(),
+      "omise_fee": getData["fee"].toString(),
+      "omise_fee_vat": getData["fee_vat"].toString(),
+      "omise_key_secret": "",
+      "omise_key_charge": getData["charge_id"].toString()
+    };
+    var urlTemp = "${Global.hostName}/add_temp_order.php";
+    await http.post(Uri.parse(urlTemp), body: dataFormTemp);
+
+    _launchURL(getData["url_pay"]);
+    inTimer = Timer.periodic(const Duration(seconds: 5), (timer) {
+      if (!isPay) {
+        checkPayed(getData);
+      } else {
+        inTimer.cancel();
+        Navigator.pushNamed(context, "/thankyou");
+      }
+    });
+  }
+
+  _launchURL(String urlGet) async {
+    html.window.open(urlGet, "_blank");
+  }
+
+  void checkPayed(getData) async {
+    var dataForm = {
+      "user_id": "${box.read("user_id")}",
+      "key_temp": "${getData['uid']}",
+      "charge_id": "${getData['charge_id']}",
+      "order_total": "$totalAll",
+      "order_total_all": "$totalFinal",
+      "order_deli_price": "$totalDeli",
+      "type_pay": "$groupValue",
+      "order_name": name.text.toString(),
+      "order_phone": phone.text.toString(),
+      "order_adr": adr.text.toString(),
+      "order_province": "$selectedValueProv",
+      "order_amphur": "$selectedValueAmp",
+      "order_tumbon": "$selectedValueDict",
+      "order_postcode": postCode.text.toString(),
+      "order_buy_form": "web",
+      "order_type_deli": "$_typePay",
+      "omise_net": getData["net"].toString(),
+      "omise_fee": getData["fee"].toString(),
+      "omise_fee_vat": getData["fee_vat"].toString(),
+      "omise_key_secret": "",
+      "omise_key_charge": getData["charge_id"].toString()
+    };
+    var url = "${Global.hostName}/check_set_pay.php";
+    var res = await http.post(Uri.parse(url), body: dataForm);
+    var getRes = json.decode(res.body);
+    if (getRes["status"] == "ok") {
+      box.write("cur_bill", getRes["data"]);
+      setState(() {
+        isPay = true;
+      });
     }
   }
 
@@ -214,7 +359,13 @@ class _CheckOutPageState extends State<CheckOutPage> {
     if (getData["status"] == "successful") {
       setBuySuccess(getData);
     } else if (getData["status"] == "pending") {
-    } else if (getData["status"] == "no") {}
+    } else if (getData["status"] == "no") {
+      context.loaderOverlay.hide();
+      showDialog(
+          context: context,
+          builder: (BuildContext context) =>
+              dialogErr(context, "กรุณาตรวจสอบข้อมูลบัตรอีกครั้ง"));
+    }
   }
 
   void setBuySuccess(getData) async {
@@ -223,7 +374,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
       "order_total": "$totalAll",
       "order_total_all": "$totalFinal",
       "order_deli_price": "$totalDeli",
-      "type_deli": "$groupValue",
+      "type_pay": "$groupValue",
       "order_name": name.text.toString(),
       "order_phone": phone.text.toString(),
       "order_adr": adr.text.toString(),
@@ -232,6 +383,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
       "order_tumbon": "$selectedValueDict",
       "order_postcode": postCode.text.toString(),
       "order_buy_form": "web",
+      "order_type_deli": "$_typePay",
       "omise_net": getData["net"].toString(),
       "omise_fee": getData["fee"].toString(),
       "omise_fee_vat": getData["fee_vat"].toString(),
@@ -241,7 +393,20 @@ class _CheckOutPageState extends State<CheckOutPage> {
 
     var url = "${Global.hostName}/set_order.php";
     var res = await http.post(Uri.parse(url), body: dataForm);
-    print(res.body);
+    var getRes = json.decode(res.body);
+
+    context.loaderOverlay.hide();
+
+    if (getRes["status"] == "ok") {
+      box.write("cur_pay", "credit");
+      box.write("cur_bill", getRes["data"]);
+      Navigator.pushNamed(context, "/thankyou");
+    } else {
+      showDialog(
+          context: context,
+          builder: (BuildContext context) =>
+              dialogErrAll(context, "เกิดข้อผิดผลาดกรุณาลองใหม่อีกครั้ง"));
+    }
   }
 
   void goTestPay() {
@@ -255,56 +420,66 @@ class _CheckOutPageState extends State<CheckOutPage> {
   @override
   Widget build(BuildContext context) {
     bootstrapGridParameters(gutterSize: 0);
-
-    return Scaffold(
-      backgroundColor: const Color.fromRGBO(238, 238, 238, 1),
-      drawer: const NavDrawer(),
-      body: SingleChildScrollView(
-        child: Column(children: [
-          // ignore: prefer_const_constructors
-          NavMainScreen(),
-          BootstrapContainer(fluid: false, children: <Widget>[
-            Container(
-              decoration: const BoxDecoration(color: Colors.white),
-              child: Column(
-                children: [
-                  headerView(),
-                  BootstrapRow(
-                    children: <BootstrapCol>[
-                      BootstrapCol(
-                        sizes: 'col-12 col-sm-12 col-md-12 col-lg-8',
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                              left: 20, top: 0, right: 20, bottom: 40),
-                          child: Form(
-                            key: formKey,
-                            child: Column(
-                              children: [
-                                contAdr(),
-                                contDeliChoose(),
-                                contPayChoose(),
-                                _typePay == 2
-                                    ? conFillCredit()
-                                    : _typePay == 3
-                                        ? conChooseMb()
-                                        : const Center()
-                              ],
+    return LoaderOverlay(
+      useDefaultLoading: false,
+      overlayWidget: Center(
+        child: LoadingAnimationWidget.inkDrop(
+          color: Colors.white,
+          size: 50,
+        ),
+      ),
+      overlayColor: Colors.black,
+      overlayOpacity: 0.5,
+      child: Scaffold(
+        backgroundColor: const Color.fromRGBO(238, 238, 238, 1),
+        drawer: const NavDrawer(),
+        body: SingleChildScrollView(
+          child: Column(children: [
+            // ignore: prefer_const_constructors
+            NavMainScreen(),
+            BootstrapContainer(fluid: false, children: <Widget>[
+              Container(
+                decoration: const BoxDecoration(color: Colors.white),
+                child: Column(
+                  children: [
+                    headerView(),
+                    BootstrapRow(
+                      children: <BootstrapCol>[
+                        BootstrapCol(
+                          sizes: 'col-12 col-sm-12 col-md-12 col-lg-8',
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                left: 20, top: 0, right: 20, bottom: 40),
+                            child: Form(
+                              key: formKey,
+                              child: Column(
+                                children: [
+                                  contAdr(),
+                                  contDeliChoose(),
+                                  contPayChoose(),
+                                  _typePay == 2
+                                      ? conFillCredit()
+                                      : _typePay == 3
+                                          ? conChooseMb()
+                                          : const Center()
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      BootstrapCol(
-                        //  invisibleForSizes: "sm xs md ",
-                        sizes: 'col-12   col-sm-12 col-md-12 col-lg-4',
-                        child: contFinal(),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            )
-          ])
-        ]),
+                        BootstrapCol(
+                          //  invisibleForSizes: "sm xs md ",
+                          sizes: 'col-12   col-sm-12 col-md-12 col-lg-4',
+                          child: contFinal(),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              )
+            ])
+          ]),
+        ),
       ),
     );
   }
@@ -1593,6 +1768,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                               onChanged: (value) {
                                 setState(() {
                                   _typePay = value;
+                                  typePayStr = "credit";
                                 });
                               },
                             ),
@@ -1631,6 +1807,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                             onChanged: (int? value) {
                               setState(() {
                                 _typePay = value;
+                                typePayStr = "promptpay";
                               });
                             },
                           ),
@@ -1668,6 +1845,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                               onChanged: (value) {
                                 setState(() {
                                   _typePay = value;
+                                  typePayStr = "mbank";
                                 });
                               },
                             ),

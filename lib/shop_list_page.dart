@@ -63,12 +63,12 @@ class _Shop_List_PageState extends State<Shop_List_Page> {
   }
 
   void goUpdateCart() async {
-    // var jsonGet = jsonEncode(cartAllData.map((e) => e.toJson()).toList());
-    // var dataForm = {"data": jsonGet, "user_id": "${box.read("user_id")}"};
-    // var url = "${Global.hostName}/cart_update.php";
-    // var res = await http.post(Uri.parse(url), body: dataForm);
-    // isEdit = false;
-    // getCartAll();
+    var jsonGet = jsonEncode(cartAllData.map((e) => e.toJson()).toList());
+    var dataForm = {"data": jsonGet, "user_id": "${box.read("user_id")}"};
+    var url = "${Global.hostName}/cart_update.php";
+    await http.post(Uri.parse(url), body: dataForm);
+    isEdit = false;
+    getCartAll();
   }
 
   void setDeleteCart(int cartId) async {
